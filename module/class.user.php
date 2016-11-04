@@ -47,8 +47,20 @@ class user extends Module
 
     public function api_login ()
     {
+        $this -> answer ["logged"] = "";
+        $this -> answer ["error"] = "";
+        $this -> answer ["user"] ["email"] = "";
+        if ($this -> data -> load ("user") ["id"])
+            $this -> answer ["logged"] = true;
+    }
+
+    public function api_login_post ()
+    {
+        $this -> answer ["logged"] = "";
+        $this -> answer ["error"] = "";
         if (!$this -> data -> is_param ("email")) return;
         if (!$this -> data -> is_param ("password")) return;
+        $this -> answer ["user"] ["email"] = $this -> data -> get ("email");
         $query =
             "SELECT id, name, email, status 
                FROM users 
@@ -56,11 +68,13 @@ class user extends Module
                 AND password = '" . $this->data->get("password") . "'";
         $user = $this -> db -> select ($query);
         if (!isset ($user [0] ["id"])) {
-            $this -> data -> error ("Email or password incorrect");
+            $message = "Email or password incorrect";
+            $this -> data -> error ($message);
+            $this -> answer ["error"] = $message;
             return;
         }
         $this -> data -> save ("user", $user [0]);
-        $this -> answer = $user [0];
+        $this -> answer ["logged"] = true;
     }
 
     public function api_logout ()
