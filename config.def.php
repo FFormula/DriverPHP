@@ -3,6 +3,7 @@
     define ("DATA_DEFAULT_MODULE", "help");
     define ("DATA_DEFAULT_ACTION", "index");
     define ("API_PREFIX", "api_");
+    define ("POST_SUFFIX", "_post");
     define ("DB_ENGINE", "mysql");
     define ("DB_HOST", "localhost");
     define ("DB_USER", "root");

@@ -49,6 +49,11 @@ class Data
         $this -> action = array_shift ($this -> data_parts);
     }
 
+    public function is_post ()
+    {
+        return count ($_POST) > 0;
+    }
+
     private function parse_post()
     {
         if (!is_array($_POST))

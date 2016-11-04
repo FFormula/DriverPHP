@@ -11,7 +11,7 @@
         $data -> init ($db);
         $module  = $data -> module;
         $action = $data -> action;
-        $api_action = API_PREFIX . $action;
+        $api_action = API_PREFIX . $action . ($data -> is_post() ? POST_SUFFIX : "");
         if (!is_file (ROOT . "module/class." . $module . ".php"))
             throw new Exception ("Module [$module] not found");
         include ROOT . "module/class." . $module . ".php";
