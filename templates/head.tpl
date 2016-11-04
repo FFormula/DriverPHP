@@ -19,7 +19,7 @@
                             </button>
                         </div>
                         <div class="collapse navbar-collapse" id="MyTopMenu">
-                            <ul class="nav navbar-nav">
+                            <ul class="nav navbar-nav"> 
                                 <li><a href="#" title="Home">Home</a></li>
                                 <li>
 
