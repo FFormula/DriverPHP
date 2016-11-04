@@ -1,17 +1,40 @@
 <?php
 class user extends Module
 {
-    function is_all_params ()
+    function is_all_params()
     {
-        if (!$this -> data -> is_param ("name")) return false;
-        if (!$this -> data -> is_param ("email")) return false;
-        if (!$this -> data -> is_param ("password")) return false;
+        if (!$this->data->is_param("name")) return false;
+        if (!$this->data->is_param("email")) return false;
+        if (!$this->data->is_param("password")) return false;
         return true;
     }
 
-    public function api_insert ()
+    public function api_insert()
     {
+        $this->answer ["saved"] = "";
+        $this->answer ["error"] = "";
+        $this->answer ["user"] = array (
+            "name" => "",
+            "email" => "");
+    }
+
+    public function api_insert_post ()
+    {
+        $this->answer ["saved"] = "";
+        $this->answer ["error"] = "";
         if (!$this->is_all_params()) return;
+        $this->answer ["user"] ["name"]  = $this -> data -> get ("name");
+        $this->answer ["user"] ["email"] = $this -> data -> get ("email");
+
+        $exists = $this -> db -> scalar (
+            "SELECT COUNT(*) 
+               FROM users 
+              WHERE email = '" . $this->data->get("email") . "'");
+        if ($exists)
+        {
+            $this -> answer ["error"] = "This email already registered";
+            return;
+        }
         $query =
             "INSERT INTO users
                 SET name = '" . $this->data->get("name") . "', 
@@ -19,7 +42,7 @@ class user extends Module
                     password = '" . $this->data->get("password") . "',
                     status = 1";
         $this->db->query($query);
-        $this->answer = "User added";
+        $this -> answer ["saved"] = true;
     }
 
     public function api_login ()

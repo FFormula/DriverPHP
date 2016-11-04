@@ -8,11 +8,11 @@
         <div class="panel-body">
 
 {if $php.saved}
-
             You are registered, please log in.
-
 {else}
-
+            {if $php.error}
+                <div>{$php.error}</div>
+            {/if}
             <form method="post">
                 Name:
                 <input type="text" name="name" value="{$php.user.name}" />
@@ -30,8 +30,6 @@
         </div>
     </div>
 </div>
-
-{/if}
 
 {include file="tail.tpl"}
 

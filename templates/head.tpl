@@ -5,7 +5,6 @@
         <link href="/css/driverstyle.css" rel="stylesheet">
     </head>
     <body>
-
         <div class="container">
             <div class="row">
                 <div class="navbar navbar-default navbar-fixed-top drtopmenu">
@@ -20,40 +19,35 @@
                         </div>
                         <div class="collapse navbar-collapse" id="MyTopMenu">
                             <ul class="nav navbar-nav"> 
-                                <li><a href="#" title="Home">Home</a></li>
+                                <li><a href="/" title="Home">Home</a></li>
                                 <li>
 
                                 </li>
-                                <li><a href="#" title="Register">Register</a></li>
-
-
+                                <li><a href="/user/insert" title="Register">Register</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="glyphicon glyphicon-log-in"></i> Login <b class="caret"></b></a>
+                                    <i class="glyphicon glyphicon-log-in"></i> Login <b class="caret"></b></a>
                                     <ul class="dropdown-menu" id="login">
                                         <form class="form-inline" role="form">
-                                        <li>
-
-
+                                            <li>
                                                 <div class="form-group">
-                                            <input type="text" name="login" class="form-control" placeholder="email">
+                                                    <input type="text" name="login" class="form-control" placeholder="email">
                                                 </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-group">
-                                            <input type="password" name="pass" class="form-control" placeholder="password">
-                                            </div>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li>
-                                            <button class="btn btn-info">
-                                                <i class="glyphicon glyphicon-log-in"></i> Login
-                                            </button>
-                                        </li>
+                                            </li>
+                                            <li>
+                                                <div class="form-group">
+                                                    <input type="password" name="pass" class="form-control" placeholder="password">
+                                                </div>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <button class="btn btn-info">
+                                                    <i class="glyphicon glyphicon-log-in"></i> Login
+                                                </button>
+                                            </li>
                                         </form>
                                     </ul>
-
                                 </li>
                             </ul>
                         </div>
