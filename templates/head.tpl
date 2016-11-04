@@ -12,7 +12,7 @@
                     <div class="container">
                         <div class="navbar navbar-header">
                             <button class="navbar-toggle" data-toggle="collapse" data-target="#MyTopMenu" >
-                                <span class="sr-only">Открыть меню</span>
+                                <span class="sr-only">Open menu</span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
@@ -20,19 +20,11 @@
                         </div>
                         <div class="collapse navbar-collapse" id="MyTopMenu">
                             <ul class="nav navbar-nav">
-                                <li><a href="#" title="Главная страница">Home</a></li>
+                                <li><a href="#" title="Home">Home</a></li>
                                 <li>
-                                        <form class="form-inline" role="form">
 
-                                            <div class="form-group">
-                                                <label class="sr-only" for="exampleInputPassword2"></label>
-                                                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="search">
-                                            </div>
-
-                                            <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i> </button>
-                                        </form>
                                 </li>
-                                <li><a href="#" title="реистрация">Register</a></li>
+                                <li><a href="#" title="Register">Register</a></li>
 
 
                             </ul>
