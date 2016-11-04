@@ -56,10 +56,7 @@ $RECYCLE.BIN/
 .DS_Store
 
 # Logs
-*.log
+logs/
 
 # Smarty
 templates_c/
-
-# _backup
-_backup/
