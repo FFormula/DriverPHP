@@ -20,7 +20,7 @@
                         </div>
                         <div class="collapse navbar-collapse" id="MyTopMenu">
                             <ul class="nav navbar-nav">
-                                <li><a href="#" id="logo" title="Главная страница">Home</a></li>
+                                <li><a href="#" title="Главная страница">Home</a></li>
                                 <li>
                                         <form class="form-inline" role="form">
 
