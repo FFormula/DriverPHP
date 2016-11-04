@@ -8,5 +8,6 @@
     define ("DB_USER", "root");
     define ("DB_PASS", "qwas");
     define ("DB_BASE", "drivers");
+    define ("DB_PORT", "3306");
 
     define ("SMARTY_TEMPLATES_DIR", "templates");

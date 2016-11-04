@@ -16,7 +16,7 @@ class DB
         if (isset($this -> mi))
             return;
 //      echo "  host: " . DB_HOST . ", user: " . DB_USER . ", base: " . DB_BASE . ", " . DB_PASS;
-        $this -> mi = new MySQLi(DB_HOST, DB_USER, DB_PASS, DB_BASE);
+        $this -> mi = new MySQLi(DB_HOST, DB_USER, DB_PASS, DB_BASE, DB_PORT);
         if ($this -> mi -> connect_errno)
             throw new Exception (
                 "Error connecting to database: " .
