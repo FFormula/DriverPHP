@@ -1,3 +1,5 @@
+
+<div class="container">
 {include file="head.tpl"}
 
 <h2 class="btn btn-success">Help</h2>
@@ -7,3 +9,4 @@
 </pre>
 
 {include file="tail.tpl"}
+</div>

@@ -1,3 +1,4 @@
+<div class="container">
 {include file="head.tpl"}
 
 <h2 class="btn btn-success">Help</h2>
@@ -6,4 +7,6 @@
     Server time: {$php.now}
 </pre>
 
-{include file="tail.tpl"}
+  {include file="tail.tpl"}
+
+</div>
