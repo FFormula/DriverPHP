@@ -118,9 +118,8 @@ class Data
         $this -> result ["module"] = $this -> module;
         $this -> result ["action"] = $this -> action;
         if ($this -> error)
-            $this -> result ["error"]  = $this -> error;
-        else
-            $this -> result ["answer"] = $answer;
+            $this -> result ["error"] = $this -> error;
+        $this -> result ["answer"] = $answer;
     }
 
     /** Print all data by default/specified format */
