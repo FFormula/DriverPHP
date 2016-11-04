@@ -20,14 +20,17 @@
                         </div>
                         <div class="collapse navbar-collapse" id="MyTopMenu">
                             <ul class="nav navbar-nav">
-                                <li><a href="#" id="logo" title="Главная страница">Главная</a></li>
-                                <li>  <a href="#">Найти</a></li>
-                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Водитель<b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Добавление</a></li>
-                                        <li><a href="#">Редактирование</a></li>
-                                        <li><a href="#">Удаление</a></li>
-                                    </ul>
+                                <li><a href="#" id="logo" title="Главная страница">Home</a></li>
+                                <li>
+                                        <form class="form-inline" role="form">
+
+                                            <div class="form-group">
+                                                <label class="sr-only" for="exampleInputPassword2"></label>
+                                                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="search">
+                                            </div>
+
+                                            <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i> </button>
+                                        </form>
                                 </li>
                                 <li><a href="#" title="реистрация">Register</a></li>
 
@@ -37,11 +40,18 @@
                                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                         <i class="glyphicon glyphicon-log-in"></i> Login <b class="caret"></b></a>
                                     <ul class="dropdown-menu" id="login">
+                                        <form class="form-inline" role="form">
                                         <li>
+
+
+                                                <div class="form-group">
                                             <input type="text" name="login" class="form-control" placeholder="email">
+                                                </div>
                                         </li>
                                         <li>
+                                            <div class="form-group">
                                             <input type="password" name="pass" class="form-control" placeholder="password">
+                                            </div>
                                         </li>
                                         <li class="divider"></li>
                                         <li>
@@ -49,6 +59,7 @@
                                                 <i class="glyphicon glyphicon-log-in"></i> Login
                                             </button>
                                         </li>
+                                        </form>
                                     </ul>
 
                                 </li>
@@ -59,6 +70,6 @@
             </div>
         </div>
 
-    <div class="container" style="height: 50px;">
+    <div class="container" style="height: 100px;">
 
     </div>
