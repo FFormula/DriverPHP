@@ -1,0 +1,138 @@
+<?php
+
+session_start();
+
+class Data
+{
+    private $db;
+    public $action;
+    public $module;
+    protected $error;
+    protected $result;
+//  private $post; common array for both GET and POST data
+    private $get;
+    private $data_parts;
+
+    function __construct ()
+    {
+        $this -> get = array ();
+    }
+
+    public function get ($param)
+    {
+        if (isset ($this -> get [$param]))
+            return $this -> get [$param];
+        return "";
+    }
+
+    /** Parse route, post and get arguments */
+    public function init ($db)
+    {
+        $this -> db = $db;
+        $this -> error = "";
+        $this -> parse_route();
+        $this -> parse_post();
+        $this -> parse_get();
+    }
+
+    private function parse_route ()
+    {
+        if (!isset ($_GET ["data"]))
+        {
+            $this -> module = DATA_DEFAULT_MODULE;
+            $this -> action = DATA_DEFAULT_ACTION;
+            return;
+        }
+        $route = trim ($_GET ["data"], '\\/');
+        $this -> data_parts = explode ('/', $route);
+        $this -> module = array_shift ($this -> data_parts);
+        $this -> action = array_shift ($this -> data_parts);
+    }
+
+    private function parse_post()
+    {
+        if (!is_array($_POST))
+            return;
+        foreach ($_POST as $key => $value)
+            $this -> get [$key] = addslashes($value);
+    }
+
+    private function parse_get()
+    {
+        if (!is_array ($this -> data_parts))
+            return;
+        foreach ($this -> data_parts as $part)
+        {
+            list ($param, $value) = explode ('=', $part);
+            $this -> get [$param] = addslashes ($value);
+        }
+    }
+
+    public function is_param ($param, $error = "")
+    {
+        if (isset ($this -> get [$param]))
+            return true;
+        if ($error == "")
+            $error = "Param [$param] not set";
+        $this -> error ($error);
+        return false;
+    }
+
+    public function is_login ($status = 0)
+    {
+        if ($status == -1) return true;
+        $user = $this -> load ("user");
+        if (!isset ($user ["id"]))
+        {
+            $this->error("Not authorized");
+            return false;
+        }
+        if ($user ["status"] >= $status)
+            return true;
+        $this -> error (
+                    "Access denied. " .
+                    "Need level " . $status .
+                    ", your level is " . $user ["status"]);
+        return false;
+    }
+
+    public function save ($param, $value)
+    {
+        $_SESSION [$param] = $value;
+    }
+
+    public function load ($param)
+    {
+        if (isset ($_SESSION [$param]))
+            return $_SESSION [$param];
+        return "";
+    }
+
+    public function error ($text)
+    {
+        $this -> error = $text;
+    }
+
+    public function done ($answer = "")
+    {
+        $this -> result ["module"] = $this -> module;
+        $this -> result ["action"] = $this -> action;
+        if ($this -> error)
+            $this -> result ["error"]  = $this -> error;
+        else
+            $this -> result ["answer"] = $answer;
+    }
+
+    /** Print all data by default/specified format */
+    public function output ($smart = null)
+    {
+        if ($smart == null)
+        {
+            echo "<pre>";
+            print_r ($this -> result);
+            return;
+        }
+
+        $smart -> assign ("php", $this -> result ["answer"]);
+    }
+}
