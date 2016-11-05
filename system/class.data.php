@@ -136,7 +136,10 @@ class Data
             print_r ($this -> result);
             return;
         }
-
         $smart -> assign ("php", $this -> result ["answer"]);
+        $smart -> assign ("user",
+            array ( "id" => @$_SESSION ["user"] ["id"],
+                    "email" => @$_SESSION ["user"] ["email"],
+                    "name" => @$_SESSION ["user"] ["name"]));
     }
 }

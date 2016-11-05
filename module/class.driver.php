@@ -132,7 +132,7 @@ class driver extends Module
         $this -> answer = $this -> db -> select ($query);
     }
 
-    public function api_search ()
+    public function api_find ()
     {
         if (!$this -> data -> is_login (-1)) return;
         if (!$this -> data -> is_param ("by", "Search criteria not specified")) return;
