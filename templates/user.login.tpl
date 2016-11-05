@@ -9,7 +9,7 @@
 {if $php.logged}
             You are logged in.
             <script>
-                setTimeout(function(){ document.location = '/'; }, 1500);
+                setTimeout(function(){ document.location = '/driver/find'; }, 1500);
             </script>
 {else}
             {if $php.error}
