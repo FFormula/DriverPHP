@@ -104,7 +104,7 @@ class driver extends Module
         $this -> answer = "Driver status changed";
     }
 
-    public function api_select_all ()
+    public function api_list ()
     {
         if (!$this -> data -> is_login (2)) return;
         $query =
@@ -117,7 +117,7 @@ class driver extends Module
         $this -> answer = $this -> db -> select ($query);
     }
 
-    public function api_select_one ()
+    public function api_info ()
     {
         if (!$this -> data -> is_login (2)) return;
         if (!$this -> data -> is_param ("driver_id")) return;

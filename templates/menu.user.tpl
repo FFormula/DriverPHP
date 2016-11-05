@@ -9,7 +9,7 @@
                         <li><a href="/driver/insert" title="NewDriver">ADD NEW</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/user/logout" title="Register">LOGOUT</a></li>
+                        <li><a href="/user/logout" title="Register"><b>{$user.name}</b> / LOGOUT</a></li>
                     </ul>
                 </div>
             </div>

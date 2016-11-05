@@ -3,13 +3,11 @@
 <div class="container">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">Find by Name / Passport</h3>
+            <h3 class="panel-title">Information about Driver</h3>
         </div>
         <div class="panel-body">
 
-            Name or Passport:
-            <input type="text" value="" />
-            <input type="submit" class="btn btn-info" value="Search" />
+            Info
 
         </div>
     </div>
