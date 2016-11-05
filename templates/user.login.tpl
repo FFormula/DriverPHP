@@ -17,10 +17,10 @@
             {/if}
             <form method="post">
                 E-mail:
-                <input type="text" name="email" value="{$php.user.email}" />
+                <input type="text" class="form-control" name="email" value="{$php.user.email}" />
                 <br>
                 Password:
-                <input type="password" name="password" value="" />
+                <input type="password" class="form-control" name="password" value="" />
                 <br>
                 <input type="submit" value="Add user" class="btn btn-primary" />
             </form>

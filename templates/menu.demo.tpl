@@ -16,7 +16,7 @@
                         <li><a href="/user/insert" title="Join">JOIN</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/user/login" title="Register">LOGIN</a></li>
+                        <li><a href="/user/login" title="Log IN">LOGIN</a></li>
                     </ul>
                 </div>
             </div>

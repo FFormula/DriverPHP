@@ -13,17 +13,18 @@
             {if $php.error}
                 <div>{$php.error}</div>
             {/if}
-            <form method="post">
+            <form method="post" class="col-lg-4">
                 Name:
-                <input type="text" name="name" value="{$php.user.name}" />
+                <input type="text" name="name" class="form-control" value="{$php.user.name}" />
                 <br>
                 E-mail:
-                <input type="text" name="email" value="{$php.user.email}" />
+                <input type="text" name="email" class="form-control" value="{$php.user.email}" />
                 <br>
                 Password:
                 <input type="text" name="password" value="" />
                 <br>
                 <input type="submit" value="Add user" class="btn btn-primary" />
+
             </form>
 
 {/if}

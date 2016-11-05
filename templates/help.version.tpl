@@ -2,7 +2,7 @@
 
 
 <div class="container">
-  <div class="panel panel-info">
+  <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">Help</h3>
     </div>
