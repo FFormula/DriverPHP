@@ -12,11 +12,11 @@
                 </div>
                 <div class="collapse navbar-collapse" id="MyTopMenu">
                     <ul class="nav navbar-nav">
-                        <li><a href="/driver/find" title="Find">FIND</a></li>
-                        <li><a href="/user/insert" title="Join">JOIN</a></li>
+                        <li><a href="/driver/find" title="{$lang["FIND"]}">{$lang["FIND"]}</a></li>
+                        <li><a href="/user/insert" title="{$lang["JOIN"]}">{$lang["JOIN"]}</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/user/login" title="Log IN">LOGIN</a></li>
+                        <li><a href="/user/login" title="{$lang["LOGIN"]}">{$lang["LOGIN"]}</a></li>
                     </ul>
                 </div>
             </div>

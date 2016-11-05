@@ -1,15 +1,15 @@
 {include file="head.tpl"}
 
 <div class="container">
-    <div class="panel panel-primary">
+    <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title">Find by Name / Passport</h3>
+            <h3 class="panel-title">{$lang["Find by Name / Passport"]}</h3>
         </div>
         <div class="panel-body">
 
-            Name or Passport:
+            {$lang["Name or Passport:"]}
             <input type="text" value="" />
-            <input type="submit" class="btn btn-info" value="Search" />
+            <input type="submit" class="btn btn-primary" value="{$lang["Find"]}" />
 
         </div>
     </div>

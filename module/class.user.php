@@ -9,9 +9,10 @@ class user extends Module
 
     function is_all_params()
     {
-        if (!$this->data->is_param("name")) return false;
-        if (!$this->data->is_param("email")) return false;
-        if (!$this->data->is_param("password")) return false;
+        foreach ($this -> user as $name => $value) {
+            if (!$this->data->is_param($name)) return false;
+            $this->user [$name] = $this->data->get($name);
+        }
         return true;
     }
 
@@ -29,13 +30,14 @@ class user extends Module
         if (!$this->is_all_params()) return;
         $this->answer ["user"] = $this -> user;
 
+
         $exists = $this -> db -> scalar (
             "SELECT COUNT(*) 
                FROM users 
               WHERE email = '" . $this->data->get("email") . "'");
         if ($exists)
         {
-            $this -> answer ["error"] = "This email already registered";
+            $this -> answer ["error"] = _("This email already registered");
             return;
         }
         $query =

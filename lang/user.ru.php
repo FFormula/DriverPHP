@@ -1,2 +1,11 @@
 <?php
-    $lang ["This email already registered"] = "Этот е-майл уже зарегистрирован";
+    $lang["This email already registered"] = "Этот е-майл уже зарегистрирован";
+    $lang["Register new User"] = "Регистрация нового пользователя";
+    $lang["You are registered, please log in"] = "Вы зарегистрированы, можно входить";
+    $lang["Add user"] = "Зарегистрироваться";
+    $lang["Name:"] = "Имя:";
+    $lang["E-mail:"] = "Эл. почта:";
+    $lang["Password:"] = "Пароль:";
+    $lang["Login existing user"] = "Вход для зарегистрированных пользователей";
+    $lang["You are logged in"] = "Вход выполнен успешно";
+    $lang["Login"] = "Войти";

@@ -12,12 +12,12 @@
             <div class="container">
                 <div class="collapse navbar-collapse" id="MyTopMenu">
                     <ul class="nav navbar-nav">
-                        <li><a href="/driver/find" title="Find">FIND</a></li>
-                        <li><a href="/driver/list" title="Drivers">DRIVERS</a></li>
-                        <li><a href="/driver/insert" title="NewDriver">ADD NEW</a></li>
+                        <li><a href="/driver/find" title="{$lang["FIND"]}">{$lang["FIND"]}</a></li>
+                        <li><a href="/driver/list" title="{$lang["DRIVERS"]}">{$lang["DRIVERS"]}</a></li>
+                        <li><a href="/driver/insert" title="{$lang["ADD NEW"]}">{$lang["ADD NEW"]}</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/user/logout" title="Register"><b>{$user.name}</b> / LOGOUT</a></li>
+                        <li><a href="/user/logout" title="{$lang["LOGOUT"]}"><b>{$user.name}</b> / {$lang["LOGOUT"]}</a></li>
                     </ul>
                 </div>
             </div>

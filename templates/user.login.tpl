@@ -1,13 +1,13 @@
 {include file="head.tpl"}
 
 <div class="container">
-    <div class="panel panel-primary">
+    <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title">Login existing user</h3>
+            <h3 class="panel-title">{$lang["Login existing user"]}</h3>
         </div>
         <div class="panel-body">
 {if $php.logged}
-            You are logged in.
+            {$lang["You are logged in"]}
             <script>
                 setTimeout(function(){ document.location = '/driver/find'; }, 1500);
             </script>
@@ -16,13 +16,13 @@
                 <div>{$php.error}</div>
             {/if}
             <form method="post">
-                E-mail:
-                <input type="text" class="form-control" name="email" value="{$php.user.email}" />
+                {$lang["E-mail:"]}
+                <input type="text" name="email" class="form-control" value="{$php.user.email}" />
                 <br>
-                Password:
-                <input type="password" class="form-control" name="password" value="" />
+                {$lang["Password:"]}
+                <input type="text" name="password" class="form-control"  value="" />
                 <br>
-                <input type="submit" value="Add user" class="btn btn-primary" />
+                <input type="submit" value="{$lang["Login"]}" class="btn btn-primary" />
             </form>
 {/if}
         </div>

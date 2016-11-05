@@ -3,6 +3,7 @@
     include "config.php";
     include ROOT . "system/class.db.php";
     include ROOT . "system/class.data.php";
+    include ROOT . "system/class.lang.php";
     include ROOT . "system/class.module.php";
     $db = new DB ();
     $data = new Data ();
@@ -15,6 +16,8 @@
         if (!is_file (ROOT . "module/class." . $module . ".php"))
             throw new Exception ("Module [$module] not found");
         include ROOT . "module/class." . $module . ".php";
+        lang_load ("menu");
+        lang_load ($module);
         $class = new $module ();
         $class -> init ($db, $data);
         if (!is_callable (array ($class, $api_action)))
@@ -27,6 +30,7 @@
         $smart -> caching = false;
         $smart -> debugging = false;
         $smart -> template_dir = SMARTY_TEMPLATES_DIR;
+        $smart -> assign ("lang", $lang);
         $data -> output ($smart);
         $smart -> display ($module . "." . $action . ".tpl");
     }
