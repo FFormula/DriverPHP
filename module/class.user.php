@@ -55,7 +55,7 @@ class user extends Module
         $this -> answer ["logged"] = "";
         $this -> answer ["error"] = "";
         $this -> answer ["user"] = $this -> user;
-        if (isset ($this -> data -> load ("user") ["id"]))
+        if (isset ($this -> data -> load ["user"] ["id"]))
             $this -> answer ["logged"] = true;
     }
 
