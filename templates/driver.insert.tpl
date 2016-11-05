@@ -38,9 +38,11 @@
                         <label class="col-md-2 control-label">{$lang["Passport number:"]}</label>
                         <div class="col-md-10"><input type="text" class="form-control" name="passport_number" value="{$php.driver.passport_number}" /></div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group has-error has-feedback">
                         <label class="col-md-2 control-label">{$lang["Info:"]}</label>
-                        <div class="col-md-10"><input type="text" class="form-control" name="info" value="{$php.driver.info}" /></div>
+                        <div class="col-md-10"><input type="text" class="form-control" name="info" value="{$php.driver.info}" />
+                            <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-5 col-md-7">
