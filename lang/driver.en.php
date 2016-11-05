@@ -16,3 +16,6 @@
     $lang["User not set"] = "";
     $lang["Search criteria not specified"] = "";
     $lang["List of all Drivers"] = "";
+
+    $lang["Information about Driver"] = "";
+    $lang["Driver does not exists"] = "";

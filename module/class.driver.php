@@ -123,9 +123,13 @@ class driver extends Module
 
     public function api_info ()
     {
+        $this -> answer ["error"] = "";
         if (!$this -> data -> is_login (2)) return;
         if (!$this -> data -> is_param ("driver_id")) return;
-        if (!$this -> exists ()) return;
+        if (!$this -> exists ()) {
+            $this -> answer ["error"] = na("Driver does not exists");
+            return;
+        }
         $query =
             "SELECT insert_date, update_date, 
                     last_name, first_name, father_name,
@@ -133,7 +137,7 @@ class driver extends Module
                     status, info
                FROM drivers 
               WHERE id = '" . $this -> data -> get ("driver_id") . "'";
-        $this -> answer = $this -> db -> select ($query);
+        $this -> answer ["info"] = $this -> db -> select ($query) [0];
     }
 
     public function api_find ()

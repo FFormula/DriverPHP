@@ -11,8 +11,12 @@
     $lang["Father name:"] = "Отчество:";
     $lang["Passport serial:"] = "Серия паспорта:";
     $lang["Passport number:"] = "Номер паспорта:";
-    $lang["Info:"] = "Дополнительная информация:";
+    $lang["Info:"] = "Доп. информация:";
     $lang["Add driver"] = "Добавить водителя";
     $lang["User not set"] = "Номер пользователя не задан";
     $lang["Search criteria not specified"] = "Критерии поиска не заданы";
     $lang["List of all Drivers"] = "Список всех ваших водителей";
+
+    $lang["Information about Driver"] = "Карточка водителя";
+
+    $lang["Driver does not exists"] = "Водитель не найден";

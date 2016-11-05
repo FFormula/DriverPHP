@@ -13,7 +13,8 @@
                 <div class="collapse navbar-collapse" id="MyTopMenu">
                     <ul class="nav navbar-nav">
                         <li{if $menu == "driver/find"} class="active"{/if}><a href="/driver/find" title="{$lang["FIND"]}">{$lang["FIND"]}</a></li>
-                        <li{if $menu == "driver/list"} class="active"{/if}><a href="/driver/list" title="{$lang["DRIVERS"]}">{$lang["DRIVERS"]}</a></li>
+                        <li{if $menu == "driver/list" ||
+                               $menu == "driver/info"} class="active"{/if}><a href="/driver/list" title="{$lang["DRIVERS"]}">{$lang["DRIVERS"]}</a></li>
                         <li{if $menu == "driver/insert"} class="active"{/if}><a href="/driver/insert" title="{$lang["ADD NEW"]}">{$lang["ADD NEW"]}</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
