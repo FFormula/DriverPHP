@@ -73,7 +73,7 @@ class user extends Module
                 AND password = '" . $this->data->get("password") . "'";
         $user = $this -> db -> select ($query);
         if (!isset ($user [0] ["id"])) {
-            $message = "Email or password incorrect";
+            $message = na("Email or password incorrect");
             $this -> data -> error ($message);
             $this -> answer ["error"] = $message;
             return;

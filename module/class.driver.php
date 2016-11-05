@@ -13,12 +13,10 @@ class driver extends Module
 
     function is_all_params ()
     {
-        if (!$this -> data -> is_param ("last_name")) return false;
-        if (!$this -> data -> is_param ("first_name")) return false;
-        if (!$this -> data -> is_param ("father_name")) return false;
-        if (!$this -> data -> is_param ("passport_serial")) return false;
-        if (!$this -> data -> is_param ("passport_number")) return false;
-        if (!$this -> data -> is_param ("info")) return false;
+        foreach ($this -> driver as $name => $value) {
+            if (!$this->data->is_param($name)) return false;
+            $this->driver [$name] = $this->data->get($name);
+        }
         return true;
     }
 
@@ -30,7 +28,7 @@ class driver extends Module
         $this -> answer ["driver"] = $this -> driver;
         $user_id = $this -> data -> load ("user") ["id"];
         if (!$user_id)
-            $this -> answer ["error"] = "User not set";
+            $this -> answer ["error"] = na("User not set");
     }
 
     public function api_insert_post ()
@@ -135,10 +133,16 @@ class driver extends Module
 
     public function api_find ()
     {
-        if (!$this -> data -> is_login (-1)) return;
-        if (!$this -> data -> is_param ("by", "Search criteria not specified")) return;
+        $this -> answer ["by"] = "";
+        $this -> answer ["count"] = "";
+    }
 
-        $this -> answer = "No records";
+    public function api_find_post ()
+    {
+        if (!$this -> data -> is_login (-1)) return;
+        if (!$this -> data -> is_param ("by", na("Search criteria not specified"))) return;
+        $this -> answer ["by"] = $this -> data -> get ("by");
+        $this -> answer ["count"] = 1;
     }
 
     protected function exists ()

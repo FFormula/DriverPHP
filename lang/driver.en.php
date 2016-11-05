@@ -13,3 +13,6 @@
     $lang["Passport number:"] = "";
     $lang["Info:"] = "";
     $lang["Add driver"] = "";
+    $lang["User not set"] = "";
+    $lang["Search criteria not specified"] = "";
+    $lang["List of all Drivers"] = "";

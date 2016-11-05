@@ -11,7 +11,11 @@
             {$lang["You are registered, please log in"]}
 {else}
             {if $php.error}
-                <div>{$php.error}</div>
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{$php.error}</h3>
+                    </div>
+                </div>
             {/if}
             <form method="post" class="col-lg-4">
                 {$lang["Name:"]}

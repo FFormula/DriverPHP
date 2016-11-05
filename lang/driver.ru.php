@@ -13,3 +13,6 @@
     $lang["Passport number:"] = "Номер паспорта:";
     $lang["Info:"] = "Дополнительная информация:";
     $lang["Add driver"] = "Добавить водителя";
+    $lang["User not set"] = "Номер пользователя не задан";
+    $lang["Search criteria not specified"] = "Критерии поиска не заданы";
+    $lang["List of all Drivers"] = "Список всех ваших водителей";

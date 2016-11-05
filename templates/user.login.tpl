@@ -13,14 +13,18 @@
             </script>
 {else}
             {if $php.error}
-                <div>{$php.error}</div>
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{$php.error}</h3>
+                    </div>
+                </div>
             {/if}
             <form method="post">
                 {$lang["E-mail:"]}
                 <input type="text" name="email" class="form-control" value="{$php.user.email}" />
                 <br>
                 {$lang["Password:"]}
-                <input type="text" name="password" class="form-control"  value="" />
+                <input type="password" name="password" class="form-control"  value="" />
                 <br>
                 <input type="submit" value="{$lang["Login"]}" class="btn btn-primary" />
             </form>

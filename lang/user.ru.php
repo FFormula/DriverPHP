@@ -9,3 +9,6 @@
     $lang["Login existing user"] = "Вход для зарегистрированных пользователей";
     $lang["You are logged in"] = "Вход выполнен успешно";
     $lang["Login"] = "Войти";
+    $lang["Email or password incorrect"] = "Эл. почта или пароль указан не верно.";
+    $lang["You just logged out."] = "Вы успешно вышли из системы";
+    $lang["Logout"] = "Выход";

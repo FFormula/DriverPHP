@@ -9,3 +9,6 @@
     $lang["Login existing user"] = "";
     $lang["You are logged in"] = "";
     $lang["Login"] = "";
+    $lang["Email or password incorrect"] = "";
+    $lang["You just logged out."] = "";
+    $lang["Logout"] = "";
