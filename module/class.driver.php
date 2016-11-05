@@ -105,15 +105,20 @@ class driver extends Module
 
     public function api_list ()
     {
-        if (!$this -> data -> is_login (2)) return;
+        if (!$this -> data -> is_login (1)) return;
+        if ($this -> data -> load ("user") ["status"] == "2")
+            $user_cond = "1";
+        else
+            $user_cond = " user_id = '" . $this -> data -> load ("user") ["id"] . "'";
         $query =
-            "SELECT insert_date, update_date, 
+            "SELECT id, insert_date, update_date, 
                     last_name, first_name, father_name,
                     passport_serial, passport_number,
                     status, info
                FROM drivers 
+              WHERE $user_cond
            ORDER BY id DESC";
-        $this -> answer = $this -> db -> select ($query);
+        $this -> answer ["list"] = $this -> db -> select ($query);
     }
 
     public function api_info ()
