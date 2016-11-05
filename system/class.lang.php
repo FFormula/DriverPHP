@@ -10,7 +10,7 @@ function lang_load ($module)
             $lang [$name] = $name;
 }
 
-function _ ($text)
+function na ($text)
 {
     global $lang;
     if (isset ($lang [$text]))

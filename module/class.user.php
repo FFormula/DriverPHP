@@ -37,7 +37,7 @@ class user extends Module
               WHERE email = '" . $this->data->get("email") . "'");
         if ($exists)
         {
-            $this -> answer ["error"] = _("This email already registered");
+            $this -> answer ["error"] = na("This email already registered");
             return;
         }
         $query =
