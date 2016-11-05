@@ -25,7 +25,6 @@
                 <input type="submit" value="Add user" class="btn btn-primary" />
             </form>
 {/if}
-
         </div>
     </div>
 </div>

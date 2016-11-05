@@ -19,9 +19,7 @@ class user extends Module
     {
         $this->answer ["saved"] = "";
         $this->answer ["error"] = "";
-        $this->answer ["user"] = array (
-            "name" => "",
-            "email" => "");
+        $this->answer ["user"] = $this -> user;
     }
 
     public function api_insert_post ()
@@ -29,8 +27,7 @@ class user extends Module
         $this->answer ["saved"] = "";
         $this->answer ["error"] = "";
         if (!$this->is_all_params()) return;
-        $this->answer ["user"] ["name"]  = $this -> data -> get ("name");
-        $this->answer ["user"] ["email"] = $this -> data -> get ("email");
+        $this->answer ["user"] = $this -> user;
 
         $exists = $this -> db -> scalar (
             "SELECT COUNT(*) 
@@ -55,7 +52,7 @@ class user extends Module
     {
         $this -> answer ["logged"] = "";
         $this -> answer ["error"] = "";
-        $this -> answer ["user"] ["email"] = "";
+        $this -> answer ["user"] = $this -> user;
         if ($this -> data -> load ("user") ["id"])
             $this -> answer ["logged"] = true;
     }

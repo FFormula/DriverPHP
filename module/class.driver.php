@@ -25,10 +25,38 @@ class driver extends Module
     public function api_insert ()
     {
         if (!$this -> data -> is_login (1)) return;
+        $this -> answer ["saved"] = "";
+        $this -> answer ["error"] = "";
+        $this -> answer ["driver"] = $this -> driver;
+        $user_id = $this -> data -> load ("user") ["id"];
+        if (!$user_id)
+            $this -> answer ["error"] = "User not set";
+    }
+
+    public function api_insert_post ()
+    {
+        if (!$this -> data -> is_login (1)) return;
         if (!$this -> is_all_params ()) return;
+        $this -> answer ["saved"] = "";
+        $this -> answer ["error"] = "";
+        $this -> answer ["driver"] = $this -> driver;
+        $user_id = $this -> data -> load ("user") ["id"];
+
+        $error = "";
+        foreach ($this -> driver as $name => $value)
+        {
+            $this -> answer ["driver"] [$name] = $this -> data -> get($name);
+            if ($this -> data -> get($name) == "")
+                $error .= " " . $name . " not set";
+        }
+        if ($error != "")
+        {
+            $this->answer ["error"] = $error;
+            return;
+        }
         $query =
             "INSERT INTO drivers
-                SET user_id = '" . $this -> data -> get ("user_id") . "',
+                SET user_id = '" . $user_id . "',
                     last_name = '" . $this -> data -> get ("last_name") . "', 
                     first_name = '" . $this -> data -> get ("first_name") . "', 
                     father_name = '" . $this -> data -> get ("father_name") . "',
@@ -37,7 +65,7 @@ class driver extends Module
                     status = 1,
                     insert_date = NOW()";
         $this -> db -> query ($query);
-        $this -> answer = "Driver added";
+        $this -> answer ["saved"] = true;
     }
 
     public function api_update ()
