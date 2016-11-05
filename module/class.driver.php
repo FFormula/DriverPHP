@@ -62,6 +62,7 @@ class driver extends Module
                     father_name = '" . $this -> data -> get ("father_name") . "',
                     passport_serial = '" . $this -> data -> get ("passport_serial") . "', 
                     passport_number = '" . $this -> data -> get ("passport_number") . "',
+                    info = '" . $this -> data -> get ("info") . "',
                     status = 1,
                     insert_date = NOW()";
         $this -> db -> query ($query);

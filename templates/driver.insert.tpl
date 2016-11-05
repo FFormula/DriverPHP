@@ -14,11 +14,11 @@
                     <div>{$php.error}</div>
                 {/if}
                 <form method="post">
+                    Last name:
+                    <input type="text" name="last_name" value="{$php.driver.last_name}" />
+                    <br>
                     First name:
                     <input type="text" name="first_name" value="{$php.driver.first_name}" />
-                    <br>
-                    Lasst name:
-                    <input type="text" name="last_name" value="{$php.driver.last_name}" />
                     <br>
                     Father name:
                     <input type="text" name="father_name" value="{$php.driver.father_name}" />
