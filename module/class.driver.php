@@ -40,7 +40,7 @@ class driver extends Module
         $this -> answer ["saved"] = "";
         $this -> answer ["error"] = "";
         $this -> answer ["driver"] = $this -> driver;
-        $user_id = $this -> data -> load ["user"] ["id"];
+        $user_id = $this -> data -> load ("user") ["id"];
 
         $error = "";
         foreach ($this -> driver as $name => $value)
