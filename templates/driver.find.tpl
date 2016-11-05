@@ -20,10 +20,10 @@
             </form>
     {if $php.by != ""}
         {if $php.count}
-            Results found: {$php.count}
+             Results found: <span class="badge badge-info">{$php.count}</span>
             <br>
             {if $php.driver_name}
-                Driver name: <strong>{$php.driver_name}</strong>
+            <div class="active">Driver name: <strong class="label label-success">{$php.driver_name}</strong> </div>
             {/if}
         {else}
             No items found
