@@ -21,6 +21,8 @@ class DB
             throw new Exception (
                 "Error connecting to database: " .
                 $this -> mi -> connect_error);
+        $this -> mi -> query("SET character_set_results='utf8'");
+        $this -> mi -> query("SET NAMES 'utf8'");
     }
 
     /**
