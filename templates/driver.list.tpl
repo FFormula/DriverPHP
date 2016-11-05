@@ -6,7 +6,7 @@
             <h3 class="panel-title">{$lang["List of all Drivers"]}</h3>
         </div>
     </div>
-    
+
     <table class="table table-bordered table-hover">
         <tr class="bg-primary">
             <th class="text-center">#</th>

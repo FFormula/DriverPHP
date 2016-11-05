@@ -19,22 +19,22 @@
                 {/if}
                 <form method="post">
                     {$lang["Last name:"]}
-                    <input type="text" name="last_name" value="{$php.driver.last_name}" />
+                    <input type="text" class="form-control" name="last_name" value="{$php.driver.last_name}" />
                     <br>
                     {$lang["First name:"]}
-                    <input type="text" name="first_name" value="{$php.driver.first_name}" />
+                    <input type="text" class="form-control" name="first_name" value="{$php.driver.first_name}" />
                     <br>
                     {$lang["Father name:"]}
-                    <input type="text" name="father_name" value="{$php.driver.father_name}" />
+                    <input type="text" class="form-control" name="father_name" value="{$php.driver.father_name}" />
                     <br>
                     {$lang["Passport serial:"]}
-                    <input type="text" name="passport_serial" value="{$php.driver.passport_serial}" />
+                    <input type="text" class="form-control" name="passport_serial" value="{$php.driver.passport_serial}" />
                     <br>
                     {$lang["Passport number:"]}
-                    <input type="text" name="passport_number" value="{$php.driver.passport_number}" />
+                    <input type="text" class="form-control" name="passport_number" value="{$php.driver.passport_number}" />
                     <br>
                     {$lang["Info:"]}
-                    <input type="text" name="info" value="{$php.driver.info}" />
+                    <input type="text" class="form-control" name="info" value="{$php.driver.info}" />
                     <br>
                     <input type="submit" value="{$lang["Add driver"]}" class="btn btn-warning" />
                 </form>
