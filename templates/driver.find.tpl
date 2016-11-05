@@ -18,9 +18,18 @@
                     </div>
                 </div>
             </form>
-{if $php.count}
-            Search results: {$php.count}
-{/if}
+    {if $php.by != ""}
+        {if $php.count}
+            Results found: {$php.count}
+            <br>
+            {if $php.driver_name}
+                Driver name: <strong>{$php.driver_name}</strong>
+            {/if}
+        {else}
+            No items found
+        {/if}
+
+    {/if}
         </div>
     </div>
 </div>

@@ -243,6 +243,7 @@ class driver extends Module
     {
         $this -> answer ["by"] = "";
         $this -> answer ["count"] = "";
+        $this -> answer ["driver_name"] = "";
     }
 
     public function api_find_post ()
@@ -250,7 +251,48 @@ class driver extends Module
         if (!$this -> data -> is_login (-1)) return;
         if (!$this -> data -> is_param ("by", na("Search criteria not specified"))) return;
         $this -> answer ["by"] = $this -> data -> get ("by");
-        $this -> answer ["count"] = 1;
+
+        $arr = explode(" ", $this -> data -> get ("by"));
+
+        $in_ids = "";
+        $count = 0;
+        foreach ($arr as $word1)
+        {
+            $word = trim($word1);
+            if ($word == "")
+                continue;
+            $query =
+                "SELECT id 
+                   FROM drivers 
+                  WHERE status = 2
+                    AND $in_ids
+                        (last_name = '" . $word . "' OR 
+                        first_name = '" . $word . "' OR
+                        father_name = '" . $word . "' OR 
+                        passport_serial = '" . $word . "' OR 
+                        passport_number = '" . $word . "')";
+            $list = $this -> db -> select ($query);
+            $ids = "";
+            $count = count ($list);
+            foreach ($list as $row)
+                $ids .= "," . $row ["id"];
+            $in_ids = " id IN (0" . $ids . ") AND ";
+        }
+
+        $this -> answer ["count"] = $count;
+        $this -> answer ["driver_name"] = "";
+        if ($count == 1)
+        {
+            $query =
+                "SELECT last_name, first_name, father_name 
+                   FROM drivers
+                  WHERE id IN (0" . $ids . ")";
+            $res = $this -> db -> select ($query);
+            $this -> answer ["driver_name"] =
+                $res [0] ["last_name"] . " " .
+                $res [0] ["first_name"] . " " .
+                $res [0] ["father_name"] ;
+        }
     }
 
     protected function exists ()
