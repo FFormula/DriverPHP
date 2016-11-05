@@ -21,7 +21,7 @@
                 <input type="text" name="email" class="form-control" value="{$php.user.email}" />
                 <br>
                 Password:
-                <input type="text" name="password" value="" />
+                <input type="text" name="password" class="form-control"  value="" />
                 <br>
                 <input type="submit" value="Add user" class="btn btn-primary" />
 
