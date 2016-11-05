@@ -1,6 +1,12 @@
 <?php
 class user extends Module
 {
+    var $user = array (
+        "name" => "",
+        "email" => "",
+        "password" => ""
+    );
+
     function is_all_params()
     {
         if (!$this->data->is_param("name")) return false;

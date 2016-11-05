@@ -2,6 +2,15 @@
 
 class driver extends Module
 {
+    var $driver = array (
+        "first_name" => "",
+        "last_name" => "",
+        "father_name" => "",
+        "passport_serial" => "",
+        "passport_number" => "",
+        "info" => ""
+    );
+
     function is_all_params ()
     {
         if (!$this -> data -> is_param ("last_name")) return false;
