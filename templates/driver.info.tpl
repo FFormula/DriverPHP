@@ -7,13 +7,14 @@
         </div>
         <div class="panel-body">
 
-            {if $php.error}
-                <div class="panel panel-danger">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">{$php.error}</h3>
-                    </div>
+{if $php.error}
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{$php.error}</h3>
                 </div>
-            {/if}
+            </div>
+            <a href="/driver/list" class="btn btn-info">{$lang["Return"]}</a>
+{else}
 
             <dl class="dl-horizontal">
                 <dt>{$lang["ID:"]}</dt>
@@ -46,17 +47,19 @@
                 <dt>{$lang["Info:"]}</dt>
                 <dd>{$php.info.info}</dd>
             </dl>
-        {if $php.info.status == 1}
-            <a href="/driver/confirm/driver_id={$php.info.id}/status=2" class="btn btn-success"
-                >{$lang["Confirm"]}</a>
-        {else}
-            <a href="/driver/confirm/driver_id={$php.info.id}/status=1" class="btn btn-warning"
-            >{$lang["UnConfirm"]}</a>
+        {if $user.status >= 2}
+            {if $php.info.status == 1}
+                <a href="/driver/confirm/driver_id={$php.info.id}/status=2" class="btn btn-success"
+                    >{$lang["Confirm"]}</a>
+            {else}
+                <a href="/driver/confirm/driver_id={$php.info.id}/status=1" class="btn btn-warning"
+                >{$lang["UnConfirm"]}</a>
+            {/if}
         {/if}
             <a href="/driver/confirm/driver_id={$php.info.id}/status=drop" class="btn btn-danger"
                onclick="return confirm('{$lang["Do you really want to delete this record?"]}');"
                 >{$lang["Delete"]}</a>
-
+{/if}
         </div>
     </div>
 </div>

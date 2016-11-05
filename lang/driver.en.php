@@ -36,3 +36,6 @@
     $lang["Do you really want to delete this record?"] = "";
 
     $lang["Fill all fields"] = "";
+
+    $lang["The list is empty"] = "";
+    $lang["This driver is not yours"] = "";

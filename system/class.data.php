@@ -140,6 +140,7 @@ class Data
         $smart -> assign ("user",
             array ( "id" => @$_SESSION ["user"] ["id"],
                     "email" => @$_SESSION ["user"] ["email"],
+                    "status" => @$_SESSION ["user"] ["status"],
                     "name" => @$_SESSION ["user"] ["name"]));
     }
 }

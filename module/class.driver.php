@@ -142,21 +142,32 @@ class driver extends Module
     public function api_info ()
     {
         $this -> answer ["error"] = "";
-        if (!$this -> data -> is_login (2)) return;
+        if (!$this -> data -> is_login (1)) return;
         if (!$this -> data -> is_param ("driver_id")) return;
         if (!$this -> exists ()) {
             $this -> answer ["error"] = na("Driver does not exists");
             return;
         }
+        if ($this -> data -> load ("user") ["status"] == "2")
+            $user_cond = "1";
+        else
+            $user_cond = " user_id = '" . $this -> data -> load ("user") ["id"] . "'";
         $query =
             "SELECT id, insert_date, update_date, 
                     last_name, first_name, father_name,
                     passport_serial, passport_number,
                     status, info
                FROM drivers 
-              WHERE id = '" . $this -> data -> get ("driver_id") . "'";
-        $this -> answer ["info"] = $this -> db -> select ($query) [0];
-        $this -> answer ["info"] ["status_text"] = na("status" . $this -> answer ["info"] ["status"]);
+              WHERE id = '" . $this -> data -> get ("driver_id") . "'
+                AND " . $user_cond;
+        $info = $this -> db -> select ($query);
+        if (count ($info) == 0)
+        {
+            $this->answer ["error"] = na("This driver is not yours");
+        } else {
+            $this->answer ["info"] = $info[0];
+            $this->answer ["info"] ["status_text"] = na("status" . $this->answer ["info"] ["status"]);
+        }
     }
 
     public function api_find ()

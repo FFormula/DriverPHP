@@ -22,7 +22,7 @@
     $lang["Driver does not exists"] = "Водитель не найден";
 
     $lang["ID:"] = "№";
-    $lang["Status:"] = "Статус";
+    $lang["Status:"] = "Статус:";
     $lang["Confirm"] = "Подтвердить";
     $lang["UnConfirm"] = "Отменить";
     $lang["Delete"] = "Удалить запись";
@@ -37,3 +37,6 @@
     $lang["Do you really want to delete this record?"] = "Вы в самом деле хотите удалить эту запись?";
 
     $lang["Fill all fields"] = "Заполните все поля!";
+
+    $lang["The list is empty"] = "Пока у вас нет ни одного водителя";
+    $lang["This driver is not yours"] = "Информация об этом водителе не доступна";
