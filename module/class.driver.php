@@ -89,18 +89,31 @@ class driver extends Module
 
     public function api_confirm ()
     {
+        $this -> answer ["message"] = "";
         if (!$this -> data -> is_login (2)) return;
         if (!$this -> data -> is_param ("driver_id")) return;
-        if (!$this -> data -> is_param ("status")) return;
+        if (!$this -> data -> is_param ("status")) {
+            $this -> answer ["message"] = na("status not specified");
+            return;
+        }
         if (!$this -> exists ()) return;
-        $query =
-            "UPDATE drivers
-                SET status = '" . $this -> data -> get ("status") . "',
-                    update_date = NOW()
-              WHERE id = '" . $this -> data -> get ("driver_id") . "' 
-              LIMIT 1";
+        if ($this -> data -> get ("status") == "drop") // drop
+        {
+            $query =
+                "DELETE FROM drivers
+                  WHERE id = '" . $this->data->get("driver_id") . "' 
+                  LIMIT 1";
+            $this -> answer ["message"] = na("Driver deleted");
+        } else {
+            $query =
+                "UPDATE drivers
+                    SET status = '" . $this->data->get("status") . "',
+                        update_date = NOW()
+                  WHERE id = '" . $this->data->get("driver_id") . "' 
+                  LIMIT 1";
+            $this -> answer ["message"] = na("Driver status changed");
+        }
         $this -> db -> query ($query);
-        $this -> answer = "Driver status changed";
     }
 
     public function api_list ()
@@ -131,13 +144,14 @@ class driver extends Module
             return;
         }
         $query =
-            "SELECT insert_date, update_date, 
+            "SELECT id, insert_date, update_date, 
                     last_name, first_name, father_name,
                     passport_serial, passport_number,
                     status, info
                FROM drivers 
               WHERE id = '" . $this -> data -> get ("driver_id") . "'";
         $this -> answer ["info"] = $this -> db -> select ($query) [0];
+        $this -> answer ["info"] ["status_text"] = na("status" . $this -> answer ["info"] ["status"]);
     }
 
     public function api_find ()

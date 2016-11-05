@@ -22,7 +22,7 @@
                 <td class="text-center"><a href="/driver/info/driver_id={$row.id}" class="btn btn-info">{$row.id}</a></td>
                 <td class="text-left">{$row.last_name} {$row.first_name} {$row.father_name}</td>
                 <td class="text-left">{$row.info}</td>
-                <td class="text-center">{$row.status}</td>
+                <td class="text-center">{$lang["status`$row.status`"]}</td>
             </tr>
 {/foreach}
         </tbody>

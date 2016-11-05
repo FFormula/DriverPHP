@@ -20,3 +20,18 @@
     $lang["Information about Driver"] = "Карточка водителя";
 
     $lang["Driver does not exists"] = "Водитель не найден";
+
+    $lang["ID:"] = "№";
+    $lang["Status:"] = "Статус";
+    $lang["Confirm"] = "Подтвердить";
+    $lang["UnConfirm"] = "Отменить";
+    $lang["Delete"] = "Удалить запись";
+
+    $lang["status1"] = "Ожидание";
+    $lang["status2"] = "Одобрено";
+
+    $lang["Driver status changed"] = "Статус водителя изменён";
+    $lang["Driver deleted"] = "Карточка водителя удалена";
+
+    $lang["Return"] = "Вернуться";
+    $lang["Do you really want to delete this record?"] = "Вы в самом деле хотите удалить эту запись?";

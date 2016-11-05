@@ -19,3 +19,18 @@
 
     $lang["Information about Driver"] = "";
     $lang["Driver does not exists"] = "";
+
+    $lang["ID:"] = "";
+    $lang["Status:"] = "";
+    $lang["Confirm"] = "";
+    $lang["UnConfirm"] = "";
+    $lang["Delete"] = "";
+
+    $lang["status1"] = "Awaiting";
+    $lang["status2"] = "Confirmed";
+
+    $lang["Driver status changed"] = "";
+    $lang["Driver deleted"] = "";
+
+    $lang["Return"] = "";
+    $lang["Do you really want to delete this record?"] = "";

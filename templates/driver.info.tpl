@@ -16,6 +16,13 @@
             {/if}
 
             <dl class="dl-horizontal">
+                <dt>{$lang["ID:"]}</dt>
+                <dd>{$php.info.id}</dd>
+                <dt>{$lang["Status:"]}</dt>
+                <dd>{$php.info.status_text}</dd>
+            </dl>
+
+            <dl class="dl-horizontal">
                 <dt>{$lang["Last name:"]}</dt>
                 <dd>{$php.info.last_name}</dd>
                 <dt>{$lang["First name:"]}</dt>
@@ -39,6 +46,16 @@
                 <dt>{$lang["Info:"]}</dt>
                 <dd>{$php.info.info}</dd>
             </dl>
+        {if $php.info.status == 1}
+            <a href="/driver/confirm/driver_id={$php.info.id}/status=2" class="btn btn-success"
+                >{$lang["Confirm"]}</a>
+        {else}
+            <a href="/driver/confirm/driver_id={$php.info.id}/status=1" class="btn btn-warning"
+            >{$lang["UnConfirm"]}</a>
+        {/if}
+            <a href="/driver/confirm/driver_id={$php.info.id}/status=drop" class="btn btn-danger"
+               onclick="return confirm('{$lang["Do you really want to delete this record?"]}');"
+                >{$lang["Delete"]}</a>
 
         </div>
     </div>
