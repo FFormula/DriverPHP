@@ -31,6 +31,7 @@
         $smart -> debugging = false;
         $smart -> template_dir = SMARTY_TEMPLATES_DIR;
         $smart -> assign ("lang", $lang);
+        $smart -> assign ("menu", $module . "/" . $action);
         $data -> output ($smart);
         $smart -> display ($module . "." . $action . ".tpl");
     }
