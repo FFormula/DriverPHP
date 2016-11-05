@@ -38,5 +38,5 @@
 
     $lang["Fill all fields"] = "Заполните все поля!";
 
-    $lang["The list is empty"] = "Пока у вас нет ни одного водителя";
+    $lang["The list is empty"] = "У вас нет ни одного водителя";
     $lang["This driver is not yours"] = "Информация об этом водителе не доступна";

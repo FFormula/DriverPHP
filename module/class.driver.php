@@ -71,7 +71,7 @@ class driver extends Module
         $this -> db -> query ($query);
         $this -> answer ["saved"] = true;
     }
-
+/*
     public function api_update ()
     {
         if (!$this -> data -> is_login (2)) return;
@@ -90,34 +90,82 @@ class driver extends Module
               LIMIT 1";
         $this -> db -> query ($query);
         $this -> answer = "Driver info changed";
-    }
+    }*/
 
     public function api_confirm ()
     {
-        $this -> answer ["message"] = "";
-        if (!$this -> data -> is_login (2)) return;
-        if (!$this -> data -> is_param ("driver_id")) return;
-        if (!$this -> data -> is_param ("status")) {
-            $this -> answer ["message"] = na("status not specified");
+        $this->answer ["message"] = "";
+        if (!$this -> data -> is_login (1)) return;
+        if (!$this->data->is_param("driver_id")) return;
+        if (!$this->data->is_param("status")) {
+            $this->answer ["message"] = na("status not specified");
             return;
         }
-        if (!$this -> exists ()) return;
-        if ($this -> data -> get ("status") == "drop") // drop
-        {
-            $query =
-                "DELETE FROM drivers
-                  WHERE id = '" . $this->data->get("driver_id") . "' 
-                  LIMIT 1";
-            $this -> answer ["message"] = na("Driver deleted");
-        } else {
-            $query =
-                "UPDATE drivers
-                    SET status = '" . $this->data->get("status") . "',
-                        update_date = NOW()
-                  WHERE id = '" . $this->data->get("driver_id") . "' 
-                  LIMIT 1";
-            $this -> answer ["message"] = na("Driver status changed");
-        }
+        if ($this->data->get("status") == "drop") // drop
+            $this->delete($this->data->get("driver_id"));
+        else
+            $this->update_status($this->data->get("driver_id"), $this->data->get("status"));
+    }
+
+    protected function delete ($driver_id)
+    {
+        if ($this->data->load("user") ["status"] == "2") // admin
+            $this -> admin_delete ($driver_id);
+        else
+            $this -> oper_delete ($driver_id);
+        $this -> answer ["message"] = na("Driver deleted");
+    }
+
+    protected function admin_delete ($driver_id)
+    {
+        if (!$this -> data -> is_login (2)) return;
+        $query =
+            "DELETE FROM drivers
+              WHERE id = '" . $driver_id . "' 
+              LIMIT 1";
+        $this -> db -> query ($query);
+    }
+
+    protected function oper_delete ($driver_id)
+    {
+        $query =
+            "DELETE FROM drivers
+              WHERE id = '" . $driver_id . "'
+                AND user_id = '" . $this->data->load("user") ["id"] . "'
+              LIMIT 1";
+        $this -> db -> query ($query);
+    }
+
+    protected function update_status ($driver_id, $status)
+    {
+        if ($this->data->load("user") ["status"] == "2") // admin
+            $this->admin_update_status($driver_id, $status);
+        else
+            $this->oper_update_status($driver_id, $status);
+        $this -> answer ["message"] = na("Driver status changed");
+    }
+
+    protected function admin_update_status ($driver_id, $status)
+    {
+        if (!$this -> data -> is_login (2)) return;
+        $query =
+            "UPDATE drivers
+                SET status = '" . $status . "',
+                    update_date = NOW()
+              WHERE id = '" . $driver_id . "' 
+              LIMIT 1";
+        $this -> db -> query ($query);
+    }
+
+    protected function oper_update_status ($driver_id, $status)
+    {
+        $query =
+            "UPDATE drivers
+                SET status = '" . $status . "',
+                    update_date = NOW()
+              WHERE id = '" . $driver_id . "' 
+                AND user_id = '" . $this->data->load("user") ["id"] . "'
+              LIMIT 1";
         $this -> db -> query ($query);
     }
 
@@ -148,9 +196,9 @@ class driver extends Module
             return;
         }
         if ($this->data->load("user") ["status"] == "2") // admin
-            $info = $this->api_info_admin();
+            $info = $this->info_admin();
         else
-            $info = $this->api_info_oper();
+            $info = $this->info_oper();
         if (count ($info) == 0)
         {
             $this->answer ["error"] = na("This driver is not yours");
@@ -160,7 +208,7 @@ class driver extends Module
         }
     }
 
-    public function api_info_oper ()
+    protected function info_oper ()
     {
         if (!$this -> data -> is_login (1)) return;
         if (!$this -> exists ()) {
@@ -178,7 +226,7 @@ class driver extends Module
         return $this -> db -> select ($query);
     }
 
-    public function api_info_admin ()
+    protected function info_admin ()
     {
         if (!$this -> data -> is_login (2)) return;
         $query =
