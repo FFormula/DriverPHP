@@ -1,7 +1,7 @@
 {include file="head.tpl"}
 
 <div class="container">
-    <div class="panel panel-info">
+    <div class="panel panel-warning">
         <div class="panel-heading">
             <h3 class="panel-title">{$lang["Register new User"]}</h3>
         </div>
@@ -23,7 +23,7 @@
                 {$lang["Password:"]}
                 <input type="text" name="password" class="form-control"  value="" />
                 <br>
-                <input type="submit" value="{$lang["Add user"]}" class="btn btn-primary" />
+                <input type="submit" value="{$lang["Add user"]}" class="btn btn-warning" />
             </form>
 
 {/if}
