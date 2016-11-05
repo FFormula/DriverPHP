@@ -26,7 +26,7 @@ class driver extends Module
         $this -> answer ["saved"] = "";
         $this -> answer ["error"] = "";
         $this -> answer ["driver"] = $this -> driver;
-        $user_id = $this -> data -> load ["user"] ["id"];
+        $user_id = $this -> data -> load ("user") ["id"];
         if (!$user_id)
             $this -> answer ["error"] = na("User not set");
         foreach ($this -> driver as $name => $value)
@@ -172,10 +172,10 @@ class driver extends Module
     public function api_list ()
     {
         if (!$this -> data -> is_login (1)) return;
-        if ($this -> data -> load ["user"] ["status"] == "2")
+        if ($this -> data -> load ("user") ["status"] == "2")
             $user_cond = "1";
         else
-            $user_cond = " user_id = '" . $this -> data -> load ["user"] ["id"] . "'";
+            $user_cond = " user_id = '" . $this -> data -> load ("user") ["id"] . "'";
         $query =
             "SELECT id, insert_date, update_date, 
                     last_name, first_name, father_name,
