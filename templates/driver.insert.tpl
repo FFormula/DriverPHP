@@ -18,30 +18,40 @@
                     </div>
                 {/if}
                 <form class="form-horizontal" method="post">
-                    <div class="form-group">
+                    <div class="form-group{if $php.warn.last_name} has-error has-feedback{/if}">
                         <label class="col-md-2 control-label">{$lang["Last name:"]}</label>
-                        <div class="col-md-10"><input type="text" class="form-control" name="last_name" value="{$php.driver.last_name}" /></div>
+                        <div class="col-md-10"><input type="text" class="form-control" name="last_name" value="{$php.driver.last_name}" />
+                            {if $php.warn.last_name}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group{if $php.warn.first_name} has-error has-feedback{/if}">
                         <label class="col-md-2 control-label">{$lang["First name:"]}</label>
-                        <div class="col-md-10"><input type="text" class="form-control" name="first_name" value="{$php.driver.first_name}" /></div>
+                        <div class="col-md-10"><input type="text" class="form-control" name="first_name" value="{$php.driver.first_name}" />
+                            {if $php.warn.first_name}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group{if $php.warn.father_name} has-error has-feedback{/if}">
                         <label class="col-md-2 control-label">{$lang["Father name:"]}</label>
-                        <div class="col-md-10"><input type="text" class="form-control" name="father_name" value="{$php.driver.father_name}" /></div>
+                        <div class="col-md-10"><input type="text" class="form-control" name="father_name" value="{$php.driver.father_name}" />
+                            {if $php.warn.father_name}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group{if $php.warn.passport_serial} has-error has-feedback{/if}">
                         <label class="col-md-2 control-label">{$lang["Passport serial:"]}</label>
-                        <div class="col-md-10"><input type="text" class="form-control" name="passport_serial" value="{$php.driver.passport_serial}" /></div>
+                        <div class="col-md-10"><input type="text" class="form-control" name="passport_serial" value="{$php.driver.passport_serial}" />
+                            {if $php.warn.passport_serial}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group{if $php.warn.passport_number} has-error has-feedback{/if}">
                         <label class="col-md-2 control-label">{$lang["Passport number:"]}</label>
-                        <div class="col-md-10"><input type="text" class="form-control" name="passport_number" value="{$php.driver.passport_number}" /></div>
+                        <div class="col-md-10"><input type="text" class="form-control" name="passport_number" value="{$php.driver.passport_number}" />
+                            {if $php.warn.passport_number}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
+                        </div>
                     </div>
-                    <div class="form-group has-error has-feedback">
+                    <div class="form-group{if $php.warn.info} has-error has-feedback{/if}">
                         <label class="col-md-2 control-label">{$lang["Info:"]}</label>
                         <div class="col-md-10"><input type="text" class="form-control" name="info" value="{$php.driver.info}" />
-                            <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                            {if $php.warn.info}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
                         </div>
                     </div>
                     <div class="form-group">

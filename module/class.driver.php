@@ -29,6 +29,8 @@ class driver extends Module
         $user_id = $this -> data -> load ("user") ["id"];
         if (!$user_id)
             $this -> answer ["error"] = na("User not set");
+        foreach ($this -> driver as $name => $value)
+            $this->answer ["warn"] [$name] = 0;
     }
 
     public function api_insert_post ()
@@ -44,12 +46,15 @@ class driver extends Module
         foreach ($this -> driver as $name => $value)
         {
             $this -> answer ["driver"] [$name] = $this -> data -> get($name);
-            if ($this -> data -> get($name) == "")
-                $error .= " " . $name . " not set";
+            if ($this -> data -> get($name) == "") {
+                $error = 1;
+                $this->answer ["warn"] [$name] = 1;
+            } else
+                $this->answer ["warn"] [$name] = 0;
         }
         if ($error != "")
         {
-            $this->answer ["error"] = $error;
+            $this->answer ["error"] = na("Fill all fields");
             return;
         }
         $query =

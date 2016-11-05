@@ -34,3 +34,5 @@
 
     $lang["Return"] = "";
     $lang["Do you really want to delete this record?"] = "";
+
+    $lang["Fill all fields"] = "";

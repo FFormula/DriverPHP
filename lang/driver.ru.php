@@ -35,3 +35,5 @@
 
     $lang["Return"] = "Вернуться";
     $lang["Do you really want to delete this record?"] = "Вы в самом деле хотите удалить эту запись?";
+
+    $lang["Fill all fields"] = "Заполните все поля!";
