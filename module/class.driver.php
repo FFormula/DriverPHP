@@ -60,11 +60,11 @@ class driver extends Module
         $query =
             "INSERT INTO drivers
                 SET user_id = '" . $user_id . "',
-                    last_name = '" . strtoupper($this -> data -> get ("last_name")) . "', 
-                    first_name = '" . strtoupper($this -> data -> get ("first_name")) . "', 
-                    father_name = '" . strtoupper($this -> data -> get ("father_name")) . "',
-                    passport_serial = '" . strtoupper($this -> data -> get ("passport_serial")) . "', 
-                    passport_number = '" . strtoupper($this -> data -> get ("passport_number")) . "',
+                    last_name = UPPER('" . $this -> data -> get ("last_name") . "'), 
+                    first_name = UPPER('" . $this -> data -> get ("first_name") . "'), 
+                    father_name = UPPER('" . $this -> data -> get ("father_name") . "'),
+                    passport_serial = UPPER('" . $this -> data -> get ("passport_serial") . "'), 
+                    passport_number = UPPER('" . $this -> data -> get ("passport_number") . "'),
                     info = '" . $this -> data -> get ("info") . "',
                     status = 1,
                     insert_date = NOW()";
