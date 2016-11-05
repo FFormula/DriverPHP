@@ -21,6 +21,7 @@ class DB
             throw new Exception (
                 "Error connecting to database: " .
                 $this -> mi -> connect_error);
+        setlocale(LC_ALL, 'ru_RU.utf-8');
         $this -> mi -> query("SET character_set_results='utf8'");
         $this -> mi -> query("SET NAMES 'utf8'");
     }

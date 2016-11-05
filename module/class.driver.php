@@ -60,11 +60,11 @@ class driver extends Module
         $query =
             "INSERT INTO drivers
                 SET user_id = '" . $user_id . "',
-                    last_name = '" . strtoupper($this -> data -> get ("last_name")) . "', 
-                    first_name = '" . strtoupper($this -> data -> get ("first_name")) . "', 
-                    father_name = '" . strtoupper($this -> data -> get ("father_name")) . "',
-                    passport_serial = '" . strtoupper($this -> data -> get ("passport_serial")) . "', 
-                    passport_number = '" . strtoupper($this -> data -> get ("passport_number")) . "',
+                    last_name = '" . $this -> data -> get ("last_name") . "', 
+                    first_name = '" . $this -> data -> get ("first_name") . "', 
+                    father_name = '" . $this -> data -> get ("father_name") . "',
+                    passport_serial = '" . $this -> data -> get ("passport_serial") . "', 
+                    passport_number = '" . $this -> data -> get ("passport_number") . "',
                     info = '" . $this -> data -> get ("info") . "',
                     status = 1,
                     insert_date = NOW()";
@@ -258,7 +258,7 @@ class driver extends Module
         $count = 0;
         foreach ($arr as $word1)
         {
-            $word = strtoupper(trim($word1));
+            $word = trim($word1);
             if ($word == "")
                 continue;
             $query =
@@ -266,11 +266,11 @@ class driver extends Module
                    FROM drivers 
                   WHERE status = 2
                     AND $in_ids
-                        (UPPER(last_name) = '" . $word . "' OR 
-                         UPPER(first_name) = '" . $word . "' OR
-                         UPPER(father_name) = '" . $word . "' OR 
-                         UPPER(passport_serial) = '" . $word . "' OR 
-                         UPPER(passport_number) = '" . $word . "')";
+                        (last_name = '" . $word . "' OR 
+                         first_name = '" . $word . "' OR
+                         father_name = '" . $word . "' OR 
+                         passport_serial = '" . $word . "' OR 
+                         passport_number = '" . $word . "')";
             $list = $this -> db -> select ($query);
             $ids = "";
             $count = count ($list);
