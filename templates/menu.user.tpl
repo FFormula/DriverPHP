@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="navbar navbar-default navbar-fixed-top dropmenu">
+        <div class="navbar navbar-default navbar-fixed-top">
             <div class="navbar navbar-header">
                 <button class="navbar-toggle" data-toggle="collapse" data-target="#MyTopMenu" >
                     <span class="sr-only">Open menu</span>
