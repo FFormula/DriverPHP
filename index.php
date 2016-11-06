@@ -1,4 +1,5 @@
 <?php
+    // $_GET ["data"] = "/docs/drop/doc_id=4";
     date_default_timezone_set("Europe/Moscow");
     include "config.php";
     include ROOT . "system/class.db.php";

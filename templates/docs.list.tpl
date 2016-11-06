@@ -2,6 +2,10 @@
 
 <div class="container">
 
+{if $php.driver_id == ""}
+    <script> document.location = "/driver/list"; </script>
+{else}
+
     <div class="panel panel-info">
         <div class="panel-heading">
             <h3 class="panel-title"
@@ -11,6 +15,7 @@
 
     {if $php.count == 0}
         {$lang["There are no documents."]}
+        <br><br>
     {else}
         <table class="table table-bordered table-hover table-striped">
             <thead>
@@ -58,6 +63,7 @@
             </form>
         </div>
     </div>
+{/if}
 
 </div>
 

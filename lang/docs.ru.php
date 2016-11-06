@@ -19,3 +19,7 @@
     $lang["This file type not allowed."] ="Этот тип файла не допускается.";
     $lang["Error uploading document"] ="Ошибка загрузки документа";
     $lang["Document uploaded successfully"] = "Документ успешно загружен";
+    $lang["Error deleting file"] = "Ошибка при удалении документа";
+    $lang["Document dropping results"] = "Результат удаления документа";
+    $lang["Document dropped successfully"] = "Документ успешно удалён";
+    $lang["File already deleted."] = "Документ не найден";

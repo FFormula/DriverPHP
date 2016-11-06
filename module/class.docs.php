@@ -83,6 +83,7 @@ class docs extends Module
     public function api_list ()
     {
         $this -> answer ["error"] = "";
+        $this -> answer ["count"] = "";
         if (!$this -> data -> is_login(1)) return;
         if (!$this -> data -> is_param("driver_id")) return;
         $driver_id = $this -> data -> get ("driver_id");
@@ -107,5 +108,70 @@ class docs extends Module
         $this -> answer ["driver_name"] = $this -> db -> scalar (
             "SELECT CONCAT(last_name, ' ', first_name, ' ', father_name) 
                FROM drivers WHERE id = '" . $driver_id . "'");
+    }
+
+    public function api_drop ()
+    {
+        $this -> answer ["error"] = "";
+        $this -> answer ["driver_id"] = "";
+        if (!$this -> data -> is_login(1)) return;
+        if (!$this -> data -> is_param("doc_id")) return;
+        $doc_id = $this -> data -> get ("doc_id");
+        if (!$this -> check_docs ($doc_id)) return;
+
+        $driver_id = $this -> get_driver_by_doc ($doc_id);
+        $this -> answer ["driver_id"] = $driver_id;
+        if (!$this -> is_my_driver ($driver_id))
+            return;
+
+        if (!$this -> delete_file ($doc_id)) {
+            $this -> answer ["error"] = na ("Error deleting file");
+            return;
+        }
+        $this -> delete_base ($doc_id);
+    }
+
+    protected function check_docs ($doc_id)
+    {
+        $count = $this -> db -> scalar (
+            "SELECT COUNT(*)
+               FROM docs
+              WHERE id = '" . $doc_id . "'");
+        if ($count > 0)
+            return true;
+        $this -> answer ["error"] = na ("File already deleted.");
+        return false;
+    }
+
+    protected function get_driver_by_doc ($doc_id)
+    {
+        return $this -> db -> scalar (
+            "SELECT driver_id
+               FROM docs
+              WHERE id = '" . $doc_id . "'");
+    }
+
+    protected function delete_file ($doc_id)
+    {
+        $filename = $this -> db -> scalar (
+            "SELECT filename
+               FROM docs
+              WHERE id = '" . $doc_id . "'");
+        if (!$filename)
+            return true;
+        if (!file_exists(DOCS_DIR . $filename))
+            return true;
+        if (!is_file(DOCS_DIR . $filename))
+            return false;
+        unlink (DOCS_DIR . $filename);
+        return !file_exists(DOCS_DIR . $filename);
+    }
+
+    protected function delete_base ($doc_id)
+    {
+        $this -> db -> query (
+            "DELETE FROM docs
+              WHERE id = '" . $doc_id .
+           "' LIMIT 1");
     }
 }

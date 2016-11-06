@@ -17,3 +17,7 @@
     $lang["This file type not allowed."] ="";
     $lang["Error uploading document"] ="";
     $lang["Document uploaded successfully"] = "";
+    $lang["Error deleting file"] = "";
+    $lang["Document dropping results"] = "";
+    $lang["Document dropped successfully"] = "";
+    $lang["File already deleted."] = "Document not found.";
