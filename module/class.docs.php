@@ -9,10 +9,16 @@ class docs extends Module
         if (!$this -> data -> is_param("driver_id")) return;
         if (!$this -> data -> is_param("info")) return;
         $driver_id = $this -> data -> get ("driver_id");
+        if (!$this -> can_upload ($driver_id)) return;
         $info = $this -> data -> get ("info");
         $filename = $this -> save_file ($driver_id);
         if ($filename == "") return;
         $this -> insert ($driver_id, $filename, $info);
+    }
+
+    protected function can_upload ($driver_id)
+    {
+        
     }
 
     protected function save_file ($driver_id)
@@ -60,8 +66,11 @@ class docs extends Module
         $this -> db -> query ($query);
     }
 
-    public function api_show ()
+    public function api_list ()
     {
+        $this -> answer ["error"] = "";
+        if (!$this -> data -> is_login(1)) return;
+        if (!$this -> data -> is_param("driver_id")) return;
 
     }
 }
