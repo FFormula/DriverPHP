@@ -54,5 +54,8 @@
     $lang["Updated"] = "Изменено";
 
     $lang["Documents"] = "Документы";
+    $lang["Driver name:"] = "Имя водителя:";
+    $lang["No items found"] = "Ничего не найдено";
+    $lang["Results found:"] = "Найдено записей:";
 
 

@@ -53,3 +53,7 @@
     $lang["Updated"] = "";
 
     $lang["Documents"] = "";
+
+    $lang["Driver name:"] = "";
+    $lang["No items found"] = "";
+    $lang["Results found:"] = "";

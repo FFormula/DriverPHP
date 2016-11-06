@@ -22,16 +22,16 @@
         {if $php.count}
             <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert"><i class="glyphicon glyphicon-hand-left"></i> </button>
-                <div>Results found: <span class="badge badge-info">{$php.count}</span></div>
+                <div>{$lang["Results found:"]}<span class="badge badge-info">{$php.count}</span></div>
                   <hr>
                 {if $php.driver_name}
-                    <div class="panel panel-success">Driver name: <strong>{$php.driver_name}</strong> </div>
+                    <div class="panel panel-success">{$lang["Driver name:"]}<strong>{$php.driver_name}</strong> </div>
                 {/if}
             </div>
         {else}
             <div class="alert alert-danger">
                 <button type="button" class="close" data-dismiss="alert"><i class="glyphicon glyphicon-hand-left"></i> </button>
-                <strong>No items found</strong>
+                <strong>{$lang["No items found"]}</strong>
             </div>
 
         {/if}
