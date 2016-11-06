@@ -34,7 +34,8 @@
                     <td class="text-left">
                         <a href="{$php.docs_web}{$row.filename}" target="_blank"><tt>{$row.filename}</tt></a></td>
                     <td class="text-left">{$row.info}</td>
-                    <td class="text-center"><a href="/docs/drop/doc_id={$row.id}" class="btn btn-danger">X</a></td>
+                    <td class="text-center"><a href="/docs/drop/doc_id={$row.id}" class="btn btn-danger"
+                        onclick="return confirm('{$lang["Are you really want to delete this document?"]}');">X</a></td>
                 </tr>
             {/foreach}
             </tbody>

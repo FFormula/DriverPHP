@@ -21,3 +21,4 @@
     $lang["Document dropping results"] = "";
     $lang["Document dropped successfully"] = "";
     $lang["File already deleted."] = "Document not found.";
+    $lang["Are you really want to delete this document?"] = "";

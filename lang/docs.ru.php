@@ -23,3 +23,4 @@
     $lang["Document dropping results"] = "Результат удаления документа";
     $lang["Document dropped successfully"] = "Документ успешно удалён";
     $lang["File already deleted."] = "Документ не найден";
+    $lang["Are you really want to delete this document?"] = "Вы в самом деле хотите удалить этот документ?";
