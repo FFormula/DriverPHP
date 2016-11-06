@@ -3,7 +3,7 @@
 <div class="container">
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title">Document upload results</h3>
+            <h3 class="panel-title">{$lang["Document upload results"]}</h3>
         </div>
         <div class="panel-body">
 
@@ -18,7 +18,7 @@
             {/if}
 
             <div class="text-center">
-                <a href="/driver/info/driver_id={$php.driver_id}" class="btn btn-info">{$lang["Return"]}</a>
+                <a href="/docs/list/driver_id={$php.driver_id}" class="btn btn-info">{$lang["Return"]}</a>
             </div>
 
         </div>

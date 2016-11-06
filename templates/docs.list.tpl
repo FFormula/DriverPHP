@@ -17,7 +17,7 @@
                 {/foreach}
             {/if}
             <br><br>
-            <form class="form-horizontal" method="post" action="/docs/upload/driver_id={$php.info.id}" enctype="multipart/form-data">
+            <form class="form-horizontal" method="post" action="/docs/upload/driver_id={$php.driver_id}" enctype="multipart/form-data">
                 <div class="form-group">
                     <label class="col-md-2 control-label">{$lang["Select file to upload:"]}</label>
                     <div class="col-md-10"><input type="file" name="docfile" class="form-control" /></div>

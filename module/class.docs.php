@@ -24,32 +24,32 @@ class docs extends Module
                FROM drivers
               WHERE id = '" . $driver_id . "'");
         if (!$user_id) {
-            $this -> answer ["error"] = "Driver not found";
+            $this -> answer ["error"] = na("Driver not found");
             return false;
         }
         if ($this -> data -> load ("user") ["status"] == "2")
             return true;
         if ($user_id == $this -> data -> load ("user") ["id"])
             return true;
-        $this -> answer ["error"] = "This driver is not yours";
+        $this -> answer ["error"] = na("This driver is not yours");
         return false;
     }
 
     protected function save_file ($driver_id)
     {
         if (empty($_FILES['docfile']['name'])) {
-            $this->answer ["error"] = "You need to select a file to upload.";
+            $this->answer ["error"] = na("You need to select a file to upload.");
             return "";
         }
         $ext = strtolower(pathinfo(basename($_FILES['docfile']['name']), PATHINFO_EXTENSION));
         if (!$this->allow_ext($ext)) {
-            $this->answer ["error"] = "This file type not allowed.";
+            $this->answer ["error"] = na("This file type not allowed.");
             return "";
         }
         $filename = $driver_id . "_" . date("YmdHis") . "_" . $this->rand_line(12) . "." . $ext;
         if (!move_uploaded_file($_FILES['docfile']['tmp_name'], DOCS_DIR . $filename))
         {
-            $this -> answer ["error"] = "Error uploading document";
+            $this -> answer ["error"] = na("Error uploading document");
             return "";
         }
         return $filename;
@@ -86,6 +86,7 @@ class docs extends Module
         if (!$this -> data -> is_login(1)) return;
         if (!$this -> data -> is_param("driver_id")) return;
         $driver_id = $this -> data -> get ("driver_id");
+        $this -> answer ["driver_id"] = $driver_id;
         if (!$this -> is_my_driver ($driver_id))
             return;
         $query =
