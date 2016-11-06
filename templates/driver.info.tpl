@@ -82,7 +82,7 @@
                     <div class="text-center">
                         <a href="/driver/confirm/driver_id={$php.info.id}/status=drop" class="btn btn-danger"
                            onclick="return confirm('{$lang["Do you really want to delete this record?"]}');"
-                            > <i class="glyphicon glyphicon-remote"></i> &nbsp {$lang["Delete"]}</a>
+                            > <i class="glyphicon glyphicon-remove"></i> &nbsp {$lang["Delete"]}</a>
                     </div>
                     <br/>
                 </div>
