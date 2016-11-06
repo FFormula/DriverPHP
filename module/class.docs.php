@@ -11,11 +11,16 @@ class docs extends Module
         $driver_id = $this -> data -> get ("driver_id");
         $info = $this -> data -> get ("info");
         $filename = $this -> save_file ($driver_id);
+        if ($filename == "") return;
         $this -> insert ($driver_id, $filename, $info);
     }
 
     protected function save_file ($driver_id)
     {
+        if (empty($_FILES['docfile']['name'])) {
+            $this->answer ["error"] = "You need to select a file to upload.";
+            return "";
+        }
         $ext = strtolower(pathinfo(basename($_FILES['docfile']['name']), PATHINFO_EXTENSION));
         if (!$this->allow_ext($ext)) {
             $this->answer ["error"] = "This file type not allowed.";
