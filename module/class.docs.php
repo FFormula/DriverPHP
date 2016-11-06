@@ -20,7 +20,7 @@ class docs extends Module
     {
         $user_id = $this -> db -> scalar (
             "SELECT user_id 
-               FROM driver 
+               FROM drivers
               WHERE id = '" . $driver_id . "'");
         if (!$user_id) {
             $this -> answer ["error"] = "Driver not found";
@@ -94,6 +94,6 @@ class docs extends Module
         "' ORDER BY id DESC";
 
         $list = $this -> db -> select ($query);
-        $this -> answer ("list") = $list;
+        $this -> answer ["list"] = $list;
     }
 }
