@@ -62,5 +62,11 @@ logs/
 templates_c/
 config.php
 
-#docs dir
+# docs dir
 docfiles/
+
+# local user dictionaries
+.idea/dictionaries/
+
+# idea iml files
+.idea/*.iml
