@@ -96,6 +96,7 @@ class docs extends Module
         "' ORDER BY id DESC";
 
         $list = $this -> db -> select ($query);
+        $this -> answer ["docs_web"] = DOCS_WEB;
         $this -> answer ["list"] = $list;
         $this -> answer ["count"] = count($list);
     }

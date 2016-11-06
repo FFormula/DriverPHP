@@ -11,10 +11,27 @@
             {if $php.count == 0}
                 {$lang["There are no documents."]}
             {else}
-                {foreach from=$php.list item=row}
-                    {$row.id}. <a href="{$row.filename}"
-                >{if $row.info}$row.info{else}untitled{/if}</a><br>
-                {/foreach}
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                    <tr class="bg-primary">
+                        <th class="text-center">{$lang["#"]}</th>
+                        <th class="text-center">{$lang["Name"]}</th>
+                        <th class="text-center">{$lang["Info"]}</th>
+                        <th class="text-center">{$lang["Action"]}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach from=$php.list item=row}
+                        <tr>
+                            <td class="text-center"
+                                ><a href="{$php.docs_web}{$row.filename}" class="btn btn-info">{$row.id}</a></td>
+                            <td class="text-left"><tt>{$row.filename}</tt></td>
+                            <td class="text-left">{$row.info}</td>
+                            <td class="text-center"><a href="/docs/drop/doc_id={$row.id}" class="btn btn-danger">X</a></td>
+                        </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
             {/if}
             <br><br>
             <form class="form-horizontal" method="post" action="/docs/upload/driver_id={$php.driver_id}" enctype="multipart/form-data">
