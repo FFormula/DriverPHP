@@ -73,10 +73,12 @@
                     {/if}
                     <div class="text-center">
                         <a href="/docs/list/driver_id={$php.info.id}" class="btn btn-info"
-                            >{$lang["Documents"]}</a>
+                            ><i class="glyphicon glyphicon-folder-open"></i> {$lang["Documents"]}</a>
                         <br>
                     </div>
-
+                    <div>
+                        <hr>
+                    </div>
                     <div class="text-center">
                         <a href="/driver/confirm/driver_id={$php.info.id}/status=drop" class="btn btn-danger"
                            onclick="return confirm('{$lang["Do you really want to delete this record?"]}');"
