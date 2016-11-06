@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/php-debug-demo.iml" filepath="$PROJECT_DIR$/.idea/php-debug-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/www.iml" filepath="$PROJECT_DIR$/.idea/www.iml" />
     </modules>
   </component>
 </project>

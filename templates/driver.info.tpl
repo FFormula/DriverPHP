@@ -74,6 +74,7 @@
                     <div class="text-center">
                         <a href="/docs/list/driver_id={$php.info.id}" class="btn btn-info"
                             >{$lang["Documents"]}</a>
+                        <br>
                     </div>
 
                     <div class="text-center">

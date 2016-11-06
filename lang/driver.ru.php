@@ -52,3 +52,5 @@
     $lang["The same driver already exists"] = "Водитель с точно такими же данными уже зарегистрирован";
     $lang["Added"] = "Добавлено";
     $lang["Updated"] = "Изменено";
+
+    $lang["Documents"] = "Документы";
