@@ -12,3 +12,7 @@
     define ("DB_PORT", "3306");
 
     define ("SMARTY_TEMPLATES_DIR", "templates");
+
+    define ("DOCS_DIR", "G:\\php-debug-demo\\docfiles\\");
+    define ("DOCS_WEB", "/docfiles/");
+    define ("DOCS_EXTS", "jpg,jpeg,png,pdf");

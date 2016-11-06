@@ -65,6 +65,27 @@
             <a href="/driver/confirm/driver_id={$php.info.id}/status=drop" class="btn btn-danger"
                onclick="return confirm('{$lang["Do you really want to delete this record?"]}');"
                 >{$lang["Delete"]}</a>
+
+            <br><br>
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Driver's documents</h3>
+                </div>
+                <div class="panel-body">
+                    There are no documents.
+                    <br><br>
+                    <form method="post" action="/docs/upload/driver_id={$php.info.id}" enctype="multipart/form-data">
+                        Uploading JPG or PDF file:
+                        <input type="file" name="docfile" class="form-control" />
+                        <br>
+                        File description:
+                        <input type="text" name="info" class="form-control" />
+                        <br>
+                        <input type="submit" class="btn btn-warning" value="Upload File" />
+                    </form>
+                </div>
+            </div>
+
 {/if}
         </div>
     </div>
