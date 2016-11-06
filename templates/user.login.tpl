@@ -8,9 +8,6 @@
         <div class="panel-body">
 {if $php.logged}
             {$lang["You are logged in"]}
-            <script>
-                setTimeout(function(){ document.location = '/driver/find'; }, 1500);
-            </script>
 {else}
             {if $php.error}
                 <div class="panel panel-danger">
