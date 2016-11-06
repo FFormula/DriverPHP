@@ -1,7 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Jevgenij
- * Date: 06.11.2016
- * Time: 14:17
- */
+ $lang["There are no documents."]="Документов нет.";
+$lang["File description:"]="Описание файла: ";
+$lang["Select file to upload:"]="Выберите файл для загрузки: ";
+
+
+
+

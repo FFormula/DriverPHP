@@ -82,18 +82,18 @@
 
             <div class="panel panel-warning">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Driver's documents</h3>
+                    <h3 class="panel-title">{$lang["Driver's documents"]}</h3>
                 </div>
                 <div class="panel-body">
-                    There are no documents.
+                     {$lang["There are no documents."]}
                     <br><br>
                     <form class="form-horizontal" method="post" action="/docs/upload/driver_id={$php.info.id}" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label class="col-md-2 control-label">Select file to upload:</label>
+                            <label class="col-md-2 control-label">{$lang["Select file to upload:"]}</label>
                             <div class="col-md-10"><input type="file" name="docfile" class="form-control" /></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-2 control-label">File description:</label>
+                            <label class="col-md-2 control-label">{$lang["File description:"]}</label>
                             <div class="col-md-10"><input type="text" name="info" class="form-control" /></div>
                         </div>
                         <div class="form-group">
