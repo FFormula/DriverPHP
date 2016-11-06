@@ -9,6 +9,7 @@ class docs extends Module
         if (!$this -> data -> is_param("driver_id")) return;
         if (!$this -> data -> is_param("info")) return;
         $driver_id = $this -> data -> get ("driver_id");
+        $this -> answer ["driver_id"] = $driver_id;
         if (!$this -> is_my_driver ($driver_id)) return;
         $info = $this -> data -> get ("info");
         $filename = $this -> save_file ($driver_id);
@@ -95,5 +96,6 @@ class docs extends Module
 
         $list = $this -> db -> select ($query);
         $this -> answer ["list"] = $list;
+        $this -> answer ["count"] = count($list);
     }
 }

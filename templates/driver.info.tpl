@@ -85,7 +85,15 @@
                     <h3 class="panel-title">{$lang["Driver's documents"]}</h3>
                 </div>
                 <div class="panel-body">
-                     {$lang["There are no documents."]}
+
+            {if $php.count == 0}
+                    {$lang["There are no documents."]}
+            {else}
+                {foreach from=$php.list item=row}
+                    {$row.id}. <a href="{$row.filename}"
+                        >{if $row.info}$row.info{else}untitled{/if}</a><br>
+                {/foreach}
+            {/if}
                     <br><br>
                     <form class="form-horizontal" method="post" action="/docs/upload/driver_id={$php.info.id}" enctype="multipart/form-data">
                         <div class="form-group">
