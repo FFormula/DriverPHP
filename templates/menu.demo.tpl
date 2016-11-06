@@ -12,8 +12,15 @@
                 </div>
                 <div class="collapse navbar-collapse" id="MyTopMenu">
                     <ul class="nav navbar-nav">
-                        <li{if $menu == "driver/find"} class="active"{/if}><a href="/driver/find" title="{$lang["FIND"]}">{$lang["FIND"]}</a></li>
-                        <li{if $menu == "user/insert"} class="active"{/if}><a href="/user/insert" title="{$lang["JOIN"]}">{$lang["JOIN"]}</a></li>
+                        <li{if $menu == "driver/find"} class="active"{/if}>
+                            <a href="/driver/find" title="{$lang["FIND"]}">
+                                <i class="glyphicon glyphicon-search"></i>&nbsp&nbsp{$lang["FIND"]}</a>
+                         </li>
+                        <li{if $menu == "user/insert"} class="active"{/if}>
+                           <a href="/user/insert" title="{$lang["JOIN"]}">
+                               <i class="glyphicon glyphicon-user"></i>&nbsp&nbsp{$lang["JOIN"]}
+                            </a>
+                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li{if $menu == "user/login"} class="active"{/if}>
