@@ -16,6 +16,7 @@
                 <th class="text-center">{$lang["#"]}</th>
                 <th class="text-center">{$lang["Name"]}</th>
                 <th class="text-center">{$lang["Info"]}</th>
+                <th class="text-center">{$lang["Documents"]}</th>
         {if $user.status == 1}
                 <th class="text-center">{$lang["Status"]}</th>
         {else}
@@ -29,6 +30,8 @@
                 <td class="text-center"><a href="/driver/info/driver_id={$row.id}" class="btn btn-info">{$row.id}</a></td>
                 <td class="text-left">{$row.last_name} {$row.first_name} {$row.father_name}</td>
                 <td class="text-left">{$row.info}</td>
+                <td class="text-center"><a href="/docs/list/driver_id={$row.id}" class="btn btn-default"
+                    >{if $row.docs}{$row.docs}{else}-{/if}</a></td>
             {if $user.status == 1}
                 <td class="text-center">{$lang["status`$row.status`"]}</td>
             {else}

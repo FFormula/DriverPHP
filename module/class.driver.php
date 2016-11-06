@@ -213,11 +213,15 @@ class driver extends Module
                     last_name, first_name, father_name,
                     passport_serial, passport_number,
                     drivers.status, drivers.info,
-                    users.name user_name
+                    users.name user_name,
+                    COUNT(docs.id) docs
                FROM drivers 
                JOIN users 
                  ON drivers.user_id = users.id 
+          LEFT JOIN docs 
+                 ON drivers.id = docs.driver_id  
               WHERE $user_cond
+           GROUP BY drivers.id
            ORDER BY id DESC";
         $this -> answer ["list"] = $this -> db -> select ($query);
     }
