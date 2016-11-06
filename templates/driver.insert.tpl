@@ -11,7 +11,7 @@
                 {$lang["Driver added."]}
                 <br><br>
                 <a href="/driver/info/driver_id={$php.driver_id}" class="btn btn-info"
-                    >{$lang["Open card"]}</a>
+                    ><i class="glyphicon glyphicon-open-file"></i>&nbsp&nbsp{$lang["Open card"]}</a>
             {else}
                 {if $php.error}
                     <div class="panel panel-danger">
