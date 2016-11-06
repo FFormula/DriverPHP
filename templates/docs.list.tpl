@@ -14,8 +14,13 @@
     </div>
 
     {if $php.count == 0}
-        {$lang["There are no documents."]}
-        <br><br>
+        <div class="panel-body">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{$lang["There are no documents."]}</h3>
+                </div>
+            </div>
+        </div>
     {else}
         <table class="table table-bordered table-hover table-striped">
             <thead>
