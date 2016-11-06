@@ -5,3 +5,5 @@
     $lang ["LOGIN"] = "LOGIN";
     $lang ["LOGOUT"] = "LOGOUT";
     $lang ["REGISTER"] = "REGISTER";
+    $lang ["user_status_1"] = "Operator";
+    $lang ["user_status_2"] = "Admin";

@@ -18,7 +18,11 @@
                         <li{if $menu == "driver/insert"} class="active"{/if}><a href="/driver/insert" title="{$lang["ADD NEW"]}">{$lang["ADD NEW"]}</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li{if $menu == "user/logout"} class="active"{/if}><a href="/user/logout" title="{$lang["LOGOUT"]}"><b>{$user.name}</b> / {$lang["LOGOUT"]}</a></li>
+                        <li{if $menu == "user/logout"} class="active"{/if}>
+                            <a href="/user/logout" title="{$lang["LOGOUT"]}"
+                            ><b>{$lang["user_status_`$user.status`"]} {$user.name}</b> /
+                            {$lang["LOGOUT"]}</a>
+                        </li>
                     </ul>
                 </div>
             </div>
