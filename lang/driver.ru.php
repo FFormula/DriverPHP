@@ -52,3 +52,7 @@
     $lang["The same driver already exists"] = "Водитель с точно такими же данными уже зарегистрирован";
     $lang["Added"] = "Добавлено";
     $lang["Updated"] = "Изменено";
+    $lang["There are no documents."]="Документов нет.";
+    $lang["File description:"]="Описание файла: ";
+    $lang["Select file to upload:"]="Выберите файл для загрузки: ";
+    $lang["Driver's documents"]="Документы водителей";
