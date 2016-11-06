@@ -20,7 +20,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li{if $menu == "user/logout"} class="active"{/if}>
                             <a href="/user/logout" title="{$lang["LOGOUT"]}"
-                            ><b>{$lang["user_status_`$user.status`"]} {$user.name}</b> /
+                            ><b><i class="glyphicon glyphicon-user"></i>&nbsp&nbsp{$lang["user_status_`$user.status`"]} {$user.name}</b> /
                                 <i class="glyphicon glyphicon-log-out"></i>&nbsp&nbsp{$lang["LOGOUT"]}</a>
                         </li>
                     </ul>
