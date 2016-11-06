@@ -314,10 +314,10 @@ class driver extends Module
                   WHERE status = 2
                     AND $in_ids
                         (last_name = '" . $word . "' OR 
-                         first_name = '" . $word . "' OR
-                         father_name = '" . $word . "' OR 
                          passport_serial = '" . $word . "' OR 
                          passport_number = '" . $word . "')";
+//            first_name = '" . $word . "' OR
+//            father_name = '" . $word . "' OR
             $list = $this -> db -> select ($query);
             $ids = "";
             $count = count ($list);
