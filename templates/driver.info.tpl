@@ -74,14 +74,20 @@
                 <div class="panel-body">
                     There are no documents.
                     <br><br>
-                    <form method="post" action="/docs/upload/driver_id={$php.info.id}" enctype="multipart/form-data">
-                        Uploading JPG or PDF file:
-                        <input type="file" name="docfile" class="form-control" />
-                        <br>
-                        File description:
-                        <input type="text" name="info" class="form-control" />
-                        <br>
-                        <input type="submit" class="btn btn-warning" value="Upload File" />
+                    <form class="form-horizontal" method="post" action="/docs/upload/driver_id={$php.info.id}" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Select file to upload:</label>
+                            <div class="col-md-10"><input type="file" name="docfile" class="form-control" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">File description:</label>
+                            <div class="col-md-10"><input type="text" name="info" class="form-control" /></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-5 col-md-7">
+                                <div class="col-md-2 text-left"><input type="submit" class="btn btn-warning" value="Upload File" /></div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
