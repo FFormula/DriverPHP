@@ -18,7 +18,7 @@
             {/if}
 
             <div class="text-center">
-                <a href="/driver/list" class="btn btn-info">{$lang["Return"]}</a>
+                <a href="/driver/list" class="btn btn-info">Return</a>
             </div>
 
         </div>
