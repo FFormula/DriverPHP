@@ -13,7 +13,8 @@
                     <h3 class="panel-title">{$php.error}</h3>
                 </div>
             </div>
-            <a href="/driver/list" class="btn btn-info">{$lang["Return"]}</a>
+            <a href="/driver/list" class="btn btn-info"
+            ><i class="glyphicon glyphicon-open"></i>&nbsp&nbsp{$lang["Return"]}</a>
 {else}
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-8">
