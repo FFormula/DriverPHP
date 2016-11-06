@@ -14,18 +14,25 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-5 col-md-7">
-                        <div class="col-md-2 text-center"><input type="submit" class="btn btn-primary" value="{$lang["Find"]}" /></div>
+                        <div class="col-md-2 text-center">
+                            <button type="submit" class="btn btn-primary" title="{$lang["Find"]}" />
+                                  <i class="glyphicon glyphicon-search"> </i> &nbsp&nbsp {$lang["Find"]}
+                            </button></div>
                     </div>
                 </div>
             </form>
     {if $php.by != ""}
         {if $php.count}
-            <div class="alert alert-success">
+            <div class="alert alert-info">
                 <button type="button" class="close" data-dismiss="alert"><i class="glyphicon glyphicon-hand-left"></i> </button>
-                <div>{$lang["Results found:"]}<span class="badge badge-info">{$php.count}</span></div>
+                  <div>
+                      <button class="btn btn-primary" type="button">
+                         {$lang["Results found:"]} &nbsp&nbsp <span class="badge badge-info">{$php.count}</span>
+                      </button>
+                  </div>
                   <hr>
                 {if $php.driver_name}
-                    <div class="panel panel-success">{$lang["Driver name:"]}<strong>{$php.driver_name}</strong> </div>
+                    {$lang["Driver name:"]}<strong>{$php.driver_name}</strong>
                 {/if}
             </div>
         {else}
