@@ -103,7 +103,8 @@ class driver extends Module
         $this -> db -> query ($query);
         $this -> answer ["driver_id"] = $this -> db -> insert_id ();
     }
-/*
+
+    /*
     public function api_update ()
     {
         if (!$this -> data -> is_login (2)) return;
@@ -141,11 +142,24 @@ class driver extends Module
 
     protected function delete ($driver_id)
     {
+        if ($this -> has_docs ($driver_id)) {
+            $this -> answer ["message"] = na ("Cannot delete this driver, because he has documents");
+            return;
+        }
         if ($this->data->load("user") ["status"] == "2") // admin
             $this -> admin_delete ($driver_id);
         else
             $this -> oper_delete ($driver_id);
         $this -> answer ["message"] = na("Driver deleted");
+    }
+
+    protected function has_docs ($driver_id)
+    {
+        $count = $this -> db -> scalar (
+            "SELECT COUNT(*) 
+               FROM docs 
+              WHERE driver_id = '" . $driver_id . "'");
+        return ($count > 0);
     }
 
     protected function admin_delete ($driver_id)

@@ -57,3 +57,5 @@
     $lang["Driver name:"] = "";
     $lang["No items found"] = "";
     $lang["Results found:"] = "";
+
+    $lang["Cannot delete this driver, because he has documents"] = "";

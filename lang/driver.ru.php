@@ -58,4 +58,6 @@
     $lang["No items found"] = "Ничего не найдено";
     $lang["Results found:"] = "Найдено записей:";
 
+    $lang["Cannot delete this driver, because he has documents"] = "Нет возможности удалить карточку водителя. Сначала необходимо удалить все загруженные документы.";
+
 
