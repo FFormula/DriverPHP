@@ -1,7 +1,8 @@
 <?php
- $lang["There are no documents."]="Äîêóìåíòîâ íåò.";
-$lang["File description:"]="Îïèñàíèå ôàéëà: ";
-$lang["Select file to upload:"]="Âûáåðèòå ôàéë äëÿ çàãðóçêè: ";
+ $lang["There are no documents."]="Ð”Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð½ÐµÑ‚.";
+$lang["File description:"]="ÐžÐ¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ñ„Ð°Ð¹Ð»Ð°: ";
+$lang["Select file to upload:"]="Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ñ„Ð°Ð¹Ð» Ð´Ð»Ñ Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸: ";
+$lang["Driver's documents"]="Ð”Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ñ‹ Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»ÐµÐ¹";
 
 
 
