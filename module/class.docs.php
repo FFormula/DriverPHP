@@ -87,6 +87,7 @@ class docs extends Module
         if (!$this -> data -> is_param("driver_id")) return;
         $driver_id = $this -> data -> get ("driver_id");
         $this -> answer ["driver_id"] = $driver_id;
+        $this -> get_driver_name ($driver_id);
         if (!$this -> is_my_driver ($driver_id))
             return;
         $query =
@@ -99,5 +100,12 @@ class docs extends Module
         $this -> answer ["docs_web"] = DOCS_WEB;
         $this -> answer ["list"] = $list;
         $this -> answer ["count"] = count($list);
+    }
+
+    protected function get_driver_name ($driver_id)
+    {
+        $this -> answer ["driver_name"] = $this -> db -> scalar (
+            "SELECT CONCAT(last_name, ' ', first_name, ' ', father_name) 
+               FROM drivers WHERE id = '" . $driver_id . "'");
     }
 }

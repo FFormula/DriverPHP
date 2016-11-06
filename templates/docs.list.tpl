@@ -4,36 +4,43 @@
 
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title">{$lang["Driver's documents"]}</h3>
+            <h3 class="panel-title"
+                ><strong>{$php.driver_name}</strong> - {$lang["Driver's documents"]}</h3>
+        </div>
+    </div>
+
+    {if $php.count == 0}
+        {$lang["There are no documents."]}
+    {else}
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+            <tr class="bg-primary">
+                <th class="text-center">{$lang["#"]}</th>
+                <th class="text-center">{$lang["Name"]}</th>
+                <th class="text-center">{$lang["Info"]}</th>
+                <th class="text-center">{$lang["Action"]}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {foreach from=$php.list item=row}
+                <tr>
+                    <td class="text-center"
+                        ><a href="{$php.docs_web}{$row.filename}" class="btn btn-info" target="_blank">{$row.id}</a></td>
+                    <td class="text-left">
+                        <a href="{$php.docs_web}{$row.filename}" target="_blank"><tt>{$row.filename}</tt></a></td>
+                    <td class="text-left">{$row.info}</td>
+                    <td class="text-center"><a href="/docs/drop/doc_id={$row.id}" class="btn btn-danger">X</a></td>
+                </tr>
+            {/foreach}
+            </tbody>
+        </table>
+    {/if}
+
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h3 class="panel-title">{$lang["Upload document"]}</h3>
         </div>
         <div class="panel-body">
-
-            {if $php.count == 0}
-                {$lang["There are no documents."]}
-            {else}
-                <table class="table table-bordered table-hover table-striped">
-                    <thead>
-                    <tr class="bg-primary">
-                        <th class="text-center">{$lang["#"]}</th>
-                        <th class="text-center">{$lang["Name"]}</th>
-                        <th class="text-center">{$lang["Info"]}</th>
-                        <th class="text-center">{$lang["Action"]}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {foreach from=$php.list item=row}
-                        <tr>
-                            <td class="text-center"
-                                ><a href="{$php.docs_web}{$row.filename}" class="btn btn-info">{$row.id}</a></td>
-                            <td class="text-left"><tt>{$row.filename}</tt></td>
-                            <td class="text-left">{$row.info}</td>
-                            <td class="text-center"><a href="/docs/drop/doc_id={$row.id}" class="btn btn-danger">X</a></td>
-                        </tr>
-                    {/foreach}
-                    </tbody>
-                </table>
-            {/if}
-            <br><br>
             <form class="form-horizontal" method="post" action="/docs/upload/driver_id={$php.driver_id}" enctype="multipart/form-data">
                 <div class="form-group">
                     <label class="col-md-2 control-label">{$lang["Select file to upload:"]}</label>
