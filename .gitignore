@@ -67,6 +67,3 @@ docfiles/
 
 # local user dictionaries
 .idea/dictionaries/
-
-# idea iml files
-.idea/*.iml
