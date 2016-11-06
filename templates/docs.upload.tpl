@@ -14,7 +14,7 @@
                     </div>
                 </div>
             {else}
-
+                {$lang["Document uploaded successfully"]}
             {/if}
 
             <div class="text-center">
