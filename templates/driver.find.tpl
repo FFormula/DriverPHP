@@ -25,15 +25,16 @@
         {if $php.count}
             <div class="alert alert-info">
                 <button type="button" class="close" data-dismiss="alert"><i class="glyphicon glyphicon-hand-left"></i> </button>
-                  <div>
-                      <button class="btn btn-primary" type="button">
-                         {$lang["Results found:"]} &nbsp&nbsp <span class="badge badge-info">{$php.count}</span>
-                      </button>
-                  </div>
-                  <hr>
-                {if $php.driver_name}
-                    {$lang["Driver name:"]}<strong>{$php.driver_name}</strong>
+
+                <dl class="dl-horizontal">
+                    <dt>{$lang["Results found:"]}</dt>
+                    <dd>{$php.count}</dd>
+                    
+               {if $php.driver_name}
+                        <dt>{$lang["Driver name:"]}</dt>
+                        <dd>{$php.driver_name}</dd>
                 {/if}
+                </dl>
             </div>
         {else}
             <div class="alert alert-danger">
