@@ -60,20 +60,20 @@
                         {if $php.info.status == 1}
                             <div class="text-center">
                                 <a href="/driver/confirm/driver_id={$php.info.id}/status=2" class="btn btn-success"
-                                >{$lang["Confirm"]}</a>
+                                ><i class="glyphicon glyphicon-ok"></i> &nbsp {$lang["Confirm"]}</a>
                             </div>
                             <br/>
                         {else}
                             <div class="text-center">
                                 <a href="/driver/confirm/driver_id={$php.info.id}/status=1" class="btn btn-warning"
-                                >{$lang["UnConfirm"]}</a>
+                                ><i class="glyphicon glyphicon-alert"></i> &nbsp {$lang["UnConfirm"]}</a>
                             </div>
                             <br/>
                         {/if}
                     {/if}
                     <div class="text-center">
                         <a href="/docs/list/driver_id={$php.info.id}" class="btn btn-info"
-                            ><i class="glyphicon glyphicon-folder-open"></i> {$lang["Documents"]}</a>
+                            ><i class="glyphicon glyphicon-folder-open"></i> &nbsp {$lang["Documents"]}</a>
                         <br>
                     </div>
                     <div>
@@ -82,7 +82,7 @@
                     <div class="text-center">
                         <a href="/driver/confirm/driver_id={$php.info.id}/status=drop" class="btn btn-danger"
                            onclick="return confirm('{$lang["Do you really want to delete this record?"]}');"
-                            >{$lang["Delete"]}</a>
+                            > <i class="glyphicon glyphicon-remote"></i> &nbsp {$lang["Delete"]}</a>
                     </div>
                     <br/>
                 </div>
