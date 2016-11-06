@@ -9,16 +9,29 @@ class docs extends Module
         if (!$this -> data -> is_param("driver_id")) return;
         if (!$this -> data -> is_param("info")) return;
         $driver_id = $this -> data -> get ("driver_id");
-        if (!$this -> can_upload ($driver_id)) return;
+        if (!$this -> is_my_driver ($driver_id)) return;
         $info = $this -> data -> get ("info");
         $filename = $this -> save_file ($driver_id);
         if ($filename == "") return;
         $this -> insert ($driver_id, $filename, $info);
     }
 
-    protected function can_upload ($driver_id)
+    protected function is_my_driver ($driver_id)
     {
-        
+        $user_id = $this -> db -> scalar (
+            "SELECT user_id 
+               FROM driver 
+              WHERE id = '" . $driver_id . "'");
+        if (!$user_id) {
+            $this -> answer ["error"] = "Driver not found";
+            return false;
+        }
+        if ($this -> data -> load ("user") ["status"] == "2")
+            return true;
+        if ($user_id == $this -> data -> load ("user") ["id"])
+            return true;
+        $this -> answer ["error"] = "This driver is not yours";
+        return false;
     }
 
     protected function save_file ($driver_id)
@@ -71,6 +84,16 @@ class docs extends Module
         $this -> answer ["error"] = "";
         if (!$this -> data -> is_login(1)) return;
         if (!$this -> data -> is_param("driver_id")) return;
+        $driver_id = $this -> data -> get ("driver_id");
+        if (!$this -> is_my_driver ($driver_id))
+            return;
+        $query =
+            "SELECT id, filename, info
+               FROM docs
+              WHERE driver_id = '" . $driver_id .
+        "' ORDER BY id DESC";
 
+        $list = $this -> db -> select ($query);
+        $this -> answer ("list") = $list;
     }
 }
