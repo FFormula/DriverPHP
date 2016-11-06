@@ -16,3 +16,4 @@
     define ("DOCS_DIR", "G:\\php-debug-demo\\docfiles\\");
     define ("DOCS_WEB", "/docfiles/");
     define ("DOCS_EXTS", "jpg,jpeg,png,pdf");
+    define ("LANG_DEFAULT", "en");

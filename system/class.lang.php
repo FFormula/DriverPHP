@@ -3,7 +3,7 @@
 function lang_load ($module)
 {
     global $lang;
-    $lg = "ru";
+    $lg = LANG_DEFAULT;
     include ROOT . "lang/" . $module . "." . $lg . ".php";
     foreach ($lang as $name => $value)
         if ($value == "")
