@@ -106,7 +106,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-5 col-md-7">
-                                <div class="col-md-2 text-left"><input type="submit" class="btn btn-warning" value="Upload File" /></div>
+                                <div class="col-md-2 text-left"><input type="submit" class="btn btn-warning" value="{$lang["Upload File"]}" /></div>
                             </div>
                         </div>
                     </form>
