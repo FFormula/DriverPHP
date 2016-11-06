@@ -12,6 +12,10 @@ class docs extends Module
         $this -> answer ["driver_id"] = $driver_id;
         if (!$this -> is_my_driver ($driver_id)) return;
         $info = $this -> data -> get ("info");
+        if ($info == "") {
+            $this -> answer ["error"] = na("File description missed");
+            return;
+        }
         $filename = $this -> save_file ($driver_id);
         if ($filename == "") return;
         $this -> insert ($driver_id, $filename, $info);

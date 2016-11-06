@@ -22,3 +22,5 @@
     $lang["Document dropped successfully"] = "";
     $lang["File already deleted."] = "Document not found.";
     $lang["Are you really want to delete this document?"] = "";
+    $lang["You need to select a file to upload."] = "";
+    $lang["File description missed"] = "";
