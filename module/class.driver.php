@@ -251,12 +251,16 @@ class driver extends Module
             return;
         }
         $query =
-            "SELECT id, insert_date, update_date, 
+            "SELECT drivers.id, 
+                    drivers.insert_date, drivers.update_date, 
                     last_name, first_name, father_name,
                     passport_serial, passport_number,
-                    status, info
+                    drivers.status, drivers.info,
+                    users.name user_name
                FROM drivers 
-              WHERE id = '" . $this -> data -> get ("driver_id") . "'
+               JOIN users 
+                 ON drivers.user_id = users.id
+              WHERE drivers.id = '" . $this -> data -> get ("driver_id") . "'
                 AND user_id = '" . $this -> data -> load ("user") ["id"] . "'";
         return $this -> db -> select ($query);
     }
@@ -265,12 +269,16 @@ class driver extends Module
     {
         if (!$this -> data -> is_login (2)) return;
         $query =
-            "SELECT id, insert_date, update_date, 
+            "SELECT drivers.id, 
+                    drivers.insert_date, drivers.update_date, 
                     last_name, first_name, father_name,
                     passport_serial, passport_number,
-                    status, info
+                    drivers.status, drivers.info,
+                    users.name user_name
                FROM drivers 
-              WHERE id = '" . $this -> data -> get ("driver_id") . "'";
+               JOIN users 
+                 ON drivers.user_id = users.id
+              WHERE drivers.id = '" . $this -> data -> get ("driver_id") . "'";
         return $this -> db -> select ($query);
     }
 

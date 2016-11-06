@@ -43,10 +43,12 @@
 
     $lang["#"] = "№";
     $lang["Name"] = "Ф. И. О.";
-    $lang["Info"] = "Доп. инфо";
+    $lang["Info"] = "Описание";
     $lang["Status"] = "Статус";
     $lang["Owner"] = "Оператор";
 
     $lang["Open card"] = "Открыть карточку";
 
     $lang["The same driver already exists"] = "Водитель с точно такими же данными уже зарегистрирован";
+    $lang["Added"] = "Добавлено";
+    $lang["Updated"] = "Изменено";

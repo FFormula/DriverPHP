@@ -49,3 +49,5 @@
     $lang["Open card"] = "";
 
     $lang["The same driver already exists"] = "";
+    $lang["Added"] = "";
+    $lang["Updated"] = "";

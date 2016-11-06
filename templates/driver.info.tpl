@@ -21,6 +21,12 @@
                 <dd>{$php.info.id}</dd>
                 <dt>{$lang["Status:"]}</dt>
                 <dd>{$php.info.status_text}</dd>
+                <dt>{$lang["Owner"]}:</dt>
+                <dd>{$php.info.user_name}</dd>
+                <dt>{$lang["Added"]}:</dt>
+                <dd>{$php.info.insert_date}</dd>
+                <dt>{$lang["Updated"]}:</dt>
+                <dd>{$php.info.update_date}</dd>
             </dl>
 
             <dl class="dl-horizontal">
