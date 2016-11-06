@@ -1,6 +1,6 @@
 {include file="head.tpl"}
 
-<div class="container" xmlns="http://www.w3.org/1999/html">
+<div class="container">
     <div class="panel panel-info">
         <div class="panel-heading">
             <h3 class="panel-title">{$lang["Login existing user"]}</h3>

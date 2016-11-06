@@ -17,7 +17,8 @@
                         <div class="col-md-2 text-center">
                             <button type="submit" class="btn btn-primary" title="{$lang["Find"]}" />
                                   <i class="glyphicon glyphicon-search"></i>&nbsp&nbsp{$lang["Find"]}
-                            </button></div>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </form>
