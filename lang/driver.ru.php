@@ -24,11 +24,11 @@
     $lang["ID:"] = "№";
     $lang["Status:"] = "Статус:";
     $lang["Confirm"] = "Подтвердить";
-    $lang["UnConfirm"] = "Отменить";
+    $lang["UnConfirm"] = "На проверку";
     $lang["Delete"] = "Удалить запись";
 
     $lang["status1"] = "Ожидание";
-    $lang["status2"] = "Одобрено";
+    $lang["status2"] = "Проверено";
 
     $lang["Driver status changed"] = "Статус водителя изменён";
     $lang["Driver deleted"] = "Карточка водителя удалена";
