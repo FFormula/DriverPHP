@@ -21,7 +21,7 @@
                         <li{if $menu == "user/logout"} class="active"{/if}>
                             <a href="/user/logout" title="{$lang["LOGOUT"]}"
                             ><b>{$lang["user_status_`$user.status`"]} {$user.name}</b> /
-                            {$lang["LOGOUT"]}</a>
+                                <i class="glyphicon glyphicon-log-out"></i>&nbsp&nbsp{$lang["LOGOUT"]}</a>
                         </li>
                     </ul>
                 </div>

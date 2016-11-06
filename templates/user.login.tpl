@@ -1,6 +1,6 @@
 {include file="head.tpl"}
 
-<div class="container">
+<div class="container" xmlns="http://www.w3.org/1999/html">
     <div class="panel panel-info">
         <div class="panel-heading">
             <h3 class="panel-title">{$lang["Login existing user"]}</h3>
@@ -27,7 +27,11 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-5 col-md-7">
-                        <div class="col-md-2 text-left"><input type="submit" value="{$lang["Login"]}" class="btn btn-primary" /></div>
+                        <div class="col-md-2 text-left">
+                            <button type="submit" title="{$lang["Login"]}" class="btn btn-primary" />
+                              <i class="glyphicon glyphicon-log-in"></i>&nbsp&nbsp{$lang["Login"]}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </form>

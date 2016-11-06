@@ -32,7 +32,11 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-5 col-md-7">
-                        <div class="col-md-2 text-left"><input type="submit" value="{$lang["Add user"]}" class="btn btn-warning" /></div>
+                        <button class="col-md-2 text-left">
+                            <button type="submit" title="{$lang["Add user"]}" class="btn btn-warning" />
+                               <i class="glyphicon glyphicon-user"></i>&nbsp&nbsp{$lang["Add user"]}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </form>

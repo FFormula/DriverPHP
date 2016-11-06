@@ -16,7 +16,11 @@
                         <li{if $menu == "user/insert"} class="active"{/if}><a href="/user/insert" title="{$lang["JOIN"]}">{$lang["JOIN"]}</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li{if $menu == "user/login"} class="active"{/if}><a href="/user/login" title="{$lang["LOGIN"]}">{$lang["LOGIN"]}</a></li>
+                        <li{if $menu == "user/login"} class="active"{/if}>
+                            <a href="/user/login" title="{$lang["LOGIN"]}">
+                                <i class="glyphicon glyphicon-log-in"></i>&nbsp&nbsp{$lang["LOGIN"]}
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
