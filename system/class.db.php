@@ -46,6 +46,11 @@ class DB
         return $result;
     }
 
+    public function insert_id ()
+    {
+        return $this -> mi -> insert_id;
+    }
+
     /**
      * Fetch rows from the database (SELECT query)
      *

@@ -39,3 +39,13 @@
 
     $lang["The list is empty"] = "";
     $lang["This driver is not yours"] = "";
+
+    $lang["#"] = "";
+    $lang["Name"] = "";
+    $lang["Info"] = "";
+    $lang["Status"] = "";
+    $lang["Owner"] = "Operator";
+
+    $lang["Open card"] = "";
+
+    $lang["The same driver already exists"] = "";

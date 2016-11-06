@@ -38,25 +38,57 @@ class driver extends Module
         if (!$this -> data -> is_login (1)) return;
         if (!$this -> is_all_params ()) return;
         $this -> answer ["saved"] = "";
+
+        if ($this -> check_insert_errors()) return;
+        if ($this -> check_equals_driver()) return;
+        $this -> insert_driver ();
+
+        $this -> answer ["saved"] = true;
+    }
+
+    protected function check_insert_errors ()
+    {
         $this -> answer ["error"] = "";
         $this -> answer ["driver"] = $this -> driver;
-        $user_id = $this -> data -> load ("user") ["id"];
-
-        $error = "";
+        $errors = 0;
         foreach ($this -> driver as $name => $value)
         {
             $this -> answer ["driver"] [$name] = $this -> data -> get($name);
             if ($this -> data -> get($name) == "") {
-                $error = 1;
+                $errors ++;
                 $this->answer ["warn"] [$name] = 1;
             } else
                 $this->answer ["warn"] [$name] = 0;
         }
-        if ($error != "")
-        {
-            $this->answer ["error"] = na("Fill all fields");
-            return;
-        }
+        if ($errors == 0)
+            return false;
+        $this->answer ["error"] = na("Fill all fields");
+        return true;
+    }
+
+    protected function check_equals_driver()
+    {
+        $query =
+            "SELECT COUNT(*) FROM drivers
+              WHERE last_name = UPPER('" . $this -> data -> get ("last_name") . "')
+                AND first_name = UPPER('" . $this -> data -> get ("first_name") . "')
+                AND father_name = UPPER('" . $this -> data -> get ("father_name") . "')
+                AND passport_serial = UPPER('" . $this -> data -> get ("passport_serial") . "') 
+                AND passport_number = UPPER('" . $this -> data -> get ("passport_number") . "')";
+        $count = $this -> db -> scalar ($query) * 1;
+        if ($count == 0)
+            return false;
+        $this->answer ["error"] = na("The same driver already exists");
+        return true;
+    }
+
+    protected function insert_driver ()
+    {
+        $user_id = $this -> data -> load ("user") ["id"];
+        if ($this->data->load("user") ["status"] == "2") // admin
+            $driver_status = 2; // admin adds already approved drivers
+        else
+            $driver_status = 1;
         $query =
             "INSERT INTO drivers
                 SET user_id = '" . $user_id . "',
@@ -66,10 +98,10 @@ class driver extends Module
                     passport_serial = UPPER('" . $this -> data -> get ("passport_serial") . "'), 
                     passport_number = UPPER('" . $this -> data -> get ("passport_number") . "'),
                     info = '" . $this -> data -> get ("info") . "',
-                    status = 1,
+                    status = " . $driver_status . ",
                     insert_date = NOW()";
         $this -> db -> query ($query);
-        $this -> answer ["saved"] = true;
+        $this -> answer ["driver_id"] = $this -> db -> insert_id ();
     }
 /*
     public function api_update ()
@@ -177,11 +209,14 @@ class driver extends Module
         else
             $user_cond = " user_id = '" . $this -> data -> load ("user") ["id"] . "'";
         $query =
-            "SELECT id, insert_date, update_date, 
+            "SELECT drivers.id, insert_date, update_date, 
                     last_name, first_name, father_name,
                     passport_serial, passport_number,
-                    status, info
+                    drivers.status, drivers.info,
+                    users.name user_name
                FROM drivers 
+               JOIN users 
+                 ON drivers.user_id = users.id 
               WHERE $user_cond
            ORDER BY id DESC";
         $this -> answer ["list"] = $this -> db -> select ($query);

@@ -1,7 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Jevgenij
- * Date: 06.11.2016
- * Time: 11:09
- */
+
+class docs extends Module
+{
+    public function api_upload_post ()
+    {
+        $this -> save_file ();
+        $this -> insert ();
+    }
+
+    public function api_show ()
+    {
+
+    }
+}

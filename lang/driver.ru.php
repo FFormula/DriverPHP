@@ -40,3 +40,13 @@
 
     $lang["The list is empty"] = "У вас нет ни одного водителя";
     $lang["This driver is not yours"] = "Информация об этом водителе не доступна";
+
+    $lang["#"] = "№";
+    $lang["Name"] = "Ф. И. О.";
+    $lang["Info"] = "Доп. инфо";
+    $lang["Status"] = "Статус";
+    $lang["Owner"] = "Оператор";
+
+    $lang["Open card"] = "Открыть карточку";
+
+    $lang["The same driver already exists"] = "Водитель с точно такими же данными уже зарегистрирован";
