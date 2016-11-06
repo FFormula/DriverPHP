@@ -12,16 +12,30 @@
             <div class="container">
                 <div class="collapse navbar-collapse" id="MyTopMenu">
                     <ul class="nav navbar-nav">
-                        <li{if $menu == "driver/find"} class="active"{/if}><a href="/driver/find" title="{$lang["FIND"]}">{$lang["FIND"]}</a></li>
+                        <li{if $menu == "driver/find"} class="active"{/if}>
+                            <a href="/driver/find" title="{$lang["FIND"]}">
+                                <i class="glyphicon glyphicon-search"></i>&nbsp&nbsp{$lang["FIND"]}
+                            </a>
+                        </li>
                         <li{if $menu == "driver/list" ||
-                               $menu == "driver/info"} class="active"{/if}><a href="/driver/list" title="{$lang["DRIVERS"]}">{$lang["DRIVERS"]}</a></li>
-                        <li{if $menu == "driver/insert"} class="active"{/if}><a href="/driver/insert" title="{$lang["ADD NEW"]}">{$lang["ADD NEW"]}</a></li>
+                               $menu == "driver/info"} class="active"{/if}>
+                            <a href="/driver/list" title="{$lang["DRIVERS"]}">
+                                <i class="glyphicon glyphicon-briefcase"></i>&nbsp&nbsp{$lang["DRIVERS"]}
+                            </a>
+                        </li>
+                        <li{if $menu == "driver/insert"} class="active"{/if}>
+                            <a href="/driver/insert" title="{$lang["ADD NEW"]}">
+                                <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp{$lang["ADD NEW"]}
+                            </a>
+                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li{if $menu == "user/logout"} class="active"{/if}>
+                            <a href="#"><b><i class="glyphicon glyphicon-user"></i>&nbsp&nbsp{$lang["user_status_`$user.status`"]} {$user.name}</b></a>
+                        </li>
+                        <li{if $menu == "user/logout"} class="active"{/if}>
                             <a href="/user/logout" title="{$lang["LOGOUT"]}"
-                            ><b><i class="glyphicon glyphicon-user"></i>&nbsp&nbsp{$lang["user_status_`$user.status`"]} {$user.name}</b> /
-                                <i class="glyphicon glyphicon-log-out"></i>&nbsp&nbsp{$lang["LOGOUT"]}</a>
+                                ><i class="glyphicon glyphicon-log-out"></i>&nbsp&nbsp{$lang["LOGOUT"]}</a>
                         </li>
                     </ul>
                 </div>
