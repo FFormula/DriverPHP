@@ -5,19 +5,24 @@
         <div class="panel-heading">
             <h3 class="panel-title">Document upload results</h3>
         </div>
-    </div>
+        <div class="panel-body">
 
-{if $php.error}
-    <div class="panel panel-danger">
-        <div class="panel-heading">
-            <h3 class="panel-title">{$php.error}</h3>
+            {if $php.error}
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{$php.error}</h3>
+                    </div>
+                </div>
+            {else}
+
+            {/if}
+
+            <div class="text-center">
+                <a href="/driver/list" class="btn btn-info">{$lang["Return"]}</a>
+            </div>
+
         </div>
     </div>
-    <a href="/driver/list" class="btn btn-info">{$lang["Return"]}</a>
-{else}
-
-{/if}
-
 </div>
 
 {include file="tail.tpl"}
