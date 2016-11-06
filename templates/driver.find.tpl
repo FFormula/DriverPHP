@@ -29,7 +29,7 @@
                 <dl class="dl-horizontal">
                     <dt>{$lang["Results found:"]}</dt>
                     <dd>{$php.count}</dd>
-                    
+
                {if $php.driver_name}
                         <dt>{$lang["Driver name:"]}</dt>
                         <dd>{$php.driver_name}</dd>
