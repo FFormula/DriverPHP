@@ -18,7 +18,7 @@
             {/if}
 
             <div class="text-center">
-                <a href="/driver/info/driver_id={$php.driver_id}" class="btn btn-info">Return</a>
+                <a href="/driver/info/driver_id={$php.driver_id}" class="btn btn-info">{$lang["Return"]}</a>
             </div>
 
         </div>
