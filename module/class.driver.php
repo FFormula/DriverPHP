@@ -143,11 +143,12 @@ class driver extends Module
     {
         $query =
             "UPDATE drivers
-                SET last_name = '" . $this -> data -> get ("last_name") . "', 
-                    first_name = '" . $this -> data -> get ("first_name") . "', 
-                    father_name = '" . $this -> data -> get ("father_name") . "',
-                    passport_serial = '" . $this -> data -> get ("passport_serial") . "', 
-                    passport_number = '" . $this -> data -> get ("passport_number") . "',
+                SET last_name = UPPER('" . $this -> data -> get ("last_name") . "'), 
+                    first_name = UPPER('" . $this -> data -> get ("first_name") . "'), 
+                    father_name = UPPER('" . $this -> data -> get ("father_name") . "'),
+                    passport_serial = UPPER('" . $this -> data -> get ("passport_serial") . "'), 
+                    passport_number = UPPER('" . $this -> data -> get ("passport_number") . "'),
+                    info = '" . $this -> data -> get ("info") . "',
                     update_date = NOW()
               WHERE id = '" . $driver_id . "' 
               LIMIT 1";
