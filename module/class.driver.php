@@ -20,13 +20,39 @@ class driver extends Module
         return true;
     }
 
+    protected function read_driver_id ()
+    {
+        if ($this->data->is_param("driver_id")) {
+            $driver_id = $this->data->get("driver_id");
+            if (!$this->is_my_driver($driver_id))
+                $driver_id = na("New");
+        } else {
+            $driver_id = 0;
+        }
+        return $driver_id;
+    }
+
+    protected function select ($driver_id)
+    {
+        $info = $this -> db -> select (
+            "SELECT * 
+               FROM drivers 
+              WHERE id = '" . $driver_id .
+           "' LIMIT 1");
+        if (isset ($info [0] ["id"]))
+            $this -> driver = $info [0];
+    }
+
     public function api_insert ()
     {
         if (!$this -> data -> is_login (1)) return;
+        $user_id = $this -> data -> load ("user") ["id"];
         $this -> answer ["saved"] = "";
         $this -> answer ["error"] = "";
+        $driver_id = $this -> read_driver_id();
+        $this -> answer ["driver_id"] = $driver_id ? $driver_id : na("New");
+        $this -> select ($driver_id);
         $this -> answer ["driver"] = $this -> driver;
-        $user_id = $this -> data -> load ("user") ["id"];
         if (!$user_id)
             $this -> answer ["error"] = na("User not set");
         foreach ($this -> driver as $name => $value)
@@ -36,12 +62,19 @@ class driver extends Module
     public function api_insert_post ()
     {
         if (!$this -> data -> is_login (1)) return;
+
+        $driver_id = $this -> read_driver_id();
+        $this -> answer ["driver_id"] = $driver_id ? $driver_id : na("New");
+
         if (!$this -> is_all_params ()) return;
         $this -> answer ["saved"] = "";
 
         if ($this -> check_insert_errors()) return;
-        if ($this -> check_equals_driver()) return;
-        $this -> insert_driver ();
+        if ($this -> check_equals_driver($driver_id)) return;
+        if ($driver_id)
+            $this -> update ($driver_id);
+        else
+            $this -> insert ();
 
         $this -> answer ["saved"] = true;
     }
@@ -66,15 +99,17 @@ class driver extends Module
         return true;
     }
 
-    protected function check_equals_driver()
+    protected function check_equals_driver($driver_id = 0)
     {
         $query =
-            "SELECT COUNT(*) FROM drivers
+            "SELECT COUNT(*) 
+               FROM drivers
               WHERE last_name = UPPER('" . $this -> data -> get ("last_name") . "')
                 AND first_name = UPPER('" . $this -> data -> get ("first_name") . "')
                 AND father_name = UPPER('" . $this -> data -> get ("father_name") . "')
                 AND passport_serial = UPPER('" . $this -> data -> get ("passport_serial") . "') 
-                AND passport_number = UPPER('" . $this -> data -> get ("passport_number") . "')";
+                AND passport_number = UPPER('" . $this -> data -> get ("passport_number") . "' 
+                AND id <> '" . $driver_id . "')";
         $count = $this -> db -> scalar ($query) * 1;
         if ($count == 0)
             return false;
@@ -82,7 +117,7 @@ class driver extends Module
         return true;
     }
 
-    protected function insert_driver ()
+    protected function insert ()
     {
         $user_id = $this -> data -> load ("user") ["id"];
         if ($this->data->load("user") ["status"] == "2") // admin
@@ -104,13 +139,8 @@ class driver extends Module
         $this -> answer ["driver_id"] = $this -> db -> insert_id ();
     }
 
-    /*
-    public function api_update ()
+    public function update ($driver_id)
     {
-        if (!$this -> data -> is_login (2)) return;
-        if (!$this -> data -> is_param ("driver_id")) return;
-        if (!$this -> exists ()) return;
-        if (!$this -> is_all_params ()) return;
         $query =
             "UPDATE drivers
                 SET last_name = '" . $this -> data -> get ("last_name") . "', 
@@ -119,11 +149,10 @@ class driver extends Module
                     passport_serial = '" . $this -> data -> get ("passport_serial") . "', 
                     passport_number = '" . $this -> data -> get ("passport_number") . "',
                     update_date = NOW()
-              WHERE id = '" . $this -> data -> get ("driver_id") . "' 
+              WHERE id = '" . $driver_id . "' 
               LIMIT 1";
         $this -> db -> query ($query);
-        $this -> answer = "Driver info changed";
-    }*/
+    }
 
     public function api_confirm ()
     {
@@ -244,14 +273,15 @@ class driver extends Module
     {
         $this -> answer ["error"] = "";
         if (!$this -> data -> is_param ("driver_id")) return;
-        if (!$this -> exists ()) {
+        $driver_id = $this -> data -> get ("driver_id");
+        if (!$this -> exists ($driver_id)) {
             $this -> answer ["error"] = na("Driver does not exists");
             return;
         }
         if ($this->data->load("user") ["status"] == "2") // admin
-            $info = $this->info_admin();
+            $info = $this->info_admin($driver_id);
         else
-            $info = $this->info_oper();
+            $info = $this->info_oper($driver_id);
         if (count ($info) == 0)
         {
             $this->answer ["error"] = na("This driver is not yours");
@@ -261,10 +291,10 @@ class driver extends Module
         }
     }
 
-    protected function info_oper ()
+    protected function info_oper ($driver_id)
     {
         if (!$this -> data -> is_login (1)) return;
-        if (!$this -> exists ()) {
+        if (!$this -> exists ($driver_id)) {
             $this -> answer ["error"] = na("Driver does not exists");
             return;
         }
@@ -278,12 +308,12 @@ class driver extends Module
                FROM drivers 
                JOIN users 
                  ON drivers.user_id = users.id
-              WHERE drivers.id = '" . $this -> data -> get ("driver_id") . "'
+              WHERE drivers.id = '" . $driver_id . "'
                 AND user_id = '" . $this -> data -> load ("user") ["id"] . "'";
         return $this -> db -> select ($query);
     }
 
-    protected function info_admin ()
+    protected function info_admin ($driver_id)
     {
         if (!$this -> data -> is_login (2)) return;
         $query =
@@ -296,7 +326,7 @@ class driver extends Module
                FROM drivers 
                JOIN users 
                  ON drivers.user_id = users.id
-              WHERE drivers.id = '" . $this -> data -> get ("driver_id") . "'";
+              WHERE drivers.id = '" . $driver_id . "'";
         return $this -> db -> select ($query);
     }
 
@@ -356,21 +386,38 @@ class driver extends Module
         }
     }
 
-    protected function exists ()
+    protected function exists ($driver_id)
     {
-        $driver_id = $this -> data -> get ("driver_id");
         $query =
             "SELECT COUNT(*)
                FROM drivers
               WHERE id = '" . $driver_id . "'";
         if ($this -> db -> scalar ($query) == "0")
         {
-            $this -> data -> error (
+            $this -> answer ["error"] =
                 "Driver #" .
                 $driver_id .
-                " not found");
+                " not found";
             return false;
         }
         return true;
+    }
+
+    protected function is_my_driver ($driver_id)
+    {
+        $user_id = $this -> db -> scalar (
+            "SELECT user_id 
+               FROM drivers
+              WHERE id = '" . $driver_id . "'");
+        if (!$user_id) {
+            $this -> answer ["error"] = na("Driver does not exists");
+            return false;
+        }
+        if ($this -> data -> load ("user") ["status"] == "2")
+            return true;
+        if ($user_id == $this -> data -> load ("user") ["id"])
+            return true;
+        $this -> answer ["error"] = na("This driver is not yours");
+        return false;
     }
 }

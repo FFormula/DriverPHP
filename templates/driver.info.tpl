@@ -74,7 +74,15 @@
                     {/if}
                     <div class="text-center">
                         <a href="/docs/list/driver_id={$php.info.id}" class="btn btn-info"
-                            ><i class="glyphicon glyphicon-folder-open"></i>&nbsp&nbsp{$lang["Documents"]}</a>
+                        ><i class="glyphicon glyphicon-folder-open"></i>&nbsp&nbsp{$lang["Documents"]}</a>
+                        <br>
+                    </div>
+                    <div>
+                        <hr>
+                    </div>
+                    <div class="text-center">
+                        <a href="/driver/insert/driver_id={$php.info.id}" class="btn btn-default"
+                        ><i class="glyphicon glyphicon-edit"></i>&nbsp&nbsp{$lang["Edit"]}</a>
                         <br>
                     </div>
                     <div>

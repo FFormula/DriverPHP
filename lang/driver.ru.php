@@ -5,6 +5,7 @@
     $lang["Find"] = "Искать";
 
     $lang["Register new Driver"] = "Регистрация нового Водителя";
+    $lang["Update Driver"] = "Изменение карточки Водителя";
     $lang["Driver added."] = "Водитель добавлен.";
     $lang["Last name:"] = "Фамилия:";
     $lang["First name:"] = "Имя:";
@@ -60,4 +61,7 @@
 
     $lang["Cannot delete this driver, because he has documents"] = "Нет возможности удалить карточку водителя. Сначала необходимо удалить все загруженные документы.";
 
+    $lang["Driver ID:"] = "Водитель №";
 
+    $lang["New"] = "Новая запись";
+    $lang["Edit"] = "Редактировать";

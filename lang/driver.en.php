@@ -5,6 +5,7 @@
     $lang["Find"] = "";
 
     $lang["Register new Driver"] = "";
+    $lang["Update Driver"] = "";
     $lang["Driver added."] = "";
     $lang["Last name:"] = "";
     $lang["First name:"] = "";
@@ -59,3 +60,7 @@
     $lang["Results found:"] = "";
 
     $lang["Cannot delete this driver, because he has documents"] = "";
+
+    $lang["Driver ID:"] = "";
+    $lang["New"] = "";
+    $lang["Edit"] = "";
