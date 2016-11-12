@@ -265,6 +265,33 @@ class driver extends Module
           LEFT JOIN docs 
                  ON drivers.id = docs.driver_id  
               WHERE $user_cond
+                AND drivers.status = 2
+           GROUP BY drivers.id
+           ORDER BY id DESC";
+        $this -> answer ["list"] = $this -> db -> select ($query);
+    }
+
+    public function api_wait ()
+    {
+        if (!$this -> data -> is_login (1)) return;
+        if ($this -> data -> load ("user") ["status"] == "2")
+            $user_cond = "1";
+        else
+            $user_cond = " user_id = '" . $this -> data -> load ("user") ["id"] . "'";
+        $query =
+            "SELECT drivers.id, insert_date, update_date, 
+                    last_name, first_name, father_name,
+                    passport_serial, passport_number,
+                    drivers.status, drivers.info,
+                    users.name user_name,
+                    COUNT(docs.id) docs
+               FROM drivers 
+               JOIN users 
+                 ON drivers.user_id = users.id 
+          LEFT JOIN docs 
+                 ON drivers.id = docs.driver_id  
+              WHERE $user_cond
+                AND drivers.status = 1
            GROUP BY drivers.id
            ORDER BY id DESC";
         $this -> answer ["list"] = $this -> db -> select ($query);

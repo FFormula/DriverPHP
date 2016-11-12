@@ -3,7 +3,7 @@
 <div class="container">
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title">{$lang["List of confirmed drivers"]}</h3>
+            <h3 class="panel-title">{$lang["List of drivers on the verification"]}</h3>
         </div>
     </div>
 

@@ -1,6 +1,7 @@
 <?php
     $lang ["FIND"] = "FIND";
-    $lang ["DRIVERS"] = "DRIVERS";
+    $lang ["DRIVERS_CONFIRMED"] = "DRIVERS CONFIRMED";
+    $lang ["DRIVERS_ON_CHECK"] = "DRIVERS ON CHECK";
     $lang ["ADD NEW"] = "ADD NEW";
     $lang ["LOGIN"] = "LOGIN";
     $lang ["LOGOUT"] = "LOGOUT";

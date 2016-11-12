@@ -16,7 +16,8 @@
     $lang["Add driver"] = "Добавить водителя";
     $lang["User not set"] = "Номер пользователя не задан";
     $lang["Search criteria not specified"] = "Критерии поиска не заданы";
-    $lang["List of all Drivers"] = "Список всех ваших водителей";
+    $lang["List of confirmed drivers"] = "Список всех ваших водителей";
+    $lang["List of drivers on the verification"] = "Список водителей на проверке";
 
     $lang["Information about Driver"] = "Карточка водителя";
 

@@ -17,10 +17,14 @@
                                 <i class="glyphicon glyphicon-search"></i>&nbsp&nbsp{$lang["FIND"]}
                             </a>
                         </li>
-                        <li{if $menu == "driver/list" ||
-                               $menu == "driver/info"} class="active"{/if}>
-                            <a href="/driver/list" title="{$lang["DRIVERS"]}">
-                                <i class="glyphicon glyphicon-briefcase"></i>&nbsp&nbsp{$lang["DRIVERS"]}
+                        <li{if $menu == "driver/list"} class="active"{/if}>
+                            <a href="/driver/list" title="{$lang["DRIVERS_CONFIRMED"]}">
+                                <i class="glyphicon glyphicon-briefcase"></i>&nbsp&nbsp{$lang["DRIVERS_CONFIRMED"]}
+                            </a>
+                        </li>
+                        <li{if $menu == "driver/wait"} class="active"{/if}>
+                            <a href="/driver/wait" title="{$lang["DRIVERS_ON_CHECK"]}">
+                                <i class="glyphicon glyphicon-briefcase"></i>&nbsp&nbsp{$lang["DRIVERS_ON_CHECK"]}
                             </a>
                         </li>
                         <li{if $menu == "driver/insert"} class="active"{/if}>
