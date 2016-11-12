@@ -11,6 +11,7 @@
     $lang["Login"] = "Войти";
     $lang["Email or password incorrect"] = "Эл. почта или пароль указан не верно.";
     $lang["Your account on moderation"] = "Ваша учётная запись на модерации";
+    $lang["Account is blocked. Too many incorrect authorizations"] = "Аккаунт заблокирован. Слишком много неверных авторизаций";
     $lang["You just logged out."] = "Вы успешно вышли из системы";
     $lang["Logout"] = "Выход";
 
@@ -31,13 +32,16 @@
     $lang["Fill all fields"] = "Заполните все поля!";
     $lang["Invalid email address"] = "Адрес эл. почты указан некорректно";
 
+    $lang["Unblock this user"] = "Разблокировать пользователя";
+    $lang["Are you really want to unblock this user?"] = "Разблокировать пользователя?";
+    $lang["Delete this user"] = "Удалить пользователя";
+    $lang["Are you really want to delete this user?"] = "Удалить пользователя?";
     $lang["Status"] = "Статус";
     $lang["Action"] = "Действие";
     $lang["Park"] = "Автопарк";
     $lang["Phone"] = "Телефон";
     $lang["Confirm"] = "Сделать оператором";
     $lang["Admin"] = "Сделать Админом";
-    $lang["Are you really want to delete this user?"] = "Удалить пользователя?";
     $lang["user_status_0"] = "Не определён";
     $lang["user_status_1"] = "Автопарк";
     $lang["user_status_2"] = "Админ";

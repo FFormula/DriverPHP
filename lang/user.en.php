@@ -11,6 +11,7 @@
     $lang["Login"] = "";
     $lang["Email or password incorrect"] = "";
     $lang["Your account on moderation"] = "";
+    $lang["Account is blocked. Too many incorrect authorizations"] = "";
     $lang["You just logged out."] = "";
     $lang["Logout"] = "";
 
@@ -32,6 +33,9 @@
     $lang["Fill all fields"] = "";
     $lang["Invalid email address"] = "";
 
+    $lang["Unblock this user"] = "";
+    $lang["Are you really want to unblock this user?"] = "";
+    $lang["Delete this user"] = "";
     $lang["Are you really want to delete this user?"] = "";
     $lang["Status"] = "";
     $lang["Action"] = "";

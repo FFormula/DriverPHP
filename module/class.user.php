@@ -96,14 +96,23 @@ class user extends Module
         if (!$this -> data -> is_param ("email")) return;
         if (!$this -> data -> is_param ("password")) return;
         $this -> answer ["user"] ["email"] = $this -> data -> get ("email");
+        $email = $this->data->get("email");
+        $password = $this->data->get("password");
         $query =
-            "SELECT id, name, email, status 
+            "SELECT id, name, email, failed_logins, status 
                FROM users 
-              WHERE email = '" . $this->data->get("email") . "' 
-                AND password = '" . $this->data->get("password") . "'";
+              WHERE email = '" . $email . "' 
+                AND password = '" . $password . "'";
         $user = $this -> db -> select ($query);
         if (!isset ($user [0] ["id"])) {
             $message = na("Email or password incorrect");
+            $this -> update_failed_logins ($email);
+            $this -> data -> error ($message);
+            $this -> answer ["error"] = $message;
+            return;
+        }
+        if ($user [0] ["failed_logins"] >= 3 && $user [0] ["status"] < 2) {
+            $message = na("Account is blocked. Too many incorrect authorizations");
             $this -> data -> error ($message);
             $this -> answer ["error"] = $message;
             return;
@@ -115,6 +124,7 @@ class user extends Module
             return;
         }
         $this -> data -> save ("user", $user [0]);
+        $this -> reset_failed_logins ($user [0] ["id"]);
         $this -> answer ["logged"] = true;
     }
 
@@ -137,7 +147,7 @@ class user extends Module
     {
         if (!$this -> data -> is_login (2)) return;
         $query =
-            "SELECT id, name, email, park, phone, status
+            "SELECT id, name, email, park, phone, failed_logins, status
                FROM users 
               WHERE status >= 0
            ORDER BY status, id DESC";
@@ -160,9 +170,31 @@ class user extends Module
         $status = $this->data->get("status");
         if ($status == "drop")
             $this->delete($for_user_id);
+        elseif ($status == "unblock")
+            $this->reset_failed_logins($for_user_id);
         else
             $this->update_status($for_user_id, $status);
         $this -> answer ["message"] = na("User status changed");
+    }
+
+    protected function reset_failed_logins ($for_user_id)
+    {
+        $query =
+            "UPDATE users
+                SET failed_logins = 0
+              WHERE id = '" . $for_user_id . "' 
+              LIMIT 1";
+        $this -> db -> query ($query);
+    }
+
+    protected function update_failed_logins ($email)
+    {
+        $query =
+            "UPDATE users
+                SET failed_logins = failed_logins + 1
+              WHERE email = '" . $email . "' 
+              LIMIT 1";
+        $this -> db -> query ($query);
     }
 
     protected function delete ($for_user_id)

@@ -42,8 +42,15 @@
                         <a href="/user/confirm/status=2/for_user_id={$row.id}" class="btn btn-warning"
                             >{$lang["Admin"]}</a>
                     {/if}
+                    {if $row.failed_logins >= 3}
+                        <a href="/user/confirm/status=unblock/for_user_id={$row.id}" class="btn btn-success"
+                           title="{$lang["Unblock this user"]}"
+                           onclick="return confirm('{$lang["Are you really want to unblock this user?"]}');"
+                        ><i class="glyphicon glyphicon-ok"></i>&nbsp;&nbsp;{$row.failed_logins}</a>
+                    {/if}
                     {if $row.status != 2}
                         <a href="/user/confirm/status=drop/for_user_id={$row.id}" class="btn btn-danger"
+                           title="{$lang["Delete this user"]}"
                            onclick="return confirm('{$lang["Are you really want to delete this user?"]}');"
                             ><i class="glyphicon glyphicon-remove"></i></a>
                     {/if}
