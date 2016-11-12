@@ -32,6 +32,7 @@
     $lang["status1"] = "Ожидание";
     $lang["status2"] = "Проверено";
 
+    $lang["Status not specified"] = "Не указан статус";
     $lang["Driver status changed"] = "Статус водителя изменён";
     $lang["Driver deleted"] = "Карточка водителя удалена";
 

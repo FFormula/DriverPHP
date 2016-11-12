@@ -161,7 +161,7 @@ class driver extends Module
         if (!$this -> data -> is_login (1)) return;
         if (!$this->data->is_param("driver_id")) return;
         if (!$this->data->is_param("status")) {
-            $this->answer ["message"] = na("status not specified");
+            $this->answer ["message"] = na("Status not specified");
             return;
         }
         if ($this->data->get("status") == "drop") // drop

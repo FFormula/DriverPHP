@@ -31,6 +31,7 @@
     $lang["status1"] = "Awaiting";
     $lang["status2"] = "Confirmed";
 
+    $lang["Status not specified"] = "";
     $lang["Driver status changed"] = "";
     $lang["Driver deleted"] = "";
 
