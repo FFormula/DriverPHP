@@ -15,7 +15,7 @@ CREATE TABLE `users` (
   `password` varchar(255) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Список пользователей системы';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='Список пользователей системы';
 
 -- ----------------------------
 -- Table structure for `drivers`
@@ -35,7 +35,7 @@ CREATE TABLE `drivers` (
   PRIMARY KEY (`id`),
   KEY `FK_drivers_users` (`user_id`),
   CONSTRAINT `FK_drivers_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Список водителей';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='Список водителей';
 
 -- ----------------------------
 -- Table structure for `docs`
@@ -48,4 +48,4 @@ CREATE TABLE `docs` (
   PRIMARY KEY (`id`),
   KEY `FK_docs_drivers` (`driver_id`),
   CONSTRAINT `FK_docs_drivers` FOREIGN KEY (`driver_id`) REFERENCES `drivers` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Список прикреплённых файлов-документов';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='Список прикреплённых файлов-документов';
