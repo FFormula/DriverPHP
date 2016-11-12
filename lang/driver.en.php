@@ -66,5 +66,3 @@
     $lang["Edit"] = "";
 
     $lang["You are not logged in"] = "";
-
-    $lang["park"]="";

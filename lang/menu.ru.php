@@ -5,8 +5,6 @@
     $lang ["LOGIN"] = "ВХОД";
     $lang ["LOGOUT"] = "ВЫХОД";
     $lang ["JOIN"] = "РЕГИСТРАЦИЯ";
-    $lang ["user_status_1"] = "Оператор";
+    $lang ["user_status_1"] = "Автопарк";
     $lang ["user_status_2"] = "Админ";
-
-    $lang["park"]="Парк";
 

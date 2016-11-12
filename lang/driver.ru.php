@@ -67,5 +67,3 @@
     $lang["Edit"] = "Редактировать";
 
     $lang["You are not logged in"] = "Вы не авторизованы";
-
-    $lang["park"]="Парк";
