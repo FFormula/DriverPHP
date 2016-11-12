@@ -52,7 +52,7 @@
                         <a href="/user/confirm/status=drop/for_user_id={$row.id}" class="btn btn-danger"
                            title="{$lang["Delete this user"]}"
                            onclick="return confirm('{$lang["Are you really want to delete this user?"]}');"
-                            ><i class="glyphicon glyphicon-remove"></i></a>
+                            >&nbsp;<i class="glyphicon glyphicon-remove"></i>&nbsp;</a>
                     {/if}
                     </td>
                 </tr>
