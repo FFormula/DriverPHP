@@ -20,11 +20,13 @@
                         <li{if $menu == "driver/list"} class="active"{/if}>
                             <a href="/driver/list" title="{$lang["DRIVERS_CONFIRMED"]}">
                                 <i class="glyphicon glyphicon-briefcase"></i>&nbsp&nbsp{$lang["DRIVERS_CONFIRMED"]}
+                                <span class="badge">0</span>
                             </a>
                         </li>
                         <li{if $menu == "driver/wait"} class="active"{/if}>
                             <a href="/driver/wait" title="{$lang["DRIVERS_ON_CHECK"]}">
                                 <i class="glyphicon glyphicon-briefcase"></i>&nbsp&nbsp{$lang["DRIVERS_ON_CHECK"]}
+                                <span class="badge">0</span>
                             </a>
                         </li>
                         <li{if $menu == "driver/insert"} class="active"{/if}>
