@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/lang/docs.en.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lang/docs.ru.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lang/driver.en.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/templates/head.tpl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/templates/menu.user.tpl" charset="UTF-8" />
   </component>
 </project>
