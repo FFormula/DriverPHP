@@ -43,7 +43,11 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li{if $menu == "user/check"} class="active"{/if}>
                             <a href="/user/check"><b><i class="glyphicon glyphicon-user"></i
-                                >&nbsp;&nbsp;{$lang["user_status_`$user.status`"]} / {$user.name}</b></a>
+                                >&nbsp;&nbsp;{$lang["user_status_`$user.status`"]} / {$user.name}</b>
+                                {if isset($php.check) && $php.check|@count > 0}
+                                    <span class="badge">{$php.check|@count}</span>
+                                {/if}
+                            </a>
                         </li>
                         <li{if $menu == "user/logout"} class="active"{/if}>
                             <a href="/user/logout" title="{$lang["LOGOUT"]}"><i class="glyphicon glyphicon-log-out"></i
