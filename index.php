@@ -11,7 +11,7 @@
     try
     {
         $data -> init ($db);
-        $module  = $data -> module;
+        $module = $data -> module;
         $action = $data -> action;
         $api_action = API_PREFIX . $action . ($data -> is_post() ? POST_SUFFIX : "");
         if (!is_file (ROOT . "module/class." . $module . ".php"))
