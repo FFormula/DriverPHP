@@ -17,7 +17,7 @@
 
             <div class="text-center">
                 <a href="/user/check" class="btn btn-info"
-                ><i class="glyphicon glyphicon-open"></i>&nbsp&nbsp{$lang["Return"]}</a>
+                ><i class="glyphicon glyphicon-open"></i>&nbsp;&nbsp;{$lang["Return"]}</a>
             </div>
 
         </div>

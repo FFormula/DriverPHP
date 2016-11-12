@@ -29,7 +29,7 @@
                     <div class="col-md-offset-5 col-md-7">
                         <div class="col-md-2 text-left">
                             <button type="submit" title="{$lang["Login"]}" class="btn btn-primary" />
-                              <i class="glyphicon glyphicon-log-in"></i>&nbsp&nbsp{$lang["Login"]}
+                              <i class="glyphicon glyphicon-log-in"></i>&nbsp;&nbsp;{$lang["Login"]}
                             </button>
                         </div>
                     </div>

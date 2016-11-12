@@ -44,7 +44,7 @@
                     <div class="col-md-offset-5 col-md-7">
                         <div class="col-md-2 text-center">
                             <button type="submit" title="{$lang["Add user"]}" class="btn btn-primary" />
-                                <i class="glyphicon glyphicon-user"></i>&nbsp&nbsp{$lang["Add user"]}
+                                <i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;{$lang["Add user"]}
                             </button>
                         </div>
                     </div>

@@ -66,7 +66,7 @@
                     <div class="col-md-offset-5 col-md-7">
                         <div class="col-md-2 text-left">
                             <button type="submit" class="btn btn-warning" title="{$lang["Upload File"]}" />
-                              <i class="glyphicon glyphicon-upload"></i>&nbsp&nbsp{$lang["Upload File"]}
+                              <i class="glyphicon glyphicon-upload"></i>&nbsp;&nbsp;{$lang["Upload File"]}
                             </button>
                         </div>
                     </div>

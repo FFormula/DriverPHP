@@ -20,10 +20,10 @@
             <div class="text-center">
             {if $php.driver_id}
                 <a href="/docs/list/driver_id={$php.driver_id}" class="btn btn-info"
-                ><i class="glyphicon glyphicon-open"></i>&nbsp&nbsp{$lang["Return"]}</a>
+                ><i class="glyphicon glyphicon-open"></i>&nbsp;&nbsp;{$lang["Return"]}</a>
             {else}
                 <a href="/driver/list" class="btn btn-info"
-                ><i class="glyphicon glyphicon-open"></i>&nbsp&nbsp{$lang["Return"]}</a>
+                ><i class="glyphicon glyphicon-open"></i>&nbsp;&nbsp;{$lang["Return"]}</a>
             {/if}
             </div>
 
