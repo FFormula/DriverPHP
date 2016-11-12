@@ -13,3 +13,16 @@
     $lang["Your account on moderation"] = "Ваша учётная запись на модерации";
     $lang["You just logged out."] = "Вы успешно вышли из системы";
     $lang["Logout"] = "Выход";
+
+    $lang["List of users on the verification"] = "Список пользователей на проверке";
+    $lang["The list is empty"] = "У вас нет непроверенных пользователей";
+
+    $lang["#"] = "";
+    $lang["Name"] = "Имя";
+    $lang["Email"] = "Почта";
+
+    $lang["Information about User"] = "Карточка пользователя";
+    $lang["Status not specified"] = "Не указан статус";
+    $lang["User status changed"] = "Статус пользователя изменён";
+
+    $lang["Return"] = "Вернуться";

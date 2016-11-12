@@ -103,11 +103,26 @@ class user extends Module
         $this -> answer = $this -> db -> select ($query);
     }
 
-    public function api_set_status ()
+    public function api_check ()
     {
         if (!$this -> data -> is_login (2)) return;
-        if (!$this -> data -> is_param ("status")) return;
+        $query =
+            "SELECT id, name, email
+               FROM users 
+              WHERE status = 0
+           ORDER BY id DESC";
+        $this -> answer ["check"] = $this -> db -> select ($query);
+    }
+
+    public function api_confirm ()
+    {
+        $this->answer ["message"] = "";
+        if (!$this -> data -> is_login (2)) return;
         if (!$this -> data -> is_param ("for_user_id")) return;
+        if (!$this -> data -> is_param ("status")) {
+            $this -> answer ["message"] = na("Status not specified");
+            return;
+        }
         $for_user_id = $this -> data -> get ("for_user_id");
         if (!$this -> exists ($for_user_id)) return;
         $query =
@@ -116,7 +131,7 @@ class user extends Module
               WHERE id = '" . $for_user_id . "' 
               LIMIT 1";
         $this -> db -> query ($query);
-        $this -> answer = "User #" . $for_user_id . " status changed";
+        $this -> answer ["message"] = na("User status changed");
     }
 
     protected function exists ($user_id)

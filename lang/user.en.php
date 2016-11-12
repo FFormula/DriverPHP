@@ -13,3 +13,16 @@
     $lang["Your account on moderation"] = "";
     $lang["You just logged out."] = "";
     $lang["Logout"] = "";
+
+    $lang["List of users on the verification"] = "";
+    $lang["The list is empty"] = "";
+
+    $lang["#"] = "";
+    $lang["Name"] = "";
+    $lang["Email"] = "";
+
+    $lang["Information about User"] = "";
+    $lang["Status not specified"] = "";
+    $lang["User status changed"] = "";
+
+    $lang["Return"] = "";

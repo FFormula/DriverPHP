@@ -40,8 +40,8 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li{if $menu == "user/logout"} class="active"{/if}>
-                            <a href="#"><b><i class="glyphicon glyphicon-user"></i>&nbsp&nbsp{$lang["user_status_`$user.status`"]} / {$user.name}</b></a>
+                        <li{if $menu == "user/check"} class="active"{/if}>
+                            <a href="/user/check"><b><i class="glyphicon glyphicon-user"></i>&nbsp&nbsp{$lang["user_status_`$user.status`"]} / {$user.name}</b></a>
                         </li>
                         <li{if $menu == "user/logout"} class="active"{/if}>
                             <a href="/user/logout" title="{$lang["LOGOUT"]}"
