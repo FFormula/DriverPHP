@@ -10,5 +10,6 @@
     $lang["You are logged in"] = "";
     $lang["Login"] = "";
     $lang["Email or password incorrect"] = "";
+    $lang["Your account on moderation"] = "";
     $lang["You just logged out."] = "";
     $lang["Logout"] = "";

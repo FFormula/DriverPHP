@@ -45,7 +45,7 @@ class user extends Module
                 SET name = '" . $this->data->get("name") . "', 
                     email = '" . $this->data->get("email") . "', 
                     password = '" . $this->data->get("password") . "',
-                    status = 1";
+                    status = 0";
         $this->db->query($query);
         $this -> answer ["saved"] = true;
     }
@@ -74,6 +74,12 @@ class user extends Module
         $user = $this -> db -> select ($query);
         if (!isset ($user [0] ["id"])) {
             $message = na("Email or password incorrect");
+            $this -> data -> error ($message);
+            $this -> answer ["error"] = $message;
+            return;
+        }
+        if ($user [0] ["status"] == 0) {
+            $message = na("Your account on moderation");
             $this -> data -> error ($message);
             $this -> answer ["error"] = $message;
             return;
