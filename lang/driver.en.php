@@ -64,3 +64,5 @@
     $lang["Driver ID:"] = "";
     $lang["New"] = "";
     $lang["Edit"] = "";
+
+    $lang["You are not logged in"] = "";
