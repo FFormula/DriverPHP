@@ -34,7 +34,7 @@
                     <td class="text-left">{$row.email}</td>
                     <td class="text-center">{$lang["user_status_`$row.status`"]}</td>
                     <td class="text-center">
-                    {if $row.status != 1}
+                    {if $row.id != $user.id && $row.status != 1}
                         <a href="/user/confirm/status=1/for_user_id={$row.id}" class="btn btn-success"
                             >{$lang["Confirm"]}</a>
                     {/if}
