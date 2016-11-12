@@ -294,7 +294,7 @@ class driver extends Module
                 AND drivers.status = 1
            GROUP BY drivers.id
            ORDER BY id DESC";
-        $this -> answer ["list"] = $this -> db -> select ($query);
+        $this -> answer ["wait"] = $this -> db -> select ($query);
     }
 
     public function api_info ()
