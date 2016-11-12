@@ -19,7 +19,7 @@
             <form class="form-horizontal" method="post">
                 <div class="form-group">
                     <label class="col-md-2 control-label">{$lang["E-mail:"]}</label>
-                    <div class="col-md-10"><input type="text" name="email" class="form-control" value="{$php.user.email}" /></div>
+                    <div class="col-md-10"><input type="email" name="email" class="form-control" value="{$php.user.email}" /></div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">{$lang["Password:"]}</label>
