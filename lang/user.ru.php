@@ -13,3 +13,5 @@
     $lang["Your account on moderation"] = "Ваша учётная запись на модерации";
     $lang["You just logged out."] = "Вы успешно вышли из системы";
     $lang["Logout"] = "Выход";
+
+    $lang["park"]="Парк";

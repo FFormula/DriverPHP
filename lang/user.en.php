@@ -13,3 +13,5 @@
     $lang["Your account on moderation"] = "";
     $lang["You just logged out."] = "";
     $lang["Logout"] = "";
+
+    $lang["park"]="";
