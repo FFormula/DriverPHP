@@ -38,11 +38,11 @@
                         <a href="/user/confirm/status=1/for_user_id={$row.id}" class="btn btn-success"
                             >{$lang["Confirm"]}</a>
                     {/if}
-                    {if $row.status != 2}
+                    {if $row.status == 1}
                         <a href="/user/confirm/status=2/for_user_id={$row.id}" class="btn btn-warning"
                             >{$lang["Admin"]}</a>
                     {/if}
-                    {if $row.status == 1}
+                    {if $row.status != 2}
                         <a href="/user/confirm/status=drop/for_user_id={$row.id}" class="btn btn-danger"
                            onclick="return confirm('{$lang["Are you really want to delete this user?"]}');"
                             ><i class="glyphicon glyphicon-remove"></i></a>
