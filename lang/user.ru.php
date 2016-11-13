@@ -3,7 +3,7 @@
     $lang["Register new User"] = "Регистрация нового пользователя";
     $lang["You are registered, please log in"] = "Вы зарегистрированы, можно входить";
     $lang["Add user"] = "Зарегистрироваться";
-    $lang["Name:"] = "Имя:";
+    $lang["Name:"] = "Имя менеджера:";
     $lang["E-mail:"] = "Эл. почта:";
     $lang["Password:"] = "Пароль:";
     $lang["Login existing user"] = "Вход для зарегистрированных пользователей";
@@ -26,3 +26,5 @@
     $lang["User status changed"] = "Статус пользователя изменён";
 
     $lang["Return"] = "Вернуться";
+    $lang["Park:"] = "Название парка:";
+    $lang["Phone:"] = "Номер телефона:";

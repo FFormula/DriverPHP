@@ -2,6 +2,8 @@
 class user extends Module
 {
     var $user = array (
+        "park" => "",
+        "phone" => "",
         "name" => "",
         "email" => "",
         "password" => ""
@@ -13,6 +15,26 @@ class user extends Module
             if (!$this->data->is_param($name)) return false;
             $this->user [$name] = $this->data->get($name);
         }
+        return true;
+    }
+
+    protected function check_param_errors ()
+    {
+        $this -> answer ["error"] = "";
+        $this -> answer ["user"] = $this -> driver;
+        $errors = 0;
+        foreach ($this -> user as $name => $value)
+        {
+            $this -> answer ["user"] [$name] = $this -> data -> get($name);
+            if ($this -> data -> get($name) == "") {
+                $errors ++;
+                $this->answer ["warn"] [$name] = 1;
+            } else
+                $this->answer ["warn"] [$name] = 0;
+        }
+        if ($errors == 0)
+            return false;
+        $this->answer ["error"] = na("Fill all fields");
         return true;
     }
 
@@ -28,8 +50,7 @@ class user extends Module
         $this->answer ["saved"] = "";
         $this->answer ["error"] = "";
         if (!$this->is_all_params()) return;
-        $this->answer ["user"] = $this -> user;
-
+        if (!$this->check_param_errors()) return;
 
         $exists = $this -> db -> scalar (
             "SELECT COUNT(*) 
@@ -45,6 +66,8 @@ class user extends Module
                 SET name = '" . $this->data->get("name") . "', 
                     email = '" . $this->data->get("email") . "', 
                     password = '" . $this->data->get("password") . "',
+                    park = '" . $this->data->get("park") . "',
+                    phone = '" . $this->data->get("phone") . "',
                     status = 0";
         $this->db->query($query);
         $this -> answer ["saved"] = true;

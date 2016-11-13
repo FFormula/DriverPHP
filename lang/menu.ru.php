@@ -1,7 +1,7 @@
 <?PHP
     $lang ["FIND"] = "ПОИСК";
-    $lang ["DRIVERS_CONFIRMED"] = "ОДОБРЕННЫЕ ВОДИТЕЛИ";
-    $lang ["DRIVERS_ON_CHECK"] = "ВОДИТЕЛИ НА ПРОВЕРКЕ";
+    $lang ["DRIVERS_CONFIRMED"] = "ВОДИТЕЛИ";
+    $lang ["DRIVERS_ON_CHECK"] = "НА ПРОВЕРКЕ";
     $lang ["ADD NEW"] = "ДОБАВИТЬ";
     $lang ["LOGIN"] = "ВХОД";
     $lang ["LOGOUT"] = "ВЫХОД";
