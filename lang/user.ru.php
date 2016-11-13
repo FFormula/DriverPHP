@@ -14,7 +14,7 @@
     $lang["You just logged out."] = "Вы успешно вышли из системы";
     $lang["Logout"] = "Выход";
 
-    $lang["List of users on the verification"] = "Список пользователей на проверке";
+    $lang["List of users on the verification"] = "Список пользователей";
     $lang["The list is empty"] = "У вас нет непроверенных пользователей";
 
     $lang["#"] = "";
@@ -30,3 +30,14 @@
     $lang["Phone:"] = "Номер телефона:";
     $lang["Fill all fields"] = "Заполните все поля!";
     $lang["Invalid email address"] = "Адрес эл. почты указан некорректно";
+
+    $lang["Status"] = "Статус";
+    $lang["Action"] = "Действие";
+    $lang["Park"] = "Автопарк";
+    $lang["Phone"] = "Телефон";
+    $lang["Confirm"] = "Сделать оператором";
+    $lang["Admin"] = "Сделать Админом";
+    $lang["Are you really want to delete this user?"] = "Удалить пользователя?";
+    $lang["user_status_0"] = "Не определён";
+    $lang["user_status_1"] = "Автопарк";
+    $lang["user_status_2"] = "Админ";

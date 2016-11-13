@@ -135,31 +135,52 @@ class user extends Module
     {
         if (!$this -> data -> is_login (2)) return;
         $query =
-            "SELECT id, name, email
+            "SELECT id, name, email, park, phone, status
                FROM users 
-              WHERE status = 0
-           ORDER BY id DESC";
+              WHERE status >= 0
+           ORDER BY status, id DESC";
         $this -> answer ["check"] = $this -> db -> select ($query);
     }
 
     public function api_confirm ()
     {
         $this->answer ["message"] = "";
-        if (!$this -> data -> is_login (2)) return;
-        if (!$this -> data -> is_param ("for_user_id")) return;
-        if (!$this -> data -> is_param ("status")) {
-            $this -> answer ["message"] = na("Status not specified");
+        if (!$this->data->is_login(2)) return;
+        if (!$this->data->is_param("for_user_id")) return;
+        if (!$this->data->is_param("status")) {
+            $this->answer ["message"] = na("Status not specified");
             return;
         }
-        $for_user_id = $this -> data -> get ("for_user_id");
-        if (!$this -> exists ($for_user_id)) return;
+        $for_user_id = $this->data->get("for_user_id");
+        if (!$this->exists($for_user_id)) return;
+        $status = $this->data->get("status");
+        if ($status == "drop")
+            $this->delete($for_user_id);
+        else
+            $this->update_status($for_user_id, $status);
+        $this -> answer ["message"] = na("User status changed");
+    }
+
+    protected function delete ($for_user_id)
+    {
         $query =
             "UPDATE users
-                SET status = '" . $this -> data -> get ("status") . "'
+                SET status = '-1'
               WHERE id = '" . $for_user_id . "' 
               LIMIT 1";
         $this -> db -> query ($query);
-        $this -> answer ["message"] = na("User status changed");
+    }
+
+    protected function update_status ($for_user_id, $status)
+    {
+        if (!in_array ($status, array (0, 1, 2)))
+            $status = 0;
+        $query =
+            "UPDATE users
+                SET status = '" . $status . "'
+              WHERE id = '" . $for_user_id . "' 
+              LIMIT 1";
+        $this -> db -> query ($query);
     }
 
     protected function exists ($user_id)
