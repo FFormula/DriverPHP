@@ -1,7 +1,7 @@
 <?php
     $lang["This email already registered"] = "";
     $lang["Register new User"] = "";
-    $lang["You are registered, please log in"] = "";
+    $lang["You are registered, please log in"] = "User registered. You can log in after administrator confirm.";
     $lang["Add user"] = "";
     $lang["Name:"] = "";
     $lang["E-mail:"] = "";
@@ -29,3 +29,5 @@
 
     $lang["Park:"] = "";
     $lang["Phone:"] = "";
+$lang["Fill all fields"] = "";
+$lang["Invalid email address"] = "";
