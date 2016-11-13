@@ -1,7 +1,7 @@
 <?php
     $lang["This email already registered"] = "Этот е-майл уже зарегистрирован";
     $lang["Register new User"] = "Регистрация нового пользователя";
-    $lang["You are registered, please log in"] = "Вы зарегистрированы, можно входить";
+    $lang["You are registered, please log in"] = "Пользователь зарегистрирован. Войти можно будет после одобрения администратором.";
     $lang["Add user"] = "Зарегистрироваться";
     $lang["Name:"] = "Имя менеджера:";
     $lang["E-mail:"] = "Эл. почта:";
@@ -28,3 +28,5 @@
     $lang["Return"] = "Вернуться";
     $lang["Park:"] = "Название парка:";
     $lang["Phone:"] = "Номер телефона:";
+    $lang["Fill all fields"] = "Заполните все поля!";
+    $lang["Invalid email address"] = "Адрес эл. почты указан некорректно";

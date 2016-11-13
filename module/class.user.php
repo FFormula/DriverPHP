@@ -21,7 +21,7 @@ class user extends Module
     protected function check_param_errors ()
     {
         $this -> answer ["error"] = "";
-        $this -> answer ["user"] = $this -> driver;
+        $this -> answer ["user"] = $this -> user;
         $errors = 0;
         foreach ($this -> user as $name => $value)
         {
@@ -31,6 +31,11 @@ class user extends Module
                 $this->answer ["warn"] [$name] = 1;
             } else
                 $this->answer ["warn"] [$name] = 0;
+        }
+        if (!$this -> is_valid_email($this -> answer ["user"] ["email"])) {
+            $this->answer ["warn"] ["email"] = 1;
+            $this->answer ["error"] = na("Invalid email address");
+            return true;
         }
         if ($errors == 0)
             return false;
@@ -50,7 +55,7 @@ class user extends Module
         $this->answer ["saved"] = "";
         $this->answer ["error"] = "";
         if (!$this->is_all_params()) return;
-        if (!$this->check_param_errors()) return;
+        if ($this->check_param_errors()) return;
 
         $exists = $this -> db -> scalar (
             "SELECT COUNT(*) 
@@ -174,4 +179,9 @@ class user extends Module
         return true;
     }
 
+    function is_valid_email($email)
+    {
+        $pattern = "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$";
+        return eregi($pattern, $email);
+    }
 }
