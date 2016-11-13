@@ -48,6 +48,8 @@ class user extends Module
         $this->answer ["saved"] = "";
         $this->answer ["error"] = "";
         $this->answer ["user"] = $this -> user;
+        foreach ($this -> user as $name => $value)
+            $this->answer ["warn"] [$name] = 0;
     }
 
     public function api_insert_post ()
