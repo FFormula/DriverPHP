@@ -25,7 +25,7 @@ class driver extends Module
         if ($this->data->is_param("driver_id")) {
             $driver_id = $this->data->get("driver_id");
             if (!$this->is_my_driver($driver_id))
-                $driver_id = na("New");
+                $driver_id = 0;
         } else {
             $driver_id = 0;
         }
@@ -120,10 +120,7 @@ class driver extends Module
     protected function insert ()
     {
         $user_id = $this -> data -> load ("user") ["id"];
-        if ($this->data->load("user") ["status"] == "2") // admin
-            $driver_status = 2; // admin adds already approved drivers
-        else
-            $driver_status = 1;
+        $driver_status = 1;
         $query =
             "INSERT INTO drivers
                 SET user_id = '" . $user_id . "',
@@ -135,12 +132,17 @@ class driver extends Module
                     info = '" . $this -> data -> get ("info") . "',
                     status = " . $driver_status . ",
                     insert_date = NOW()";
+        echo $query;
         $this -> db -> query ($query);
         $this -> answer ["driver_id"] = $this -> db -> insert_id ();
     }
 
     public function update ($driver_id)
     {
+        if ($this->data->load("user") ["status"] == "1") // admin
+            $reset_status = true; // $driver_status = 1; // admin adds already approved drivers
+        else
+            $reset_status = false;
         $query =
             "UPDATE drivers
                 SET last_name = UPPER('" . $this -> data -> get ("last_name") . "'), 
@@ -148,7 +150,8 @@ class driver extends Module
                     father_name = UPPER('" . $this -> data -> get ("father_name") . "'),
                     passport_serial = UPPER('" . $this -> data -> get ("passport_serial") . "'), 
                     passport_number = UPPER('" . $this -> data -> get ("passport_number") . "'),
-                    info = '" . $this -> data -> get ("info") . "',
+                    info = '" . $this -> data -> get ("info") . "', " .
+ ($reset_status ? " status = 1, " : "") . "
                     update_date = NOW()
               WHERE id = '" . $driver_id . "' 
               LIMIT 1";
