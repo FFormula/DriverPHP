@@ -167,7 +167,7 @@ class user extends Module
     {
         $query =
             "UPDATE users
-                SET status = '-1'
+                SET status = status - 1
               WHERE id = '" . $for_user_id . "' 
               LIMIT 1";
         $this -> db -> query ($query);
