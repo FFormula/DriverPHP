@@ -26,3 +26,6 @@
     $lang["User status changed"] = "";
 
     $lang["Return"] = "";
+
+    $lang["Park:"] = "";
+    $lang["Phone:"] = "";

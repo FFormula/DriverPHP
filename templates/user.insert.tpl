@@ -5,6 +5,7 @@
         <div class="panel-heading">
             <h3 class="panel-title">{$lang["Register new User"]}</h3>
         </div>
+        <form class="form-horizontal" method="post">
         <div class="panel-body">
 
 {if $php.saved}
@@ -17,11 +18,20 @@
                     </div>
                 </div>
             {/if}
-            <form class="form-horizontal" method="post">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">{$lang["Park:"]}</label>
+                    <div class="col-md-10"><input type="text" name="park" class="form-control" value="{$php.user.park}" /></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">{$lang["Phone:"]}</label>
+                    <div class="col-md-10"><input type="text" name="phone" class="form-control" value="{$php.user.phone}" /></div>
+                </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">{$lang["Name:"]}</label>
                     <div class="col-md-10"><input type="text" name="name" class="form-control" value="{$php.user.name}" /></div>
                 </div>
+        </div>
+        <div class="panel-body bg-warning">
                 <div class="form-group">
                     <label class="col-md-2 control-label">{$lang["E-mail:"]}</label>
                     <div class="col-md-10"><input type="text" name="email" class="form-control" value="{$php.user.email}" /></div>
@@ -33,16 +43,16 @@
                 <div class="form-group">
                     <div class="col-md-offset-5 col-md-7">
                         <div class="col-md-2 text-center">
-                            <button type="submit" title="{$lang["Add user"]}" class="btn btn-warning" />
+                            <button type="submit" title="{$lang["Add user"]}" class="btn btn-primary" />
                                 <i class="glyphicon glyphicon-user"></i>&nbsp&nbsp{$lang["Add user"]}
                             </button>
                         </div>
                     </div>
                 </div>
-            </form>
 
 {/if}
         </div>
+        </form>
     </div>
 </div>
 

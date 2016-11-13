@@ -5,6 +5,6 @@
     $lang ["ADD NEW"] = "ADD NEW";
     $lang ["LOGIN"] = "LOGIN";
     $lang ["LOGOUT"] = "LOGOUT";
-    $lang ["REGISTER"] = "REGISTER";
+    $lang ["JOIN"] = "REGISTER";
     $lang ["user_status_1"] = "Car Park";
     $lang ["user_status_2"] = "Admin";

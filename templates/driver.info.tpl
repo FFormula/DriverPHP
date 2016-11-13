@@ -5,7 +5,7 @@
         <div class="panel-heading">
             <h3 class="panel-title">{$lang["Information about Driver"]}</h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-body{if $php.info.status == 1} bg-danger{/if}">
 
 {if $php.error}
             <div class="panel panel-danger">
@@ -61,20 +61,20 @@
                         {if $php.info.status == 1}
                             <div class="text-center">
                                 <a href="/driver/confirm/driver_id={$php.info.id}/status=2" class="btn btn-success"
-                                ><i class="glyphicon glyphicon-ok"></i>&nbsp&nbsp{$lang["Confirm"]}</a>
+                                ><i class="glyphicon glyphicon-ok"></i>&nbsp;&nbsp;{$lang["Confirm"]}</a>
                             </div>
                             <br/>
                         {else}
                             <div class="text-center">
                                 <a href="/driver/confirm/driver_id={$php.info.id}/status=1" class="btn btn-warning"
-                                ><i class="glyphicon glyphicon-alert"></i>&nbsp&nbsp{$lang["UnConfirm"]}</a>
+                                ><i class="glyphicon glyphicon-alert"></i>&nbsp;&nbsp;{$lang["UnConfirm"]}</a>
                             </div>
                             <br/>
                         {/if}
                     {/if}
                     <div class="text-center">
                         <a href="/docs/list/driver_id={$php.info.id}" class="btn btn-info"
-                        ><i class="glyphicon glyphicon-folder-open"></i>&nbsp&nbsp{$lang["Documents"]}</a>
+                        ><i class="glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp;{$lang["Documents"]}</a>
                         <br>
                     </div>
                     <div>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="text-center">
                         <a href="/driver/insert/driver_id={$php.info.id}" class="btn btn-default"
-                        ><i class="glyphicon glyphicon-edit"></i>&nbsp&nbsp{$lang["Edit"]}</a>
+                        ><i class="glyphicon glyphicon-edit"></i>&nbsp;&nbsp;{$lang["Edit"]}</a>
                         <br>
                     </div>
                     <div>
@@ -91,7 +91,7 @@
                     <div class="text-center">
                         <a href="/driver/confirm/driver_id={$php.info.id}/status=drop" class="btn btn-danger"
                            onclick="return confirm('{$lang["Do you really want to delete this record?"]}');"
-                            ><i class="glyphicon glyphicon-remove"></i>&nbsp&nbsp{$lang["Delete"]}</a>
+                            ><i class="glyphicon glyphicon-remove"></i>&nbsp;&nbsp;{$lang["Delete"]}</a>
                     </div>
                     <br/>
                 </div>
