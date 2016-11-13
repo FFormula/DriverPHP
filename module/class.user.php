@@ -97,30 +97,27 @@ class user extends Module
         if (!$this -> data -> is_param ("password")) return;
         $this -> answer ["user"] ["email"] = $this -> data -> get ("email");
         $email = $this->data->get("email");
-        $password = $this->data->get("password");
+        $md5password = md5($this->data->get("password"));
         $query =
-            "SELECT id, name, email, failed_logins, status 
+            "SELECT id, name, email, failed_logins, status, md5(password) as md5password
                FROM users 
-              WHERE email = '" . $email . "' 
-                AND password = '" . $password . "'";
+              WHERE email = '" . $email . "'";
         $user = $this -> db -> select ($query);
         if (!isset ($user [0] ["id"])) {
-            $message = na("Email or password incorrect");
-            $this -> update_failed_logins ($email);
-            $this -> data -> error ($message);
-            $this -> answer ["error"] = $message;
-            return;
-        }
-        if ($user [0] ["failed_logins"] >= 3 && $user [0] ["status"] < 2) {
-            $message = na("Account is blocked. Too many incorrect authorizations");
-            $this -> data -> error ($message);
-            $this -> answer ["error"] = $message;
+            $this -> answer ["error"] = na("Email incorrect");
             return;
         }
         if ($user [0] ["status"] == 0) {
-            $message = na("Your account on moderation");
-            $this -> data -> error ($message);
-            $this -> answer ["error"] = $message;
+            $this -> answer ["error"] = na("Your account on moderation");
+            return;
+        }
+        if ($user [0] ["failed_logins"] >= 3) {
+            $this -> answer ["error"] = na("Account is blocked. Too many incorrect authorizations");
+            return;
+        }
+        if ($user [0] ["md5password"] != $md5password) {
+            $this -> update_failed_logins ($email);
+            $this -> answer ["error"] = na("Password incorrect");
             return;
         }
         $this -> data -> save ("user", $user [0]);

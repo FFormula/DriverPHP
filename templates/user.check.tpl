@@ -34,6 +34,12 @@
                     <td class="text-left">{$row.email}</td>
                     <td class="text-center">{$lang["user_status_`$row.status`"]}</td>
                     <td class="text-center">
+                    {if $row.failed_logins >= 3}
+                        <a href="/user/confirm/status=unblock/for_user_id={$row.id}" class="btn btn-success"
+                           title="{$lang["Unblock this user"]}"
+                           onclick="return confirm('{$lang["Are you really want to unblock this user?"]}');"
+                        ><i class="glyphicon glyphicon-ok"></i>&nbsp;&nbsp;{$row.failed_logins}</a>
+                    {/if}
                     {if $row.id != $user.id && $row.status != 1}
                         <a href="/user/confirm/status=1/for_user_id={$row.id}" class="btn btn-success"
                             >{$lang["Confirm"]}</a>
@@ -41,12 +47,6 @@
                     {if $row.status == 1}
                         <a href="/user/confirm/status=2/for_user_id={$row.id}" class="btn btn-warning"
                             >{$lang["Admin"]}</a>
-                    {/if}
-                    {if $row.failed_logins >= 3}
-                        <a href="/user/confirm/status=unblock/for_user_id={$row.id}" class="btn btn-success"
-                           title="{$lang["Unblock this user"]}"
-                           onclick="return confirm('{$lang["Are you really want to unblock this user?"]}');"
-                        ><i class="glyphicon glyphicon-ok"></i>&nbsp;&nbsp;{$row.failed_logins}</a>
                     {/if}
                     {if $row.status != 2}
                         <a href="/user/confirm/status=drop/for_user_id={$row.id}" class="btn btn-danger"
