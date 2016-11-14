@@ -31,9 +31,9 @@ class docs extends Module
             $this -> answer ["error"] = na("Driver not found");
             return false;
         }
-        if ($this -> data -> load ("user") ["status"] == "2")
+        if ($this -> data -> load ("user", "status") == "2")
             return true;
-        if ($user_id == $this -> data -> load ("user") ["id"])
+        if ($user_id == $this -> data -> load ("user", "id"))
             return true;
         $this -> answer ["error"] = na("This driver is not yours");
         return false;

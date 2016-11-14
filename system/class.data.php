@@ -106,10 +106,16 @@ class Data
         $_SESSION [$param] = $value;
     }
 
-    public function load ($param)
+    public function load ($param, $key = "")
     {
-        if (isset ($_SESSION [$param]))
-            return $_SESSION [$param];
+        if ($key == "")
+            if (isset ($_SESSION [$param]))
+                return $_SESSION [$param];
+
+        if ($key != "")
+            if (isset ($_SESSION [$param] [$key]))
+                return $_SESSION [$param] [$key];
+
         return "";
     }
 

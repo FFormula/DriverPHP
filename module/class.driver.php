@@ -46,11 +46,12 @@ class driver extends Module
     public function api_insert ()
     {
         if (!$this -> data -> is_login (1)) return;
-        $user_id = $this -> data -> load ("user") ["id"];
+        $user_id = $this -> data -> load ("user", "id");
         $this -> answer ["saved"] = "";
         $this -> answer ["error"] = "";
         $driver_id = $this -> read_driver_id();
         $this -> answer ["driver_id"] = $driver_id ? $driver_id : na("New");
+        $this -> answer ["new_driver"] = $driver_id ? "0" : "1";
         $this -> select ($driver_id);
         $this -> answer ["driver"] = $this -> driver;
         if (!$user_id)
@@ -65,6 +66,7 @@ class driver extends Module
 
         $driver_id = $this -> read_driver_id();
         $this -> answer ["driver_id"] = $driver_id ? $driver_id : na("New");
+        $this -> answer ["new_driver"] = $driver_id ? "0" : "1";
 
         if (!$this -> is_all_params ()) return;
         $this -> answer ["saved"] = "";
@@ -119,7 +121,7 @@ class driver extends Module
 
     protected function insert ()
     {
-        $user_id = $this -> data -> load ("user") ["id"];
+        $user_id = $this -> data -> load ("user", "id");
         $driver_status = 1;
         $query =
             "INSERT INTO drivers
@@ -139,7 +141,7 @@ class driver extends Module
 
     public function update ($driver_id)
     {
-        if ($this->data->load("user") ["status"] == "1") // admin
+        if ($this->data->load("user", "status") == "1") // admin
             $reset_status = true; // $driver_status = 1; // admin adds already approved drivers
         else
             $reset_status = false;
@@ -179,7 +181,7 @@ class driver extends Module
             $this -> answer ["message"] = na ("Cannot delete this driver, because he has documents");
             return;
         }
-        if ($this->data->load("user") ["status"] == "2") // admin
+        if ($this->data->load("user", "status") == "2") // admin
             $this -> admin_delete ($driver_id);
         else
             $this -> oper_delete ($driver_id);
@@ -210,14 +212,14 @@ class driver extends Module
         $query =
             "DELETE FROM drivers
               WHERE id = '" . $driver_id . "'
-                AND user_id = '" . $this->data->load("user") ["id"] . "'
+                AND user_id = '" . $this->data->load("user", "id") . "'
               LIMIT 1";
         $this -> db -> query ($query);
     }
 
     protected function update_status ($driver_id, $status)
     {
-        if ($this->data->load("user") ["status"] == "2") // admin
+        if ($this->data->load("user", "status") == "2") // admin
             $this->admin_update_status($driver_id, $status);
         else
             $this->oper_update_status($driver_id, $status);
@@ -243,7 +245,7 @@ class driver extends Module
                 SET status = '" . $status . "',
                     update_date = NOW()
               WHERE id = '" . $driver_id . "' 
-                AND user_id = '" . $this->data->load("user") ["id"] . "'
+                AND user_id = '" . $this->data->load("user", "id") . "'
               LIMIT 1";
         $this -> db -> query ($query);
     }
@@ -251,10 +253,10 @@ class driver extends Module
     public function api_list ()
     {
         if (!$this -> data -> is_login (1)) return;
-        if ($this -> data -> load ("user") ["status"] == "2")
+        if ($this -> data -> load ("user", "status") == "2")
             $user_cond = "1";
         else
-            $user_cond = " user_id = '" . $this -> data -> load ("user") ["id"] . "'";
+            $user_cond = " user_id = '" . $this -> data -> load ("user", "id") . "'";
         $query =
             "SELECT drivers.id, insert_date, update_date, 
                     last_name, first_name, father_name,
@@ -277,10 +279,10 @@ class driver extends Module
     public function api_wait ()
     {
         if (!$this -> data -> is_login (1)) return;
-        if ($this -> data -> load ("user") ["status"] == "2")
+        if ($this -> data -> load ("user", "status") == "2")
             $user_cond = "1";
         else
-            $user_cond = " user_id = '" . $this -> data -> load ("user") ["id"] . "'";
+            $user_cond = " user_id = '" . $this -> data -> load ("user", "id") . "'";
         $query =
             "SELECT drivers.id, insert_date, update_date, 
                     last_name, first_name, father_name,
@@ -309,7 +311,7 @@ class driver extends Module
             $this -> answer ["error"] = na("Driver does not exists");
             return;
         }
-        if ($this->data->load("user") ["status"] == "2") // admin
+        if ($this->data->load("user", "status") == "2") // admin
             $info = $this->info_admin($driver_id);
         else
             $info = $this->info_oper($driver_id);
@@ -340,7 +342,7 @@ class driver extends Module
                JOIN users 
                  ON drivers.user_id = users.id
               WHERE drivers.id = '" . $driver_id . "'
-                AND user_id = '" . $this -> data -> load ("user") ["id"] . "'";
+                AND user_id = '" . $this -> data -> load ("user", "id") . "'";
         return $this -> db -> select ($query);
     }
 
@@ -444,9 +446,9 @@ class driver extends Module
             $this -> answer ["error"] = na("Driver does not exists");
             return false;
         }
-        if ($this -> data -> load ("user") ["status"] == "2")
+        if ($this -> data -> load ("user", "status") == "2")
             return true;
-        if ($user_id == $this -> data -> load ("user") ["id"])
+        if ($user_id == $this -> data -> load ("user", "id"))
             return true;
         $this -> answer ["error"] = na("This driver is not yours");
         return false;

@@ -8,3 +8,4 @@
     $lang ["JOIN"] = "REGISTER";
     $lang ["user_status_1"] = "Car Park";
     $lang ["user_status_2"] = "Admin";
+    $lang ["user_status_3"] = "Magic";

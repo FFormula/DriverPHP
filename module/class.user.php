@@ -85,7 +85,7 @@ class user extends Module
         $this -> answer ["logged"] = "";
         $this -> answer ["error"] = "";
         $this -> answer ["user"] = $this -> user;
-        if (isset ($this -> data -> load ("user") ["id"]))
+        if ($this -> data -> load ("user", "id"))
             $this -> answer ["logged"] = true;
     }
 
@@ -162,7 +162,7 @@ class user extends Module
         }
         $for_user_id = $this->data->get("for_user_id");
         if (!$this->exists($for_user_id)) return;
-        $user_id = $this->data->load("user")["id"];
+        $user_id = $this->data->load("user", "id");
         if ($user_id == $for_user_id) return;
         $status = $this->data->get("status");
         if ($status == "drop")

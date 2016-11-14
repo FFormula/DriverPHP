@@ -79,10 +79,10 @@
                         <div class="col-md-offset-5 col-md-7">
                             <div class="col-md-2 text-left">
                                 <button type="submit" title="{$lang["Add driver"]}" class="btn btn-warning" />
-        {if $php.driver_id}
-                                    <i class="glyphicon glyphicon-edit"></i>&nbsp;&nbsp;{$lang["Edit"]}
-        {else}
+        {if $php.new_driver}
                                     <i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;{$lang["Add driver"]}
+        {else}
+                                    <i class="glyphicon glyphicon-edit"></i>&nbsp;&nbsp;{$lang["Edit"]}
         {/if}
                                 </button>
                             </div>
