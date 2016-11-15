@@ -68,6 +68,6 @@
     $lang["Edit"] = "";
 
     $lang["You are not logged in"] = "";
-$lang["Add docs"] = "";
-$lang["open card"] = "";
-$lang["Action"] = "";
+    $lang["Add docs"] = "";
+    $lang["open card"] = "";
+    $lang["Action"] = "";
