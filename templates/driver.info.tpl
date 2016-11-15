@@ -56,7 +56,7 @@
                         <dd>{$php.info.info}</dd>
                     </dl>
                 </div>
-            {if !$php.code_opened}
+            {if !isset($php.code_opened)}
                 <div class="col-xs-6 col-md-4">
                     {if $user.status >= 2}
                         <div class="text-center">

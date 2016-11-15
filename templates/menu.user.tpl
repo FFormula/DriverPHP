@@ -1,4 +1,4 @@
-{if !$php.code_opened}
+{if !isset($php.code_opened)}
 <div class="container">
     <div class="row">
         <div class="navbar navbar-default navbar-fixed-top">
