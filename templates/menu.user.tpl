@@ -42,7 +42,7 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li{if $menu == "user/check"} class="active"{/if}>
+                        <li{if $menu == "user/list"} class="active"{/if}>
                             <a href="/user/list"><b><i class="glyphicon glyphicon-user"></i
                                 >&nbsp;&nbsp;{$lang["user_status_`$user.status`"]} / {$user.name}</b>
                                 {if isset($php.users) && $php.users|@count > 0}
