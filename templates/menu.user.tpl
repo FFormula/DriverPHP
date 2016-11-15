@@ -1,3 +1,4 @@
+{if !$php.code_opened}
 <div class="container">
     <div class="row">
         <div class="navbar navbar-default navbar-fixed-top">
@@ -59,3 +60,4 @@
         </div>
     </div>
 </div>
+{/if}
