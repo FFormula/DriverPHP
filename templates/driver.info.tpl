@@ -69,7 +69,7 @@
                         {/if}
                             <a href="/driver/confirm/driver_id={$php.info.id}/status=drop" class="btn btn-danger"
                                onclick="return confirm('{$lang["Do you really want to delete this record?"]}');"
-                            ><i class="glyphicon glyphicon-remove"></i></a>
+                            >&nbsp;<i class="glyphicon glyphicon-remove"></i>&nbsp;</a>
                         </div>
                         <br/>
                     {/if}
