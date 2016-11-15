@@ -42,10 +42,10 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li{if $menu == "user/check"} class="active"{/if}>
-                            <a href="/user/check"><b><i class="glyphicon glyphicon-user"></i
+                            <a href="/user/list"><b><i class="glyphicon glyphicon-user"></i
                                 >&nbsp;&nbsp;{$lang["user_status_`$user.status`"]} / {$user.name}</b>
-                                {if isset($php.check) && $php.check|@count > 0}
-                                    <span class="badge">{$php.check|@count}</span>
+                                {if isset($php.users) && $php.users|@count > 0}
+                                    <span class="badge">{$php.users|@count}</span>
                                 {/if}
                             </a>
                         </li>

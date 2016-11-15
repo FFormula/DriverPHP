@@ -140,21 +140,21 @@ class user extends Module
         $this -> answer = $this -> db -> select ($query);
     }
 
-    public function api_check ()
+    public function api_list ()
     {
-        if (!$this -> data -> is_login (2)) return;
+        if (!$this -> data -> is_login (3)) return;
         $query =
             "SELECT id, name, email, park, phone, failed_logins, status
                FROM users 
               WHERE status >= 0
            ORDER BY status, id DESC";
-        $this -> answer ["check"] = $this -> db -> select ($query);
+        $this -> answer ["users"] = $this -> db -> select ($query);
     }
 
     public function api_confirm ()
     {
         $this->answer ["message"] = "";
-        if (!$this->data->is_login(2)) return;
+        if (!$this->data->is_login(3)) return;
         if (!$this->data->is_param("for_user_id")) return;
         if (!$this->data->is_param("status")) {
             $this->answer ["message"] = na("Status not specified");

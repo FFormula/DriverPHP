@@ -5,7 +5,7 @@
         <div class="panel-heading">
             <h3 class="panel-title">{$lang["List of users on the verification"]}</h3>
         </div>
-    {if $php.check|@count == 0}
+    {if $php.users|@count == 0}
         <div class="panel-body">
             {$lang["The list is empty"]}
         </div>
@@ -25,7 +25,7 @@
             </tr>
             </thead>
             <tbody>
-            {foreach from=$php.check item=row}
+            {foreach from=$php.users item=row}
                 <tr class="{if $row.status == 0}bg-warning{else}{if $row.status == 1}bg-success{else}bg-danger{/if}{/if}">
                     <td class="text-center">{$row.id}</td>
                     <td class="text-left">{$row.park}</td>
