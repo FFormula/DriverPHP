@@ -6,7 +6,7 @@
 
     $lang["Register new Driver"] = "Регистрация нового Водителя";
     $lang["Update Driver"] = "Изменение карточки Водителя";
-    $lang["Driver added."] = "Водитель добавлен.";
+    $lang["Driver added."] = "Информация о Водителе сохранена.";
     $lang["Last name:"] = "Фамилия:";
     $lang["First name:"] = "Имя:";
     $lang["Father name:"] = "Отчество:";
@@ -56,7 +56,7 @@
     $lang["Added"] = "Добавлено";
     $lang["Updated"] = "Изменено";
 
-    $lang["Documents"] = "Документы";
+    $lang["Documents"] = "Открыть Документы";
     $lang["Driver name:"] = "Имя водителя:";
     $lang["No items found"] = "Ничего не найдено";
     $lang["Results found:"] = "Найдено записей:";
@@ -69,3 +69,4 @@
     $lang["Edit"] = "Редактировать";
 
     $lang["You are not logged in"] = "Вы не авторизованы";
+$lang["Add docs"] = "Прикрепить документы";

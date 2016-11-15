@@ -63,12 +63,14 @@
                     <div class="col-md-10"><input type="text" name="info" class="form-control" /></div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-offset-5 col-md-7">
                         <div class="col-md-2 text-left">
                             <button type="submit" class="btn btn-warning" title="{$lang["Upload File"]}" />
                               <i class="glyphicon glyphicon-upload"></i>&nbsp;&nbsp;{$lang["Upload File"]}
                             </button>
                         </div>
+                    <div class="col-md-10 text-right">
+                        <a href="/driver/info/driver_id={$php.driver_id}" class="btn btn-default"
+                        ><i class="glyphicon glyphicon-open-file"></i>&nbsp;&nbsp;{$lang["Open card"]}</a>
                     </div>
                 </div>
             </form>

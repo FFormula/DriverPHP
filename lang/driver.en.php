@@ -6,7 +6,7 @@
 
     $lang["Register new Driver"] = "";
     $lang["Update Driver"] = "";
-    $lang["Driver added."] = "";
+    $lang["Driver added."] = "Driver info saved";
     $lang["Last name:"] = "";
     $lang["First name:"] = "";
     $lang["Father name:"] = "";
@@ -55,7 +55,7 @@
     $lang["Added"] = "";
     $lang["Updated"] = "";
 
-    $lang["Documents"] = "";
+    $lang["Documents"] = "Open Documents";
 
     $lang["Driver name:"] = "";
     $lang["No items found"] = "";
@@ -68,3 +68,4 @@
     $lang["Edit"] = "";
 
     $lang["You are not logged in"] = "";
+$lang["Add docs"] = "";

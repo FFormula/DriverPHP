@@ -35,6 +35,19 @@ class Data
         $this -> parse_get();
     }
 
+    public function redirect ($url, $time = 0)
+    {
+        if ($time == "0")
+        {
+            @header ("Location: $url");
+            echo "<script> document.location = '$url'; </script>";
+            die ();
+        } else {
+            @header ("Refresh: $time; $url");
+            echo "<head><meta http-equiv='refresh' content='$time; $url'></head>";
+        }
+    }
+
     private function parse_route ()
     {
         if (!isset ($_GET ["data"]))

@@ -73,10 +73,13 @@ class driver extends Module
 
         if ($this -> check_insert_errors()) return;
         if ($this -> check_equals_driver($driver_id)) return;
-        if ($driver_id)
-            $this -> update ($driver_id);
-        else
-            $this -> insert ();
+        if ($driver_id) {
+            $this->update($driver_id);
+            $this->data->redirect("/driver/info/driver_id=" . $driver_id, 5);
+        } else {
+            $new_driver_id = $this->insert();
+            $this->data->redirect("/docs/list/driver_id=" . $new_driver_id);
+        }
 
         $this -> answer ["saved"] = true;
     }
@@ -134,9 +137,10 @@ class driver extends Module
                     info = '" . $this -> data -> get ("info") . "',
                     status = " . $driver_status . ",
                     insert_date = NOW()";
-        echo $query;
         $this -> db -> query ($query);
-        $this -> answer ["driver_id"] = $this -> db -> insert_id ();
+        $new_driver_id = $this -> db -> insert_id ();
+        $this -> answer ["driver_id"] = $new_driver_id;
+        return $new_driver_id;
     }
 
     public function update ($driver_id)

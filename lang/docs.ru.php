@@ -5,7 +5,7 @@
     $lang["File description:"]="Описание файла: ";
     $lang["Select file to upload:"]="Выберите файл для загрузки: ";
     $lang["Driver's documents"]="Список документов";
-    $lang["Upload File"] = "Загрузка файла";
+    $lang["Upload File"] = "Загрузить файл";
     $lang["#"] = "№";
     $lang["Name"] = "Имя файла";
     $lang["Info"] = "Информация";
@@ -26,3 +26,4 @@
     $lang["Are you really want to delete this document?"] = "Вы в самом деле хотите удалить этот документ?";
     $lang["You need to select a file to upload."] = "Не выбран файл для загрузки.";
     $lang["File description missed"] = "Не указано описание к файлу.";
+    $lang["Open card"] = "Открыть карточку";

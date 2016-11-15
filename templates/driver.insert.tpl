@@ -16,8 +16,10 @@
             {if $php.saved}
                 {$lang["Driver added."]}
                 <br><br>
-                <a href="/driver/info/driver_id={$php.driver_id}" class="btn btn-info"
+                <a href="/driver/info/driver_id={$php.driver_id}" class="btn btn-default"
                     ><i class="glyphicon glyphicon-open-file"></i>&nbsp;&nbsp;{$lang["Open card"]}</a>
+                <a href="/docs/list/driver_id={$php.driver_id}" class="btn btn-info"
+                    ><i class="glyphicon glyphicon-open-file"></i>&nbsp;&nbsp;{$lang["Add docs"]}</a>
             {else}
                 {if $php.error}
                     <div class="panel panel-danger">
