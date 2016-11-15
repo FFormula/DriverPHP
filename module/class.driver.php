@@ -185,7 +185,8 @@ class driver extends Module
             $this -> answer ["message"] = na ("Cannot delete this driver, because he has documents");
             return;
         }
-        if ($this->data->load("user", "status") == "2") // admin
+        if ($this->data->load("user", "status") == "2" ||
+            $this->data->load("user", "status") == "3") // admin
             $this -> admin_delete ($driver_id);
         else
             $this -> oper_delete ($driver_id);
@@ -223,7 +224,8 @@ class driver extends Module
 
     protected function update_status ($driver_id, $status)
     {
-        if ($this->data->load("user", "status") == "2") // admin
+        if ($this->data->load("user", "status") == "2" ||
+            $this->data->load("user", "status") == "3") // admin
             $this->admin_update_status($driver_id, $status);
         else
             $this->oper_update_status($driver_id, $status);
@@ -257,7 +259,8 @@ class driver extends Module
     public function api_list ()
     {
         if (!$this -> data -> is_login (1)) return;
-        if ($this -> data -> load ("user", "status") == "2")
+        if ($this -> data -> load ("user", "status") == "2" || 
+            $this -> data -> load ("user", "status") == "3")
             $user_cond = "1";
         else
             $user_cond = " user_id = '" . $this -> data -> load ("user", "id") . "'";
@@ -283,7 +286,8 @@ class driver extends Module
     public function api_wait ()
     {
         if (!$this -> data -> is_login (1)) return;
-        if ($this -> data -> load ("user", "status") == "2")
+        if ($this -> data -> load ("user", "status") == "2" || 
+            $this -> data -> load ("user", "status") == "3")
             $user_cond = "1";
         else
             $user_cond = " user_id = '" . $this -> data -> load ("user", "id") . "'";
@@ -316,7 +320,8 @@ class driver extends Module
             $this -> answer ["error"] = na("Driver does not exists");
             return;
         }
-        if ($this->data->load("user", "status") == "2") // admin
+        if ($this->data->load("user", "status") == "2" ||
+            $this->data->load("user", "status") == "3") // admin
             $info = $this->info_admin($driver_id);
         else
             $info = $this->info_oper($driver_id);
@@ -460,7 +465,8 @@ class driver extends Module
             $this -> answer ["error"] = na("Driver does not exists");
             return false;
         }
-        if ($this -> data -> load ("user", "status") == "2")
+        if ($this -> data -> load ("user", "status") == "2" ||
+            $this -> data -> load ("user", "status") == "3")
             return true;
         if ($user_id == $this -> data -> load ("user", "id"))
             return true;
