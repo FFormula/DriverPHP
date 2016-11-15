@@ -22,31 +22,43 @@
                         </div>
                     </div>
                 </form>
-                {if $php.by != ""}
-                    {if $php.count}
-                        <div class="alert alert-info">
-                            <dl class="dl-horizontal">
-                                {if $php.count > 1}
-                                    <dt>{$lang["Results found:"]}</dt>
-                                    <dd>{$php.count}</dd>
-                                {/if}
-                                {if $php.driver_name}
-                                    <dt>{$lang["Driver name:"]}</dt>
-                                    <dd>{$php.driver_name}</dd>
-                                {/if}
-                            </dl>
-                        </div>
-                    {else}
-                        <div class="alert alert-danger">
-                            <strong>{$lang["No items found"]}</strong>
-                        </div>
-                    {/if}
-                {/if}
             {else}
                 {$lang["You are not logged in"]}
             {/if}
         </div>
     </div>
+
+    {if $user.id && $php.by != ""}
+        {if $php.count}
+
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr class="bg-primary">
+                    <th class="text-center">{$lang["#"]}</th>
+                    <th class="text-center">{$lang["Name"]}</th>
+                    <th class="text-center">{$lang["Info"]}</th>
+                    <th class="text-center">{$lang["Action"]}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach from=$php.list item=row}
+                    <tr>
+                        <td class="text-center">{$row.id}</td>
+                        <td class="text-left">{$row.last_name} {$row.first_name} {$row.father_name}</td>
+                        <td class="text-left">{$row.info}</td>
+                        <td class="text-center"><a href="/driver/info/driver_id={$row.id}/code={$row.code}" class="btn btn-info">{$lang["open card"]}</a></td>
+                    </tr>
+                {/foreach}
+                </tbody>
+            </table>
+
+        {else}
+            <div class="alert alert-danger">
+                <strong>{$lang["No items found"]}</strong>
+            </div>
+        {/if}
+    {/if}
+
 </div>
 
 {include file="tail.tpl"}

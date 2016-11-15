@@ -310,6 +310,7 @@ class driver extends Module
     {
         $this -> answer ["error"] = "";
         if (!$this -> data -> is_param ("driver_id")) return;
+        $this -> answer ["info"] ["status"] = 0; // do not show notice errors
         $driver_id = $this -> data -> get ("driver_id");
         if (!$this -> exists ($driver_id)) {
             $this -> answer ["error"] = na("Driver does not exists");
@@ -335,6 +336,13 @@ class driver extends Module
             $this -> answer ["error"] = na("Driver does not exists");
             return;
         }
+        $code_opened = false;
+        if ($this -> data -> get ("code"))
+        {
+            $right_code = md5($driver_id . "/" . $this -> data -> load ("user", "id") . "/saldo");
+            if ($right_code == $this -> data -> get ("code"))
+                $code_opened = true;
+        }
         $query =
             "SELECT drivers.id, 
                     drivers.insert_date, drivers.update_date, 
@@ -345,7 +353,8 @@ class driver extends Module
                FROM drivers 
                JOIN users 
                  ON drivers.user_id = users.id
-              WHERE drivers.id = '" . $driver_id . "'
+              WHERE drivers.id = '" . $driver_id . "'";
+        if (!$code_opened) $query .= "
                 AND user_id = '" . $this -> data -> load ("user", "id") . "'";
         return $this -> db -> select ($query);
     }
@@ -409,17 +418,17 @@ class driver extends Module
 
         $this -> answer ["count"] = $count;
         $this -> answer ["driver_name"] = "";
-        if ($count == 1)
+        if ($count <= 10)
         {
             $query =
-                "SELECT last_name, first_name, father_name 
+                "SELECT id, last_name, first_name, father_name, info
                    FROM drivers
                   WHERE id IN (0" . $ids . ")";
-            $res = $this -> db -> select ($query);
-            $this -> answer ["driver_name"] =
-                $res [0] ["last_name"] . " " .
-                $res [0] ["first_name"] . " " .
-                $res [0] ["father_name"] ;
+            $list = $this -> db -> select ($query);
+            $user_id = $this->data->load("user", "id");
+            foreach ($list as $key => $value)
+                $list [$key] ["code"] = md5 ($list [$key] ["id"] . "/" . $user_id . "/saldo");
+            $this -> answer ["list"] = $list;
         }
     }
 

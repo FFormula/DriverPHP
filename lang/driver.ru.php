@@ -70,3 +70,6 @@
 
     $lang["You are not logged in"] = "Вы не авторизованы";
 $lang["Add docs"] = "Прикрепить документы";
+$lang["open card"] = "Открыть";
+$lang["Action"] = "Действие";
+$lang["Action"] = "Действие";
