@@ -343,6 +343,7 @@ class driver extends Module
             if ($right_code == $this -> data -> get ("code"))
                 $code_opened = true;
         }
+        $this -> answer ["code_opened"] = $code_opened;
         $query =
             "SELECT drivers.id, 
                     drivers.insert_date, drivers.update_date, 

@@ -46,7 +46,7 @@
                         <td class="text-center">{$row.id}</td>
                         <td class="text-left">{$row.last_name} {$row.first_name} {$row.father_name}</td>
                         <td class="text-left">{$row.info}</td>
-                        <td class="text-center"><a href="/driver/info/driver_id={$row.id}/code={$row.code}" class="btn btn-info">{$lang["open card"]}</a></td>
+                        <td class="text-center"><a href="/driver/info/driver_id={$row.id}/code={$row.code}" class="btn btn-info" target="_blank">{$lang["open card"]}</a></td>
                     </tr>
                 {/foreach}
                 </tbody>
