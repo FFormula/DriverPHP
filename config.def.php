@@ -1,7 +1,7 @@
 <?php
     define ("ROOT", "");
-    define ("DATA_DEFAULT_MODULE", "driver");
-    define ("DATA_DEFAULT_ACTION", "find");
+    define ("DATA_DEFAULT_MODULE", "info");
+    define ("DATA_DEFAULT_ACTION", "index");
     define ("API_PREFIX", "api_");
     define ("POST_SUFFIX", "_post");
     define ("DB_ENGINE", "mysql");

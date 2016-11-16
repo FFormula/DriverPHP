@@ -1,4 +1,5 @@
 <?php
+    $lang ["HOME"] = "ABOUT";
     $lang ["FIND"] = "FIND";
     $lang ["DRIVERS_CONFIRMED"] = "DRIVERS CONFIRMED";
     $lang ["DRIVERS_ON_CHECK"] = "DRIVERS ON CHECK";

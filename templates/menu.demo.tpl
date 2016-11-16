@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="navbar navbar-header">
                     <button class="navbar-toggle" data-toggle="collapse" data-target="#MyTopMenu" >
-                        <span class="sr-only">Open menu</span>
+                        <span class="sr-only"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -12,9 +12,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="MyTopMenu">
                     <ul class="nav navbar-nav">
-                        <li{if $menu == "driver/find"} class="active"{/if}>
-                            <a href="/driver/find" title="{$lang["FIND"]}">
-                                <i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp;{$lang["FIND"]}</a>
+                        <li{if $menu == "info/index"} class="active"{/if}>
+                            <a href="/info/index" title="{$lang["HOME"]}">
+                                <i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;{$lang["HOME"]}</a>
                          </li>
                         <li{if $menu == "user/insert"} class="active"{/if}>
                            <a href="/user/insert" title="{$lang["JOIN"]}">

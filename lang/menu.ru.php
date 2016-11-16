@@ -1,4 +1,5 @@
 <?PHP
+    $lang ["HOME"] = "О ПРОЕКТЕ";
     $lang ["FIND"] = "ПОИСК";
     $lang ["DRIVERS_CONFIRMED"] = "ВОДИТЕЛИ";
     $lang ["DRIVERS_ON_CHECK"] = "НА ПРОВЕРКЕ";
