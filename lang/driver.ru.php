@@ -57,6 +57,7 @@
     $lang["Updated"] = "Изменено";
 
     $lang["Documents"] = "Открыть Документы";
+    $lang["Documents:"] = "Документы:";
     $lang["Driver name:"] = "Имя водителя:";
     $lang["No items found"] = "Ничего не найдено";
     $lang["Results found:"] = "Найдено записей:";
@@ -72,3 +73,4 @@
     $lang["Add docs"] = "Прикрепить документы";
     $lang["open card"] = "Открыть";
     $lang["Action"] = "Действие";
+    $lang["Download"] = "Скачать";

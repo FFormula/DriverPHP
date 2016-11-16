@@ -56,7 +56,7 @@
     $lang["Updated"] = "";
 
     $lang["Documents"] = "Open Documents";
-
+    $lang["Documents:"] = "Documents:";
     $lang["Driver name:"] = "";
     $lang["No items found"] = "";
     $lang["Results found:"] = "";
@@ -71,3 +71,4 @@
     $lang["Add docs"] = "";
     $lang["open card"] = "";
     $lang["Action"] = "";
+    $lang["Download"] = "";

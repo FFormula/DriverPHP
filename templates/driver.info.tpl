@@ -55,8 +55,21 @@
                         <dt>{$lang["Info:"]}</dt>
                         <dd>{$php.info.info}</dd>
                     </dl>
+            {if $php.docs_count}
+                <dl class="dl-horizontal">
+                <dt>{$lang["Documents:"]}</dt>
+                <dd>&nbsp;</dd>
+                {foreach from=$php.docs item=row}
+                    <dt>&nbsp;</dt>
+                    <dd><a href="{$php.docs_web}{$row.filename}"><u>{$lang["Download"]}</u></a>
+                        &nbsp;:&nbsp;
+                        {$row.info}</dd>
+                {/foreach}
+                </dl>
+            {/if}
+
                 </div>
-            {if !isset($php.code_opened)}
+            {if !$hide_menu}
                 <div class="col-xs-6 col-md-4">
                     {if $user.status >= 2}
                         <div class="text-center">

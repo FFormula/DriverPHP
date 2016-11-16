@@ -329,9 +329,24 @@ class driver extends Module
         {
             $this->answer ["error"] = na("This driver is not yours");
         } else {
+            $this->load_docs ($driver_id);
             $this->answer ["info"] = $info[0];
             $this->answer ["info"] ["status_text"] = na("status" . $this->answer ["info"] ["status"]);
         }
+    }
+
+    protected function load_docs ($driver_id)
+    {
+        $query =
+            "SELECT id, filename, info
+               FROM docs
+              WHERE driver_id = '" . $driver_id .
+            "' ORDER BY id DESC";
+
+        $list = $this -> db -> select ($query);
+        $this -> answer ["docs_web"] = DOCS_WEB;
+        $this -> answer ["docs"] = $list;
+        $this -> answer ["docs_count"] = count($list);
     }
 
     protected function info_oper ($driver_id)
@@ -345,10 +360,11 @@ class driver extends Module
         if ($this -> data -> get ("code"))
         {
             $right_code = md5($driver_id . "/" . $this -> data -> load ("user", "id") . "/saldo");
-            if ($right_code == $this -> data -> get ("code"))
+            if ($right_code == $this -> data -> get ("code")) {
                 $code_opened = true;
+                $this -> data -> hide_menu ();
+            }
         }
-        $this -> answer ["code_opened"] = $code_opened;
         $query =
             "SELECT drivers.id, 
                     drivers.insert_date, drivers.update_date, 
@@ -368,6 +384,8 @@ class driver extends Module
     protected function info_admin ($driver_id)
     {
         if (!$this -> data -> is_login (2)) return;
+        if ($this -> data -> get ("code"))
+            $this -> data -> hide_menu ();
         $query =
             "SELECT drivers.id, 
                     drivers.insert_date, drivers.update_date, 

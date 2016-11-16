@@ -25,6 +25,11 @@ class Data
         return "";
     }
 
+    public function hide_menu ()
+    {
+        $this -> get ["hide_menu"] = true;
+    }
+
     /** Parse route, post and get arguments */
     public function init ($db)
     {
