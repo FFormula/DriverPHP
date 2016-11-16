@@ -99,7 +99,7 @@ class user extends Module
         $email = $this->data->get("email");
         $md5password = md5($this->data->get("password"));
         $query =
-            "SELECT id, name, email, failed_logins, status, md5(password) as md5password
+            "SELECT id, name, email, park, phone, failed_logins, status, md5(password) as md5password
                FROM users 
               WHERE email = '" . $email . "'";
         $user = $this -> db -> select ($query);
@@ -233,9 +233,8 @@ class user extends Module
         return true;
     }
 
-    function is_valid_email($email)
+    protected function is_valid_email($email)
     {
-        $pattern = "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$";
-        return eregi($pattern, $email);
+        return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
     }
 }

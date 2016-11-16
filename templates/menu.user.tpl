@@ -43,8 +43,9 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li{if $menu == "user/list"} class="active"{/if}>
-                            <a href="/user/list"><b><i class="glyphicon glyphicon-user"></i
-                                >&nbsp;&nbsp;{$lang["user_status_`$user.status`"]} / {$user.name}</b>
+                            <a href="{if $user.status == 3}/user/list{else}#{/if}" title="{$user.name} / {$user.email}">
+                                <b><i class="glyphicon glyphicon-user"></i>
+                                    &nbsp;&nbsp;{$lang["user_status_`$user.status`"]} {$user.park}</b>
                                 {if isset($php.users) && $php.users|@count > 0}
                                     <span class="badge">{$php.users|@count}</span>
                                 {/if}
