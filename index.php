@@ -24,6 +24,7 @@
         if (!is_callable (array ($class, $api_action)))
             throw new Exception ("Module [$module] action [$action] not found");
         $class -> $api_action ();
+        $class -> load_stats ();
         $data -> done ($class -> get_answer());
 
         include ROOT . "libs/Smarty.class.php";

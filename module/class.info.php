@@ -6,4 +6,5 @@ class info extends Module
     {
         $this -> answer ["date"] = date ("Y-m-d");
     }
+    
 }

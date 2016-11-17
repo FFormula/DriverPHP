@@ -21,8 +21,8 @@
                         <li{if $menu == "driver/list"} class="active"{/if}>
                             <a href="/driver/list" title="{$lang["DRIVERS_CONFIRMED"]}"><i class="glyphicon glyphicon-briefcase"></i
                                 >&nbsp;&nbsp;{$lang["DRIVERS_CONFIRMED"]}
-                                {if isset($php.list) && $php.list|@count > 0}
-                                    <span class="badge">{$php.list|@count}</span>
+                                {if isset($php.stats.driver_2)}
+                                    &nbsp;<span class="badge">{$php.stats.driver_2}</span>
                                 {/if}
                             </a>
                         </li>
@@ -30,8 +30,8 @@
                                $menu == "driver/info"} class="active"{/if}>
                             <a href="/driver/wait" title="{$lang["DRIVERS_ON_CHECK"]}"><i class="glyphicon glyphicon-briefcase"></i
                                 >&nbsp;&nbsp;{$lang["DRIVERS_ON_CHECK"]}
-                                {if isset($php.wait) && $php.wait|@count > 0}
-                                    <span class="badge">{$php.wait|@count}</span>
+                                {if isset($php.stats.driver_1)}
+                                    &nbsp;<span class="badge">{$php.stats.driver_1}</span>
                                 {/if}
                             </a>
                         </li>
@@ -46,8 +46,8 @@
                             <a href="{if $user.status == 3}/user/list{else}#{/if}" title="{$user.name} / {$user.email}">
                                 <b><i class="glyphicon glyphicon-user"></i>
                                     &nbsp;&nbsp;{$lang["user_status_`$user.status`"]} {$user.park}</b>
-                                {if isset($php.users) && $php.users|@count > 0}
-                                    <span class="badge">{$php.users|@count}</span>
+                                {if isset($php.stats.user_1)}
+                                    &nbsp;<span class="badge">{$php.stats.user_1}{if isset($php.stats.user_0)}+{$php.stats.user_0}{/if}</span>
                                 {/if}
                             </a>
                         </li>
