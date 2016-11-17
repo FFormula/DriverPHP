@@ -77,7 +77,7 @@ class Data
         if (!is_array($_POST))
             return;
         foreach ($_POST as $key => $value)
-            $this -> get [$key] = addslashes($value);
+            $this -> get [$key] = addslashes(trim($value));
     }
 
     private function parse_get()
@@ -87,7 +87,7 @@ class Data
         foreach ($this -> data_parts as $part)
         {
             list ($param, $value) = explode ('=', $part);
-            $this -> get [$param] = addslashes ($value);
+            $this -> get [$param] = addslashes (trim($value));
         }
     }
 
@@ -173,9 +173,20 @@ class Data
     public function in_symbols ($text, $symbols)
     {
         for ($j = 0; $j < strlen ($text); $j ++) {
-            if (!strpos(ABCDEF, substr($text, $j, 1)))
+            if (strpos($symbols, substr($text, $j, 1)) === false)
                 return false;
         }
+        return true;
+    }
+
+    public function is_phone ($text)
+    {
+        if (!$this -> in_symbols ($text, DIGITS))
+            return false;
+        if (strlen ($text) < 11)
+            return false;
+        if (substr ($text, 0, 2) != "+7")
+            return false;
         return true;
     }
 }

@@ -31,6 +31,8 @@
                         <dd>{$php.info.update_date}</dd>
                     </dl>
 
+                <div class="panel-body bg-info">
+                    <br>
                     <dl class="dl-horizontal">
                         <dt>{$lang["Last name:"]}</dt>
                         <dd>{$php.info.last_name}</dd>
@@ -38,35 +40,27 @@
                         <dd>{$php.info.first_name}</dd>
                         <dt>{$lang["Father name:"]}</dt>
                         <dd>{$php.info.father_name}</dd>
-                    </dl>
-
-                    <br>
-
-                    <dl class="dl-horizontal">
-                        <dt>{$lang["Passport serial:"]}</dt>
-                        <dd>{$php.info.passport_serial}</dd>
-                        <dt>{$lang["Passport number:"]}</dt>
-                        <dd>{$php.info.passport_number}</dd>
-                    </dl>
-
-                    <br>
-
-                    <dl class="dl-horizontal">
+                        <br/>
+                        <dt>{$lang["Phone:"]}</dt>
+                        <dd>{$php.info.phone}</dd>
                         <dt>{$lang["Info:"]}</dt>
                         <dd>{$php.info.info}</dd>
                     </dl>
-            {if $php.docs_count}
-                <dl class="dl-horizontal">
-                <dt>{$lang["Documents:"]}</dt>
-                <dd>&nbsp;</dd>
+                </div>
+
+                    <br>
+                    <dl class="dl-horizontal">
+                        <dt>{$lang["Documents:"]}</dt>
+                        <dd>&nbsp;</dd>
+                        <dt>{$lang["Passport:"]}</dt>
+                        <dd>{$php.info.passport_serial} &nbsp; {$php.info.passport_number}</dd>
+                        <dt>{$lang["License:"]}</dt>
+                        <dd>{$php.info.license_serial} &nbsp; {$php.info.license_number}</dd>
                 {foreach from=$php.docs item=row}
-                    <dt>&nbsp;</dt>
-                    <dd><a href="{$php.docs_web}{$row.filename}"><u>{$lang["Download"]}</u></a>
-                        &nbsp;:&nbsp;
-                        {$row.info}</dd>
+                        <dt>{$lang["File:"]}</dt>
+                        <dd><a href="{$php.docs_web}{$row.filename}"><u>{$row.info}</u></a></dd>
                 {/foreach}
-                </dl>
-            {/if}
+                    </dl>
 
                 </div>
             {if !$hide_menu}
@@ -84,13 +78,7 @@
                                onclick="return confirm('{$lang["Do you really want to delete this record?"]}');"
                             >&nbsp;<i class="glyphicon glyphicon-remove"></i>&nbsp;</a>
                         </div>
-                        <br/>
                     {/if}
-                    <div class="text-center">
-                        <a href="/docs/list/driver_id={$php.info.id}" class="btn btn-info"
-                        ><i class="glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp;{$lang["Documents"]}</a>
-                        <br>
-                    </div>
                     <div>
                         <hr>
                     </div>
@@ -99,8 +87,17 @@
                         ><i class="glyphicon glyphicon-edit"></i>&nbsp;&nbsp;{$lang["Edit"]}</a>
                         <br>
                     </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     <div>
                         <hr>
+                    </div>
+                    <div class="text-center">
+                        <a href="/docs/list/driver_id={$php.info.id}" class="btn btn-info"
+                        ><i class="glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp;{$lang["Documents"]}</a>
+                        <br>
                     </div>
                     <br/>
                 </div>

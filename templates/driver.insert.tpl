@@ -40,24 +40,24 @@
                         <label class="col-md-2 control-label">{$lang["Last name:"]}</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="last_name" value="{$php.driver.last_name}" />
-                            {if $php.warn.last_name}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
-                            {if $php.warn.last_name == 2}{$lang["warn_level_2"]}{/if}
+                            {if $php.warn.last_name}<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                               {$php.warn.last_name}{/if}
                         </div>
                     </div>
                     <div class="form-group{if $php.warn.first_name} has-error has-feedback{/if}">
                         <label class="col-md-2 control-label">{$lang["First name:"]}</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="first_name" value="{$php.driver.first_name}" />
-                            {if $php.warn.first_name}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
-                            {if $php.warn.first_name == 2}{$lang["warn_level_2"]}{/if}
+                            {if $php.warn.first_name}<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                               {$php.warn.first_name}{/if}
                         </div>
                     </div>
                     <div class="form-group{if $php.warn.father_name} has-error has-feedback{/if}">
                         <label class="col-md-2 control-label">{$lang["Father name:"]}</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="father_name" value="{$php.driver.father_name}" />
-                            {if $php.warn.father_name}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
-                            {if $php.warn.father_name == 2}{$lang["warn_level_2"]}{/if}
+                            {if $php.warn.father_name}<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                               {$php.warn.father_name}{/if}
                         </div>
                     </div>
                 </div>
@@ -66,32 +66,32 @@
                         <label class="col-md-2 control-label">{$lang["Passport serial:"]}</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="passport_serial" value="{$php.driver.passport_serial}" />
-                            {if $php.warn.passport_serial}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
-                            {if $php.warn.passport_serial == 2}{$lang["warn_level_2"]}{/if}
+                            {if $php.warn.passport_serial}<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                               {$php.warn.passport_serial}{/if}
                         </div>
                     </div>
                     <div class="form-group{if $php.warn.passport_number} has-error has-feedback{/if}">
                         <label class="col-md-2 control-label">{$lang["Passport number:"]}</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="passport_number" value="{$php.driver.passport_number}" />
-                            {if $php.warn.passport_number}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
-                            {if $php.warn.passport_number == 2}{$lang["warn_level_2"]}{/if}
+                            {if $php.warn.passport_number}<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                               {$php.warn.passport_number}{/if}
                         </div>
                     </div>
                     <div class="form-group{if $php.warn.license_serial} has-error has-feedback{/if}">
                         <label class="col-md-2 control-label">{$lang["License serial:"]}</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="license_serial" value="{$php.driver.license_serial}" />
-                            {if $php.warn.license_serial}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
-                            {if $php.warn.license_serial == 2}{$lang["warn_level_2"]}{/if}
+                            {if $php.warn.license_serial}<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                               {$php.warn.license_serial}{/if}
                         </div>
                     </div>
                     <div class="form-group{if $php.warn.license_number} has-error has-feedback{/if}">
                         <label class="col-md-2 control-label">{$lang["License number:"]}</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="license_number" value="{$php.driver.license_number}" />
-                            {if $php.warn.license_number}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
-                            {if $php.warn.license_number == 2}{$lang["warn_level_2"]}{/if}
+                            {if $php.warn.license_number}<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                               {$php.warn.license_number}{/if}
                         </div>
                     </div>
                 </div>
@@ -100,15 +100,16 @@
                         <label class="col-md-2 control-label">{$lang["Phone:"]}</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="phone" value="{$php.driver.phone}" />
-                            {if $php.warn.phone}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
-                            {if $php.warn.phone == 2}{$lang["warn_level_2"]}{/if}
+                            {if $php.warn.phone}<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                               {$php.warn.phone}{/if}
                         </div>
                     </div>
                     <div class="form-group{if $php.warn.info} has-error has-feedback{/if}">
                         <label class="col-md-2 control-label">{$lang["Info:"]}</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="info" value="{$php.driver.info}" />
-                            {if $php.warn.info}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
+                            {if $php.warn.info}<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                               {$php.warn.info}{/if}
                         </div>
                     </div>
                 </div>

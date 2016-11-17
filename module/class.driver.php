@@ -17,9 +17,8 @@ class driver extends Module
     function is_all_params ()
     {
         foreach ($this -> driver as $name => $value) {
-            echo $name . ",";
             if (!$this->data->is_param($name)) return false;
-            $this->driver [$name] = $this->data->get($name);
+            $this->driver [$name] = trim($this->data->get($name));
         }
         return true;
     }
@@ -71,9 +70,7 @@ class driver extends Module
         $driver_id = $this -> read_driver_id();
         $this -> answer ["driver_id"] = $driver_id ? $driver_id : na("New");
         $this -> answer ["new_driver"] = $driver_id ? "0" : "1";
-        echo "here";
         if (!$this -> is_all_params ()) return;
-        echo "here2";
         $this -> answer ["saved"] = "";
 
         if ($this -> check_missed_fields ()) return;
@@ -95,18 +92,27 @@ class driver extends Module
         $this -> answer ["driver"] = $this -> driver;
         $errors = 0;
         foreach ($this -> driver as $name => $value)
+            $this->answer ["warn"] [$name] = 0;
+
+        foreach ($this -> driver as $name => $value)
         {
-            $this -> answer ["driver"] [$name] = $this -> data -> get($name);
+            $this -> answer ["driver"] [$name] = $value;
             if ($this -> data -> get($name) == "") {
                 $errors ++;
-                $this->answer ["warn"] [$name] = 1;
-            } else if ($name != "info" &&
-                       !$this -> data -> in_symbols ($this -> data -> get($name), ABCDEF . DIGITS)) {
+                $this->answer ["warn"] [$name] = na("warn_no");
+            }
+            if ($name != "info" &&
+               !$this -> data -> in_symbols ($value, ABCDEF . DIGITS)) {
                 $errors ++;
-                $this->answer ["warn"] [$name] = 2;
-            } else
-                $this->answer ["warn"] [$name] = 0;
+                $this->answer ["warn"] [$name] = na("warn_abc");
+            }
+            if ($name == "phone" &&
+               !$this -> data -> is_phone ($value)) {
+                $errors ++;
+                $this->answer ["warn"] [$name] = na("warn_phone");
+            }
         }
+        print_r ($this->answer["warn"]);
         if ($errors == 0)
             return false;
         $this->answer ["error"] = na("Fill all fields");
@@ -121,8 +127,8 @@ class driver extends Module
               WHERE last_name = UPPER('" . $this -> data -> get ("last_name") . "')
                 AND first_name = UPPER('" . $this -> data -> get ("first_name") . "')
                 AND father_name = UPPER('" . $this -> data -> get ("father_name") . "')
-                AND passport_serial = UPPER('" . $this -> data -> get ("passport_serial") . "') 
-                AND passport_number = UPPER('" . $this -> data -> get ("passport_number") . "' 
+                AND passport_serial = UPPER('" . $this -> data -> get ("passport_serial") . "')
+                AND passport_number = UPPER('" . $this -> data -> get ("passport_number") . "'
                 AND id <> '" . $driver_id . "')";
         $count = $this -> db -> scalar ($query) * 1;
         if ($count == 0)
@@ -138,12 +144,12 @@ class driver extends Module
         $query =
             "INSERT INTO drivers
                 SET user_id = '" . $user_id . "',
-                    last_name = UPPER('" . $this -> data -> get ("last_name") . "'), 
-                    first_name = UPPER('" . $this -> data -> get ("first_name") . "'), 
+                    last_name = UPPER('" . $this -> data -> get ("last_name") . "'),
+                    first_name = UPPER('" . $this -> data -> get ("first_name") . "'),
                     father_name = UPPER('" . $this -> data -> get ("father_name") . "'),
-                    passport_serial = UPPER('" . $this -> data -> get ("passport_serial") . "'), 
+                    passport_serial = UPPER('" . $this -> data -> get ("passport_serial") . "'),
                     passport_number = UPPER('" . $this -> data -> get ("passport_number") . "'),
-                    license_serial = UPPER('" . $this -> data -> get ("license_serial") . "'), 
+                    license_serial = UPPER('" . $this -> data -> get ("license_serial") . "'),
                     license_number = UPPER('" . $this -> data -> get ("license_number") . "'),
                     phone = '" . $this -> data -> get ("phone") . "',
                     info = '" . $this -> data -> get ("info") . "',
@@ -168,6 +174,9 @@ class driver extends Module
                     father_name = UPPER('" . $this -> data -> get ("father_name") . "'),
                     passport_serial = UPPER('" . $this -> data -> get ("passport_serial") . "'), 
                     passport_number = UPPER('" . $this -> data -> get ("passport_number") . "'),
+                    license_serial = UPPER('" . $this -> data -> get ("license_serial") . "'), 
+                    license_number = UPPER('" . $this -> data -> get ("license_number") . "'),
+                    phone = '" . $this -> data -> get ("phone") . "',
                     info = '" . $this -> data -> get ("info") . "', " .
  ($reset_status ? " status = 1, " : "") . "
                     update_date = NOW()
@@ -280,7 +289,7 @@ class driver extends Module
             "SELECT drivers.id, insert_date, update_date, 
                     last_name, first_name, father_name,
                     passport_serial, passport_number,
-                    drivers.status, drivers.info,
+                    drivers.status, drivers.info, drivers.phone,
                     users.name user_name,
                     COUNT(docs.id) docs
                FROM drivers 
@@ -307,7 +316,7 @@ class driver extends Module
             "SELECT drivers.id, insert_date, update_date, 
                     last_name, first_name, father_name,
                     passport_serial, passport_number,
-                    drivers.status, drivers.info,
+                    drivers.status, drivers.info, drivers.phone,
                     users.name user_name,
                     COUNT(docs.id) docs
                FROM drivers 
@@ -382,7 +391,8 @@ class driver extends Module
                     drivers.insert_date, drivers.update_date, 
                     last_name, first_name, father_name,
                     passport_serial, passport_number,
-                    drivers.status, drivers.info,
+                    license_serial, license_number,
+                    drivers.status, drivers.info, drivers.phone,
                     users.name user_name
                FROM drivers 
                JOIN users 
@@ -403,7 +413,8 @@ class driver extends Module
                     drivers.insert_date, drivers.update_date, 
                     last_name, first_name, father_name,
                     passport_serial, passport_number,
-                    drivers.status, drivers.info,
+                    license_serial, license_number,
+                    drivers.status, drivers.info, drivers.phone,
                     users.name user_name
                FROM drivers 
                JOIN users 

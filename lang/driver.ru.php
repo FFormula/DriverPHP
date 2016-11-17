@@ -74,7 +74,13 @@
     $lang["open card"] = "Открыть";
     $lang["Action"] = "Действие";
     $lang["Download"] = "Скачать";
-$lang ["License serial:"] = "Серия прав:";
-$lang ["License number:"] = "Номер прав:";
-$lang ["Phone:"] = "Номер телефона:";
-$lang["warn_level_2"] = "Используйте только буквы и цифры, без пробелов";
+    $lang["License serial:"] = "Серия прав:";
+    $lang["License number:"] = "Номер прав:";
+    $lang["Phone:"] = "Номер телефона:";
+
+    $lang["warn_no"] = " ";
+    $lang["warn_abc"] = "Используйте только буквы и цифры, без пробелов";
+    $lang["warn_phone"] = "Use format +79001234567";
+    $lang["Passport:"] = "";
+    $lang["License:"] = "";
+    $lang["File:"] = "";

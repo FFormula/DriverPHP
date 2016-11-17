@@ -73,7 +73,12 @@
     $lang["Action"] = "";
     $lang["Download"] = "";
 
-$lang ["License serial:"] = "";
-$lang ["License number:"] = "";
-$lang ["Phone:"] = "";
-$lang["warn_level_2"] = "Use only alphabet symbols, no spaces";
+    $lang["License serial:"] = "";
+    $lang["License number:"] = "";
+    $lang["Phone:"] = "";
+    $lang["warn_no"] = " ";
+    $lang["warn_abc"] = "Use only alphabet symbols, no spaces";
+    $lang["warn_phone"] = "Use format +79001234567";
+    $lang["Passport:"] = "";
+    $lang["License:"] = "";
+    $lang["File:"] = "";
