@@ -35,6 +35,7 @@
                             <input type="text" class="form-control" name="driver_id" value="{$php.driver_id}" readonly />
                         </div>
                     </div>
+                <div class="panel-body bg-warning">
                     <div class="form-group{if $php.warn.last_name} has-error has-feedback{/if}">
                         <label class="col-md-2 control-label">{$lang["Last name:"]}</label>
                         <div class="col-md-10">
@@ -56,6 +57,8 @@
                             {if $php.warn.father_name}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
                         </div>
                     </div>
+                </div>
+                <div class="panel-body bg-info">
                     <div class="form-group{if $php.warn.passport_serial} has-error has-feedback{/if}">
                         <label class="col-md-2 control-label">{$lang["Passport serial:"]}</label>
                         <div class="col-md-10">
@@ -70,6 +73,29 @@
                             {if $php.warn.passport_number}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
                         </div>
                     </div>
+                    <div class="form-group{if $php.warn.license_serial} has-error has-feedback{/if}">
+                        <label class="col-md-2 control-label">{$lang["License serial:"]}</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="license_serial" value="{$php.driver.license_serial}" />
+                            {if $php.warn.license_serial}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
+                        </div>
+                    </div>
+                    <div class="form-group{if $php.warn.license_number} has-error has-feedback{/if}">
+                        <label class="col-md-2 control-label">{$lang["License number:"]}</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="license_number" value="{$php.driver.license_number}" />
+                            {if $php.warn.license_number}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body bg-warning">
+                    <div class="form-group{if $php.warn.phone} has-error has-feedback{/if}">
+                        <label class="col-md-2 control-label">{$lang["Phone:"]}</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="phone" value="{$php.driver.phone}" />
+                            {if $php.warn.phone}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
+                        </div>
+                    </div>
                     <div class="form-group{if $php.warn.info} has-error has-feedback{/if}">
                         <label class="col-md-2 control-label">{$lang["Info:"]}</label>
                         <div class="col-md-10">
@@ -77,6 +103,7 @@
                             {if $php.warn.info}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{/if}
                         </div>
                     </div>
+                </div>
                     <div class="form-group">
                         <div class="col-md-offset-5 col-md-7">
                             <div class="col-md-2 text-left">

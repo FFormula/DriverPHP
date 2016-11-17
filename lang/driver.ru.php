@@ -74,3 +74,6 @@
     $lang["open card"] = "Открыть";
     $lang["Action"] = "Действие";
     $lang["Download"] = "Скачать";
+$lang ["License serial:"] = "Серия прав:";
+$lang ["License number:"] = "Номер прав:";
+$lang ["Phone:"] = "Номер телефона:";

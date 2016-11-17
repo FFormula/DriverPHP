@@ -8,12 +8,16 @@ class driver extends Module
         "father_name" => "",
         "passport_serial" => "",
         "passport_number" => "",
+        "license_serial" => "",
+        "license_number" => "",
+        "phone" => "",
         "info" => ""
     );
 
     function is_all_params ()
     {
         foreach ($this -> driver as $name => $value) {
+            echo $name . ",";
             if (!$this->data->is_param($name)) return false;
             $this->driver [$name] = $this->data->get($name);
         }
@@ -67,8 +71,9 @@ class driver extends Module
         $driver_id = $this -> read_driver_id();
         $this -> answer ["driver_id"] = $driver_id ? $driver_id : na("New");
         $this -> answer ["new_driver"] = $driver_id ? "0" : "1";
-
+        echo "here";
         if (!$this -> is_all_params ()) return;
+        echo "here2";
         $this -> answer ["saved"] = "";
 
         if ($this -> check_insert_errors()) return;

@@ -72,3 +72,7 @@
     $lang["open card"] = "";
     $lang["Action"] = "";
     $lang["Download"] = "";
+
+$lang ["License serial:"] = "";
+$lang ["License number:"] = "";
+$lang ["Phone:"] = "";

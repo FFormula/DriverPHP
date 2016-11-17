@@ -28,7 +28,7 @@
             <br/><br/>
             <h3>Видеоинструкция для новых пользователей</h3>
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/a_Axa1Wn6sc"
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/8w1qsvzpSbc"
                     frameborder="0" allowfullscreen></iframe>
 
         </div>
