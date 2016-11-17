@@ -17,3 +17,7 @@
     define ("DOCS_WEB", "/docfiles/");
     define ("DOCS_EXTS", "jpg,jpeg,png,pdf");
     define ("LANG_DEFAULT", "en");
+
+    define ("ABCDEF", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"."АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ".
+                      "abcdefghijklmnopqrstuvwxyz"."абвгдеёжзийклмнопрстуфхцчшщъыьэюя");
+    define ("DIGITS", "0123456789+");

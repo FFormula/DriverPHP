@@ -76,3 +76,4 @@
 $lang ["License serial:"] = "";
 $lang ["License number:"] = "";
 $lang ["Phone:"] = "";
+$lang["warn_level_2"] = "Use only alphabet symbols, no spaces";

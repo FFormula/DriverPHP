@@ -169,4 +169,13 @@ class Data
                     "status" => @$_SESSION ["user"] ["status"],
                     "name" => @$_SESSION ["user"] ["name"]));
     }
+
+    public function in_symbols ($text, $symbols)
+    {
+        for ($j = 0; $j < strlen ($text); $j ++) {
+            if (!strpos(ABCDEF, substr($text, $j, 1)))
+                return false;
+        }
+        return true;
+    }
 }

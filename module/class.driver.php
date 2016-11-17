@@ -76,7 +76,7 @@ class driver extends Module
         echo "here2";
         $this -> answer ["saved"] = "";
 
-        if ($this -> check_insert_errors()) return;
+        if ($this -> check_missed_fields ()) return;
         if ($this -> check_equals_driver($driver_id)) return;
         if ($driver_id) {
             $this->update($driver_id);
@@ -89,7 +89,7 @@ class driver extends Module
         $this -> answer ["saved"] = true;
     }
 
-    protected function check_insert_errors ()
+    protected function check_missed_fields ()
     {
         $this -> answer ["error"] = "";
         $this -> answer ["driver"] = $this -> driver;
@@ -100,6 +100,10 @@ class driver extends Module
             if ($this -> data -> get($name) == "") {
                 $errors ++;
                 $this->answer ["warn"] [$name] = 1;
+            } else if ($name != "info" &&
+                       !$this -> data -> in_symbols ($this -> data -> get($name), ABCDEF . DIGITS)) {
+                $errors ++;
+                $this->answer ["warn"] [$name] = 2;
             } else
                 $this->answer ["warn"] [$name] = 0;
         }
@@ -139,6 +143,9 @@ class driver extends Module
                     father_name = UPPER('" . $this -> data -> get ("father_name") . "'),
                     passport_serial = UPPER('" . $this -> data -> get ("passport_serial") . "'), 
                     passport_number = UPPER('" . $this -> data -> get ("passport_number") . "'),
+                    license_serial = UPPER('" . $this -> data -> get ("license_serial") . "'), 
+                    license_number = UPPER('" . $this -> data -> get ("license_number") . "'),
+                    phone = '" . $this -> data -> get ("phone") . "',
                     info = '" . $this -> data -> get ("info") . "',
                     status = " . $driver_status . ",
                     insert_date = NOW()";
