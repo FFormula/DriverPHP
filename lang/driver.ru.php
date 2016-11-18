@@ -1,7 +1,8 @@
 <?php
-    $lang ["Driver"] = "Водитель";
-    $lang["Find by Name / Passport"] = "Поиск по фамилии / номеру паспорта";
-    $lang["Name or Passport:"] = "Введите фамилию или номер паспорта:";
+    $lang["Driver"] = "Водитель";
+    $lang["Find by Name / Passport"] = "Поиск водителя";
+    $lang["Name or Passport:"] = "Критерий поиска:";
+    $lang["Find Description"] = "Для поиска необходимо ввести либо фамилию, либо серию и номер паспорта или прав (слитно, без пробелов), либо последние 6+ цифр телефона. Можно искать сразу по нескольким данным, указывая их через пробел.";
     $lang["Find"] = "Искать";
 
     $lang["Register new Driver"] = "Регистрация нового Водителя";
@@ -11,7 +12,7 @@
     $lang["First name:"] = "Имя:";
     $lang["Father name:"] = "Отчество:";
     $lang["Passport serial:"] = "Серия паспорта:";
-    $lang["Passport number:"] = "Номер паспорта:";
+    $lang["Passport number:"] = "Серия и номер паспорта:";
     $lang["Info:"] = "Доп. информация:";
     $lang["Add driver"] = "Добавить водителя";
     $lang["User not set"] = "Номер пользователя не задан";
@@ -75,12 +76,13 @@
     $lang["Action"] = "Действие";
     $lang["Download"] = "Скачать";
     $lang["License serial:"] = "Серия прав:";
-    $lang["License number:"] = "Номер прав:";
+    $lang["License number:"] = "Серия и номер прав:";
     $lang["Phone:"] = "Номер телефона:";
 
     $lang["warn_no"] = " ";
     $lang["warn_abc"] = "Используйте только буквы и цифры, без пробелов";
-    $lang["warn_phone"] = "Use format +79001234567";
-    $lang["Passport:"] = "";
-    $lang["License:"] = "";
-    $lang["File:"] = "";
+    $lang["warn_phone"] = "Пишите только цифры после знака +, например: +79001234567";
+    $lang["Passport:"] = "Паспорт:";
+    $lang["License:"] = "Права:";
+    $lang["File:"] = "Файл:";
+	$lang["Park:"] = "Добавил:";

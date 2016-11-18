@@ -9,5 +9,5 @@
     $lang ["JOIN"] = "РЕГИСТРАЦИЯ";
     $lang ["user_status_1"] = "Автопарк";
     $lang ["user_status_2"] = "Админ";
-    $lang ["user_status_3"] = "Волшебник";
+    $lang ["user_status_3"] = "Главный Админ";
 

@@ -6,9 +6,7 @@ class driver extends Module
         "first_name" => "",
         "last_name" => "",
         "father_name" => "",
-        "passport_serial" => "",
         "passport_number" => "",
-        "license_serial" => "",
         "license_number" => "",
         "phone" => "",
         "info" => ""
@@ -112,7 +110,6 @@ class driver extends Module
                 $this->answer ["warn"] [$name] = na("warn_phone");
             }
         }
-        print_r ($this->answer["warn"]);
         if ($errors == 0)
             return false;
         $this->answer ["error"] = na("Fill all fields");
@@ -127,7 +124,6 @@ class driver extends Module
               WHERE last_name = UPPER('" . $this -> data -> get ("last_name") . "')
                 AND first_name = UPPER('" . $this -> data -> get ("first_name") . "')
                 AND father_name = UPPER('" . $this -> data -> get ("father_name") . "')
-                AND passport_serial = UPPER('" . $this -> data -> get ("passport_serial") . "')
                 AND passport_number = UPPER('" . $this -> data -> get ("passport_number") . "'
                 AND id <> '" . $driver_id . "')";
         $count = $this -> db -> scalar ($query) * 1;
@@ -147,9 +143,7 @@ class driver extends Module
                     last_name = UPPER('" . $this -> data -> get ("last_name") . "'),
                     first_name = UPPER('" . $this -> data -> get ("first_name") . "'),
                     father_name = UPPER('" . $this -> data -> get ("father_name") . "'),
-                    passport_serial = UPPER('" . $this -> data -> get ("passport_serial") . "'),
                     passport_number = UPPER('" . $this -> data -> get ("passport_number") . "'),
-                    license_serial = UPPER('" . $this -> data -> get ("license_serial") . "'),
                     license_number = UPPER('" . $this -> data -> get ("license_number") . "'),
                     phone = '" . $this -> data -> get ("phone") . "',
                     info = '" . $this -> data -> get ("info") . "',
@@ -172,9 +166,7 @@ class driver extends Module
                 SET last_name = UPPER('" . $this -> data -> get ("last_name") . "'), 
                     first_name = UPPER('" . $this -> data -> get ("first_name") . "'), 
                     father_name = UPPER('" . $this -> data -> get ("father_name") . "'),
-                    passport_serial = UPPER('" . $this -> data -> get ("passport_serial") . "'), 
                     passport_number = UPPER('" . $this -> data -> get ("passport_number") . "'),
-                    license_serial = UPPER('" . $this -> data -> get ("license_serial") . "'), 
                     license_number = UPPER('" . $this -> data -> get ("license_number") . "'),
                     phone = '" . $this -> data -> get ("phone") . "',
                     info = '" . $this -> data -> get ("info") . "', " .
@@ -288,7 +280,7 @@ class driver extends Module
         $query =
             "SELECT drivers.id, insert_date, update_date, 
                     last_name, first_name, father_name,
-                    passport_serial, passport_number,
+                    passport_number,
                     drivers.status, drivers.info, drivers.phone,
                     users.name user_name,
                     COUNT(docs.id) docs
@@ -315,7 +307,7 @@ class driver extends Module
         $query =
             "SELECT drivers.id, insert_date, update_date, 
                     last_name, first_name, father_name,
-                    passport_serial, passport_number,
+                    passport_number,
                     drivers.status, drivers.info, drivers.phone,
                     users.name user_name,
                     COUNT(docs.id) docs
@@ -390,10 +382,10 @@ class driver extends Module
             "SELECT drivers.id, 
                     drivers.insert_date, drivers.update_date, 
                     last_name, first_name, father_name,
-                    passport_serial, passport_number,
-                    license_serial, license_number,
+                    passport_number,
+                    license_number,
                     drivers.status, drivers.info, drivers.phone,
-                    users.name user_name
+                    users.name user_name, users.park park
                FROM drivers 
                JOIN users 
                  ON drivers.user_id = users.id
@@ -412,10 +404,10 @@ class driver extends Module
             "SELECT drivers.id, 
                     drivers.insert_date, drivers.update_date, 
                     last_name, first_name, father_name,
-                    passport_serial, passport_number,
-                    license_serial, license_number,
+                    passport_number,
+                    license_number,
                     drivers.status, drivers.info, drivers.phone,
-                    users.name user_name
+                    users.name user_name, users.park park
                FROM drivers 
                JOIN users 
                  ON drivers.user_id = users.id
@@ -445,14 +437,16 @@ class driver extends Module
             $word = trim($word1);
             if ($word == "")
                 continue;
+            if (strlen ($word) > 5)
+                $or_phone = " OR phone LIKE '%" . $word . "'";
             $query =
                 "SELECT id 
                    FROM drivers 
                   WHERE status = 2
                     AND $in_ids
                         (last_name = '" . $word . "' OR 
-                         passport_serial = '" . $word . "' OR 
-                         passport_number = '" . $word . "')";
+                         passport_number = '" . $word . "' OR 
+                          license_number = '" . $word . "'" . $or_phone . ")";
 //            first_name = '" . $word . "' OR
 //            father_name = '" . $word . "' OR
             $list = $this -> db -> select ($query);

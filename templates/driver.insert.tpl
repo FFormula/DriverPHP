@@ -80,28 +80,12 @@
 
                 </div>
                 <div class="panel-body bg-default">
-                    <div class="form-group{if $php.warn.passport_serial} has-error has-feedback{/if}">
-                        <label class="col-md-2 control-label">{$lang["Passport serial:"]}</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="passport_serial" value="{$php.driver.passport_serial}" />
-                            {if $php.warn.passport_serial}<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-                               {$php.warn.passport_serial}{/if}
-                        </div>
-                    </div>
                     <div class="form-group{if $php.warn.passport_number} has-error has-feedback{/if}">
                         <label class="col-md-2 control-label">{$lang["Passport number:"]}</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="passport_number" value="{$php.driver.passport_number}" />
                             {if $php.warn.passport_number}<span class="glyphicon glyphicon-remove form-control-feedback"></span>
                                {$php.warn.passport_number}{/if}
-                        </div>
-                    </div>
-                    <div class="form-group{if $php.warn.license_serial} has-error has-feedback{/if}">
-                        <label class="col-md-2 control-label">{$lang["License serial:"]}</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="license_serial" value="{$php.driver.license_serial}" />
-                            {if $php.warn.license_serial}<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-                               {$php.warn.license_serial}{/if}
                         </div>
                     </div>
                     <div class="form-group{if $php.warn.license_number} has-error has-feedback{/if}">

@@ -2,6 +2,7 @@
     $lang["Driver"] = "";
     $lang["Find by Name / Passport"] = "";
     $lang["Name or Passport:"] = "";
+    $lang["Find Description"] = "Enter last name or passport number, or license number, or 6+ last digits of phone number. You can specify more than 1 value.";
     $lang["Find"] = "";
 
     $lang["Register new Driver"] = "";
@@ -11,7 +12,7 @@
     $lang["First name:"] = "";
     $lang["Father name:"] = "";
     $lang["Passport serial:"] = "";
-    $lang["Passport number:"] = "";
+    $lang["Passport number:"] = "Passport serial and number";
     $lang["Info:"] = "";
     $lang["Add driver"] = "";
     $lang["User not set"] = "";
@@ -74,11 +75,12 @@
     $lang["Download"] = "";
 
     $lang["License serial:"] = "";
-    $lang["License number:"] = "";
+    $lang["License number:"] = "License serial and number:";
     $lang["Phone:"] = "";
     $lang["warn_no"] = " ";
     $lang["warn_abc"] = "Use only alphabet symbols, no spaces";
-    $lang["warn_phone"] = "Use format +79001234567";
+    $lang["warn_phone"] = "Use format: +79001234567";
     $lang["Passport:"] = "";
     $lang["License:"] = "";
     $lang["File:"] = "";
+	$lang["Park:"] = "Added:";

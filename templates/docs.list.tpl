@@ -9,7 +9,8 @@
     <div class="panel panel-info">
         <div class="panel-heading">
             <h3 class="panel-title"
-                ><strong>{$php.driver_name}</strong> - {$lang["Driver's documents"]}</h3>
+                ><strong><a href='/driver/info/driver_id={$php.driver_id}'><u>{$php.driver_name}</u></a></strong> -
+				 {$lang["Driver's documents"]}</h3>
         </div>
     </div>
 
@@ -69,7 +70,7 @@
                             </button>
                         </div>
                     <div class="col-md-10 text-right">
-                        <a href="/driver/info/driver_id={$php.driver_id}" class="btn btn-default"
+                        <a href="/driver/info/driver_id={$php.driver_id}" class="btn btn-success"
                         ><i class="glyphicon glyphicon-open-file"></i>&nbsp;&nbsp;{$lang["Open card"]}</a>
                     </div>
                 </div>

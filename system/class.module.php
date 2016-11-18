@@ -45,7 +45,7 @@ abstract class Module
             $this -> answer ["stats"] ["driver_" . $row ["status"]] = $row ["count"];
     }
 
-    protected function load_stats_users ($user_id)
+    protected function load_stats_users ()
     {
         $status = $this -> data -> load ("user", "status");
         if ($status < 3) return;

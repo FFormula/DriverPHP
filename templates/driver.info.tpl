@@ -23,8 +23,8 @@
                         <dd>{$php.info.id}</dd>
                         <dt>{$lang["Status:"]}</dt>
                         <dd>{$php.info.status_text}</dd>
-                        <dt>{$lang["Owner"]}:</dt>
-                        <dd>{$php.info.user_name}</dd>
+                        <dt>{$lang["Park:"]}</dt>
+                        <dd>{$php.info.park} / {$php.info.user_name}</dd>
                         <dt>{$lang["Added"]}:</dt>
                         <dd>{$php.info.insert_date}</dd>
                         <dt>{$lang["Updated"]}:</dt>
@@ -53,9 +53,9 @@
                         <dt>{$lang["Documents:"]}</dt>
                         <dd>&nbsp;</dd>
                         <dt>{$lang["Passport:"]}</dt>
-                        <dd>{$php.info.passport_serial} &nbsp; {$php.info.passport_number}</dd>
+                        <dd>{$php.info.passport_number}</dd>
                         <dt>{$lang["License:"]}</dt>
-                        <dd>{$php.info.license_serial} &nbsp; {$php.info.license_number}</dd>
+                        <dd>{$php.info.license_number}</dd>
                 {foreach from=$php.docs item=row}
                         <dt>{$lang["File:"]}</dt>
                         <dd><a href="{$php.docs_web}{$row.filename}"><u>{$row.info}</u></a></dd>
